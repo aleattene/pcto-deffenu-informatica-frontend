@@ -2,10 +2,12 @@
 <html>
 
 <head>
-    <link rel="icon" type="logo" href="../img/LOGO.jpg" > 
+    <link rel="icon" type="logo" href="../img/LOGO.jpg">
     <title> INSERIMENTO DATI </title>
     <style>
-        form label, form input, form select {
+        form label,
+        form input,
+        form select {
             display: block;
             width: 100%;
             margin-bottom: 15px;
@@ -13,7 +15,7 @@
 
         /* Centrare il form a centro pag */
     </style>
-     
+
 </head>
 
 <body style="background-color:rgb(20, 30, 37);">
@@ -25,38 +27,38 @@
 
 
 
-    
+
     <form action="Inserimento_dati.php" method="post">
-        
+
         <fieldset style="color: rgb(255, 255, 255);">
             <legend style="color: rgb(255, 255, 255);">Inserisci i dati</legend>
-        <label for="nome" >Nome</label>
-        <input type="text" name="nome" >
-        <label for="cognome" >Cognome</label>
-        <input type="text" name="cognome">
-        <label for="codicefiscale" >Codice Fiscale</label>
-        <input type="text" name="codicefiscale" >
-        <label for="data" >Data di nascita</label>
-        <input type="date" >
-        <label for="luogonascita" >Luogo di nascita</label>
-        <input type="text" name="luogonascita" >
-        <label for="categoria" >Categoria</label>
-        <select name="categoria" >
-            <option value="">Seleziona</option>
-            <option value="cadetti">Cadetti</option>
-            <option value="allievi">Allievi</option>
-            <option value="junior">Junior</option>
-            <option value="promesse">Promesse</option>
-            <option value="assoluti">Assoluti</option>
-            <option value="master">Master</option>
-        </select>
-        <label for="tecnico" >Nome Tecnico</label>
-        <input type="text" name="tecnico" >
+            <label for="nome">Nome</label>
+            <input type="text" name="nome">
+            <label for="cognome">Cognome</label>
+            <input type="text" name="cognome">
+            <label for="codicefiscale">Codice Fiscale</label>
+            <input type="text" name="codicefiscale">
+            <label for="data">Data di nascita</label>
+            <input type="date">
+            <label for="luogonascita">Luogo di nascita</label>
+            <input type="text" name="luogonascita">
+            <label for="categoria">Categoria</label>
+            <select name="categoria">
+                <option value="">Seleziona</option>
+                <option value="cadetti">Cadetti</option>
+                <option value="allievi">Allievi</option>
+                <option value="junior">Junior</option>
+                <option value="promesse">Promesse</option>
+                <option value="assoluti">Assoluti</option>
+                <option value="master">Master</option>
+            </select>
+            <label for="tecnico">Nome Tecnico</label>
+            <input type="text" name="tecnico">
 
-    </fieldset>
-    <input type="submit" value="Invia">
-    <input type="reset" value="Reset">
-</form>
+        </fieldset>
+        <input type="submit" value="Invia">
+        <input type="reset" value="Reset">
+    </form>
 
 
 
