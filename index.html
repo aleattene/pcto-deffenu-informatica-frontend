@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="icon" type="logo" href="../img/LOGO.jpg">
@@ -19,7 +18,6 @@
             padding-top: 0px;
             padding-right: 20px;
             padding-bottom: 50px;
-
         }
 
         h2 {
@@ -34,11 +32,6 @@
             font-family: 'Tahoma';
             color: white;
             font-size: 16px;
-            padding-left: 200px;
-            padding-top: 200px;
-            padding-right: 20px;
-            padding-bottom: 100px;
-            
         }
 
         .box {
@@ -47,12 +40,12 @@
             height: 700px;
             width: 400px;
             display: inline-block;
+            vertical-align: top;
         }
 
         .header {
             display: flex;
             align-items: center;
-            /* Allinea verticalmente al centro */
         }
 
         .header img {
@@ -63,76 +56,38 @@
         .header h1 {
             margin-left: 0px;
         }
+
+        .container {
+            white-space: nowrap;
+        }
+
+        .image-container {
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+        }
     </style>
-
-
-
 </head>
 
 <body>
-        <div class="box">
-            <div class="header">
-                <img src="img/LOGO.jpg" width="70" height="55">
-                <h1>Sport Management</h1>
-            </div>
+    <div class="container">
+      <div class="box">
+          <div class="header">
+              <img src="img/LOGO.jpg" width="70" height="55">
+              <h1>Sport Management</h1>
+          </div>
+          <h2>User</h2>
+          <hr>
+          <h3>
+            <a href="collegamenti/atleti.html">Atleti</a><br>
+            <a href="collegamenti/tecnici.html">Tecnici</a><br>
+            <a href="collegamenti/medici.html">Medici</a>
+          </h3>
+      </div>
 
-
-            <h2> User </h2>
-
-
-            <hr>
-            </hr>
-
-
-            <h3>
-                <a href="collegamenti/atleti.html"> Atleti
-                    <br>
-                    <a href="collegamenti/tecnici.html"> Tecnici
-                        <br>
-                        <a href="collegamenti/medici.html"> Medici
-                        </a>
-
-
-        </div>
-        </h3>
-
-        <div style="text-align: center; display: inline-block;">
-            <img src="img/immagine_federer.jpg">
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div class="image-container">
+          <img src="img/immagine_federer.jpg">
+      </div>
+    </div>
 </body>
-
-
-
-
-
-
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--   
-       style = "color:rgb(255, 255, 255);" > Atleti </li>         
--->
