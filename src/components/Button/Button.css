@@ -1,0 +1,14 @@
+/* Button Styles */
+#sidebar button {
+    background-color: rgb(38, 45, 52);  /* Colore di sfondo */
+    color: rgb(242, 242, 242);            /* Colore */
+    border: none;                         /* Rimozione bordi */
+    border-radius: 12px;                  /* Angoli arrotondati */
+    padding: 10px 20px;                   /* Spaziatura interna */
+    cursor: pointer;                      /* Cambia il cursore in una mano */
+    font-size: 16px;                      /* Dimensione del testo */
+    width: 90%;                           /* Pulsanti larghi 90% della sidebar */
+    height: 52px;
+    transition: background-color 0.3s;    /* Transizione per hover */
+    font-family: 'Tahoma';
+  }
