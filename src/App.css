@@ -3,8 +3,10 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: rgb(38, 45, 52);
 }
 
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -32,4 +34,4 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+*/
