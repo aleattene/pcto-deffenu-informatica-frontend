@@ -2,21 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 85vw;
-    height: 100vh;
-    flex-direction: column;
-    padding-bottom: 0px;
-
+    width: 80vw;
+    
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
 }
 
 #dashboard-img {
     margin-top: 100px;
     margin-bottom: 100px;
-    flex-grow: 0.8;
     border-radius: 100px;
-}
-
-#dashboard-footer {
-    width: 40%
-    
 }

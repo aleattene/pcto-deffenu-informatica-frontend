@@ -2,17 +2,24 @@ import React from 'react'
 import './Sidebar.css'
 import Button from './../Button/Button.jsx'
 import Logo from './../Logo/Logo.jsx'
+import { useNavigate } from 'react-router-dom'
 
 function Sidebar() {
+
+  const navigate = useNavigate() 
+
+  // Logo Action
+  const handleClickLogo = () => navigate('/')
+
   // Button Actions
-  const handleClickOne = () => alert('Hai cliccato il bottone Atleti!')
-  const handleClickTwo = () => alert('Hai cliccato il bottone Allenatori!')
-  const handleClickThree = () => alert('Hai cliccato il bottone Medici!')
+  const handleClickOne = () => navigate('/athletes')
+  const handleClickTwo = () => navigate('/trainers')
+  const handleClickThree = () => navigate('/sport-doctors')
 
   return (
     <div id="sidebar">
       <div id="sidebar-logo">
-        <Logo />
+        <Logo onClick={handleClickLogo}/>
       </div>
       <div id="sidebar-buttons">
         <Button buttonText="Atleti" onClick={handleClickOne} />

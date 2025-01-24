@@ -2,9 +2,12 @@ import React from 'react';
 import "./Logo.css";
 import logo from './../../assets/img/logo.png'
 
-function LogoWithText() {
+function LogoWithText(props) {
+
+  const {onClick} = props;
+
   return (
-    <div id="container-logo">
+    <div id="container-logo" onClick={onClick}>
       {/* Logo */}
       <img id="logo-img"
         /* Path da cui recuperare la risorsa */

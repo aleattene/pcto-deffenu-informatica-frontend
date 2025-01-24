@@ -3,13 +3,17 @@
     background-color: #262D34;    /* Colore di sfondo */
     padding: 20px;                  /* Spaziatura interna dal bordo*/
     width: 15vw;                   /* Larghezza fissa di 250 pixel*/
-    height: 100vh;                  /* Altezza dell'intera viewport (parte visibile dello schermo) */
+                    /* Altezza dell'intera viewport (parte visibile dello schermo) */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombra per evidenziare il bordo */
     display: flex;
     flex-direction: column;   /* Disposizione verticale degli elementi */
     align-items: center;      /* Centrare i pulsanti orizzontalmente */
     gap: 80px;                /* Spaziatura tra i pulsanti */
     border-radius: 10px;      /* Bordo sidebar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px
   }
 
 #sidebar-buttons{
