@@ -2,6 +2,7 @@
 #container-logo {
     display: 'flex';
     background:rgba(255, 255, 255, 0);  
+    cursor: pointer;    
 }
 
 
