@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Sidebar from './../src/components/Sidebar/Sidebar.jsx'
+import Sidebar from './components/Sidebar/Sidebar.jsx'
+import Dashboard from './components/Dashboard/Dashboard.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 function App() {
 
   return (
     <>
       <Sidebar />
+      <Dashboard />
     {/*
         <div class="image-container">
           <img src="img/immagine_federer.jpg" />

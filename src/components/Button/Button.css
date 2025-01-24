@@ -1,6 +1,6 @@
 /* Button Styles */
 #sidebar button {
-    background-color: rgb(38, 45, 52);  /* Colore di sfondo */
+    background-color: #16181E;  /* Colore di sfondo */
     color: rgb(242, 242, 242);            /* Colore */
     border: none;                         /* Rimozione bordi */
     border-radius: 12px;                  /* Angoli arrotondati */
@@ -11,4 +11,6 @@
     height: 52px;
     transition: background-color 0.3s;    /* Transizione per hover */
     font-family: 'Tahoma';
+    font-weight: 600;
+    letter-spacing: 0.6px;
   }
