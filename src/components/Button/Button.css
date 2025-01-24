@@ -1,7 +1,7 @@
 /* Button Styles */
 #sidebar button {
-    background-color: #16181E;  /* Colore di sfondo */
-    color: rgb(242, 242, 242);            /* Colore */
+    background-color: #16181E;          /* Colore di sfondo */
+    color: rgb(242, 242, 242);          /* Colore */
     border: none;                         /* Rimozione bordi */
     border-radius: 12px;                  /* Angoli arrotondati */
     padding: 10px 20px;                   /* Spaziatura interna */
