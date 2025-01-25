@@ -14,7 +14,7 @@ function Trainers() {
  */
   return (
     <div>
-      <Dashboard content={"PAGINA ALLENATORI"}/>
+      <Dashboard content={<Table data={data}/>}/>
     </div>
   );
 }
