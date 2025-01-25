@@ -14,7 +14,7 @@ function SportDoctors() {
 
   return (
     <div>
-      <Dashboard content={"PAGINA MEDICI"}/>
+      <Dashboard content={<Table data={data}/>}/>
     </div>
   );
 }

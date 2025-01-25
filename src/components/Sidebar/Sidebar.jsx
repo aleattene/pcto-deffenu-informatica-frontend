@@ -15,6 +15,7 @@ function Sidebar() {
   const handleClickOne = () => navigate('/athletes')
   const handleClickTwo = () => navigate('/trainers')
   const handleClickThree = () => navigate('/sport-doctors')
+  const handleClickFour = () => navigate('/athletes/new')
 
   return (
     <div id="sidebar">
@@ -25,6 +26,7 @@ function Sidebar() {
         <Button buttonText="Atleti" onClick={handleClickOne} />
         <Button buttonText="Allenatori" onClick={handleClickTwo} />
         <Button buttonText="Medici" onClick={handleClickThree} />
+        <Button buttonText="Insert" onClick={handleClickFour} />
       </div>
     </div>
   )
