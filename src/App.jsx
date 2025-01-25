@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage.jsx';
 import Athletes from './pages/Athletes.jsx';
 import Trainers from './pages/Trainers.jsx';
 import SportDoctors from './pages/SportDoctors.jsx';
+import AthleteInsert from './pages/AthleteInsert.jsx';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Homepage />} />
 					<Route path="/athletes" element={<Athletes />} />
+					<Route path="/athletes/new" element={<AthleteInsert />} />
 					<Route path="/trainers" element={<Trainers />} />
 					<Route path="/sport-doctors" element={<SportDoctors />} />
 				</Routes>
