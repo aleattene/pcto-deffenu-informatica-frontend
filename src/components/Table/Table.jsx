@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Table.css';
+import Button from '../Button/Button';
 
 function Table({data}) {
     const [selectedId, setSelectedId] = useState(null);
@@ -8,6 +9,16 @@ function Table({data}) {
     const handleRowSelect = (id) => {
       setSelectedId(id);
       console.log(`Riga selezionata con ID: ${id}`);
+    };
+
+    // Handler Modify Button
+    const handleModifyButton = () => {
+      alert(`Modifichiamo Atleta con ID: ${selectedId}`);
+    };
+
+    // Handler Delete Button
+    const handleDeleteButton = () => {
+      alert(`Sicuro di Voler ELIMINARE l'atleta con ID: ${selectedId} ?`);
     };
     
 
@@ -45,7 +56,9 @@ function Table({data}) {
                 ))}
             </tbody>
         </table> 
-        {selectedId && <p>Hai selezionato la riga con ID: {selectedId}</p>}
+        {selectedId && <p>Hai selezionato la riga con ID: {selectedId} </p> }
+        {selectedId && <Button buttonText="Modifica Atleta Selezionato" onClick={handleModifyButton}/>}
+        {selectedId && <Button buttonText="Elimina Atleta Selezionato" onClick={handleDeleteButton}/>}
     </div>
   );
 }
