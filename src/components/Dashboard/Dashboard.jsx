@@ -2,7 +2,7 @@ import React from 'react'
 import './Dashboard.css'
 import Button from './../Button/Button'
 
-function Dashboard({ imageSrc, altText, content }) {
+function Dashboard({ imageSrc, altText, content, buttons }) {
 
     //const handleClickAdd = () => navigate('/athletes/new/')
 
@@ -11,11 +11,7 @@ function Dashboard({ imageSrc, altText, content }) {
               {imageSrc && <img id="dashboard-img" src={imageSrc} alt={altText} />}
               {content && <div id="dashboard-content">{content}</div>}
               <div id="dashboard-operations">
-                {/*
-              <Button buttonText="Aggiungi Atleta" onClick={alert("Modifica Atleta")} />
-              <Button buttonText="Modifica Atleta" onClick={() => alert("Modifica Atleta")} />
-              <Button buttonText="Elimina Atleta" onClick={() => alert("Elimina Atleta")} />
-              */}
+                {buttons}
             </div>
         </div>
     )

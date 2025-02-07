@@ -26,6 +26,7 @@ function Table({data}) {
     <div id="table">
         <table>
             <thead id="table-thead">
+              {/*
                 <th> ID </th>
                 <th> Nome </th>
                 <th> Cognome </th>
@@ -33,6 +34,11 @@ function Table({data}) {
                 <th> Luogo di nascita</th>
                 <th> Codice fiscale </th>
                 <th>Seleziona</th>
+              */}
+              {Object.keys(data[0]).map((key, idx) => (
+                <th> {key} </th>
+              ))}
+              <th>Seleziona</th>
             </thead>
             <tbody>
                 {/* Righe della tabella */}

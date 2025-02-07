@@ -3,8 +3,11 @@ import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Table from '../components/Table/Table';
 import Button from '../components/Button/Button';
+import { useNavigate } from 'react-router-dom'
 
 function Athletes() {
+
+  const navigate = useNavigate() 
 
   
   const data = [
@@ -41,11 +44,13 @@ function Athletes() {
   //  profilesService.getAthletes()
   //      .then((data) => setAthletes(data));
   // }, []);
-
+  const handleClickFour = () => navigate('/athletes/new')
   return (
     <div>
-      <Dashboard content={<Table data={data}/>
-        }/>
+      <Dashboard 
+        content={<Table data={data} />}
+        buttons={<Button buttonText="Insert Atleta" onClick={handleClickFour} />}
+      />
     </div>
   );
 }
