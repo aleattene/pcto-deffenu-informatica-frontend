@@ -6,14 +6,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.athlete-group {
+.sport-doctors-group {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
     background-color: #16181E;
 }
-.athlete-group label {
+.sport-doctors-group label {
     display: block;
     margin-bottom: 15px;
     font-weight: bold;
@@ -21,7 +21,7 @@
     width: 80%;
     margin-left: 50px;
 }
-.athlete-group input {
+.sport-doctors-group input {
     width: 80%;
     padding: 10px;
     margin-bottom: 30px;
@@ -41,7 +41,7 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-#add-athlete {
+#add-sport-doctor {
     background-color: #262D34;
     color: #fff;
 }
