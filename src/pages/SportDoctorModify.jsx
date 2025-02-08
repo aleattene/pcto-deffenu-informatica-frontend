@@ -3,18 +3,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 // import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Button from '../components/Button/Button';
-import AthleteForm from '../components/Form/AthleteForm';
+import SportDoctorForm from '../components/Form/SportDoctorForm';
 
-function AthleteModify() {
+function SportDoctorModify() {
     // ID from URL
     // const { id } = useParams();
     // const navigate = useNavigate();
-    const [athlete, setAthlete] = useState({
+    const [sportDoctor, setSportDoctor] = useState({
         first_name: '',
         last_name: '',
-        date_of_birth: '',
-        place_of_birth: '',
-        fiscal_code: ''
+        vat_number: ''
     });
 
     /* Recupera i dati dell'atleta all'avvio
@@ -32,7 +30,7 @@ function AthleteModify() {
 
     // Aggiorna lo stato al cambio degli input
     const handleChange = (e) => {
-        setAthlete({ ...athlete, [e.target.name]: e.target.value });
+        setSportDoctor({ ...sportDoctor, [e.target.name]: e.target.value });
     };
 
     /* Invia i dati aggiornati al backend
@@ -51,9 +49,9 @@ function AthleteModify() {
 
     return (
         <div>
-           <Dashboard content={<AthleteForm isEditMode={true} />} />
+           <Dashboard content={<SportDoctorForm isEditMode={true} />} />
         </div>
     );
 }
 
-export default AthleteModify;
+export default SportDoctorModify;

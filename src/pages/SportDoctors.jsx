@@ -32,8 +32,9 @@ function SportDoctors() {
 
     // Handler Modify Button
     const handleModifyButton = (selectedId) => {
-      alert(`Modifichiamo il Medico con ID: ${selectedId}`);
-    };
+    // alert(`Modifichiamo il Medico con ID: ${selectedId}`);
+  	navigate(`/sport-doctors/edit/${selectedId}`)  
+  };
   
     // Handler Delete Button
     const handleDeleteButton = (selectedId) => {

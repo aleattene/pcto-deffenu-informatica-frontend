@@ -9,8 +9,9 @@ import SportDoctors from './pages/SportDoctors.jsx';
 import AthleteInsert from './pages/AthleteInsert.jsx';
 import AthleteModify from './pages/AthleteModify.jsx';
 import TrainerInsert from './pages/TrainerInsert.jsx';
+import TrainerModify from './pages/TrainerModify.jsx';
 import SportDoctorInsert from './pages/SportDoctorInsert.jsx';
-
+import SportDoctorModify from './pages/SportDoctorModify.jsx';
 function App() {
 
 	return (
@@ -24,8 +25,10 @@ function App() {
 					<Route path="/athletes/edit/:id" element={<AthleteModify />} />
 					<Route path="/trainers" element={<Trainers />} />
 					<Route path="/trainers/new" element={<TrainerInsert />} />
+					<Route path="/trainers/edit/:id" element={<TrainerModify />} />
 					<Route path="/sport-doctors" element={<SportDoctors />} />
 					<Route path="/sport-doctors/new" element={<SportDoctorInsert />} />
+				    <Route path="/sport-doctors/edit/:id" element={<SportDoctorModify />} />
 				</Routes>
 				{/*<Footer />*/}
 			</Router>

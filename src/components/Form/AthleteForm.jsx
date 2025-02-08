@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import profilesService from '../../services/profilesService';
 import Button from '../Button/Button';
+import './AthleteForm.css';
 
 function AthleteForm({ isEditMode = false }) {
     // const { id } = useParams();  // Recupera l'ID dalla URL se in modalità modifica
@@ -32,6 +33,7 @@ function AthleteForm({ isEditMode = false }) {
 
     // Gestisce il submit (Crea o Modifica)
     const handleSubmit = (e) => {
+        alert("Atleta Modificato con Successo!!!")
     /*
         e.preventDefault();
         if (isEditMode) {
