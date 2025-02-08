@@ -2,7 +2,23 @@ import React, {useState} from 'react';
 import './Table.css';
 import Button from '../Button/Button';
 
-function Table({data}) {
+const headers_map = {
+    id: "ID",
+    first_name: "Nome",
+    last_name: "Cognome",
+    date_of_birth: "Data di Nascita",
+    place_of_birth: "Luogo di Nascita",
+    fiscal_code: "Codice Fiscale",
+    category: "Categoria",
+    vat_number: "Partita Iva",
+    issue_date: "Data di Emissione",
+    expiration_date: "Data di Scadenza",
+    payment_date: "Data di Pagamento",
+    amount: "importo"
+}
+
+
+function Table({data, actions}) {
     const [selectedId, setSelectedId] = useState(null);
 
     // Handler Selected Row
@@ -10,22 +26,13 @@ function Table({data}) {
       setSelectedId(id);
       console.log(`Riga selezionata con ID: ${id}`);
     };
-
-    // Handler Modify Button
-    const handleModifyButton = () => {
-      alert(`Modifichiamo Atleta con ID: ${selectedId}`);
-    };
-
-    // Handler Delete Button
-    const handleDeleteButton = () => {
-      alert(`Sicuro di Voler ELIMINARE l'atleta con ID: ${selectedId} ?`);
-    };
     
 
   return (
     <div id="table">
         <table>
             <thead id="table-thead">
+              {/*
                 <th> ID </th>
                 <th> Nome </th>
                 <th> Cognome </th>
@@ -33,6 +40,11 @@ function Table({data}) {
                 <th> Luogo di nascita</th>
                 <th> Codice fiscale </th>
                 <th>Seleziona</th>
+              */}
+              {Object.keys(data[0]).map((key, idx) => (
+                <th> {headers_map[key]} </th>
+              ))}
+              <th>Seleziona</th>
             </thead>
             <tbody>
                 {/* Righe della tabella */}
@@ -57,8 +69,13 @@ function Table({data}) {
             </tbody>
         </table> 
         {selectedId && <p>Hai selezionato la riga con ID: {selectedId} </p> }
-        {selectedId && <Button buttonText="Modifica Atleta Selezionato" onClick={handleModifyButton}/>}
-        {selectedId && <Button buttonText="Elimina Atleta Selezionato" onClick={handleDeleteButton}/>}
+        {selectedId && (
+                <div id="table-actions">
+                    {actions.map((action, idx) => (
+                        <Button key={idx} buttonText={action.label} onClick={() => action.onClick(selectedId)} />
+                    ))}
+                </div>
+            )}
     </div>
   );
 }

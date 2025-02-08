@@ -3,15 +3,15 @@ import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Table from '../components/Table/Table';
 import Button from '../components/Button/Button';
-import AthleteForm from '../components/Form/AthleteForm';
+import SportDoctorForm from '../components/Form/SportDoctorForm.jsx';
 
-function AthleteInsert() {
+function SportDoctorInsert() {
 
   return (
     <div>
-      <Dashboard content={<AthleteForm isEditMode={false} />}/>
+      <Dashboard content={<SportDoctorForm/>}/>
     </div>
   );
 }
 
-export default AthleteInsert;
+export default SportDoctorInsert;
