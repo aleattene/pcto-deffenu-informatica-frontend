@@ -42,7 +42,8 @@ function Trainers() {
   return (
     <div>
       <Dashboard 
-        content={<Table 
+        content={<Table
+          title="Elenco Allenatori" 
           data={data} 
           actions ={[
             {label:"Modifica Allenatore Selezionato", onClick: (selectedId) => handleModifyButton(selectedId)},

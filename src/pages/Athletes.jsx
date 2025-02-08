@@ -49,6 +49,7 @@ function Athletes() {
     <div>
       <Dashboard 
         content={<Table 
+          title="Elenco Atleti"
           data={data} 
           actions ={[
             {label:"Modifica Atleta Selezionato", onClick: (selectedId) => handleModifyButton(selectedId)},

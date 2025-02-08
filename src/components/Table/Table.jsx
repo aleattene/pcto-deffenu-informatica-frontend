@@ -18,7 +18,7 @@ const headers_map = {
 }
 
 
-function Table({data, actions}) {
+function Table({title, data, actions}) {
     const [selectedId, setSelectedId] = useState(null);
 
     // Handler Selected Row
@@ -28,8 +28,22 @@ function Table({data, actions}) {
     };
     
 
+    const formatValue = (key, value) => {
+      if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+ 
+          const [year, month, day] = value.split("-");
+          return `${day}/${month}/${year}`;
+      }
+      if (key === "amount" && typeof value === "number") {
+      
+          return `€ ${value.toFixed(2)}`;
+      }
+      return value; 
+  };
+
   return (
     <div id="table">
+      <h1>{title}</h1>
         <table>
             <thead id="table-thead">
               {/*
@@ -41,29 +55,34 @@ function Table({data, actions}) {
                 <th> Codice fiscale </th>
                 <th>Seleziona</th>
               */}
-              {Object.keys(data[0]).map((key, idx) => (
-                <th> {headers_map[key]} </th>
-              ))}
-              <th>Seleziona</th>
+              {Object.keys(data[0]).flatMap((key, idx) => 
+                idx === 1 
+                  ? [<th key={`select-${idx}`}>Seleziona</th>, <th key={idx}>{headers_map[key]}</th>]
+                  : [<th key={idx}>{headers_map[key]}</th>]
+              )}
+              
             </thead>
             <tbody>
                 {/* Righe della tabella */}
                 {data.map((item, index) => (
                 <tr id="table-tr" key={index}>
-                    
-                    {Object.values(item).map((value, idx) => (
-                    <td id="table-td" key={idx}>
-                        {value}
-                    </td>
-                    ))}
-                    <td id="table-td">
-                <input
-                  type="radio"
-                  name="selectedRow"
-                  value={item.id}
-                  onChange={() => handleRowSelect(item.id)}
-                />
-              </td>
+                
+                {Object.entries(item).flatMap(([key,value], idx) =>
+        idx === 1 
+            ? [
+                <td key={`radio-${item.id}`} id="table-td">
+                    <input
+                        type="radio"
+                        name="selectedRow"
+                        value={item.id}
+                        onChange={() => handleRowSelect(item.id)}
+                    />
+                </td>,
+                <td key={idx} id="table-td">{formatValue(key, value)}</td>
+              ]
+            : [<td key={idx} id="table-td">{formatValue(key, value)}</td>]
+    )}
+             
                 </tr>
                 ))}
             </tbody>

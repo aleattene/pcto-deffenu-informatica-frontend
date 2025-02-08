@@ -44,6 +44,7 @@ function SportDoctors() {
     <div>
       <Dashboard 
                 content={<Table 
+                  title="Elenco Medici Sportivi"
                   data={data} 
                   actions ={[
                     {label:"Modifica Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId)},
