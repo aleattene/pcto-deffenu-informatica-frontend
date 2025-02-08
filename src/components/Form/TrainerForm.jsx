@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './TrainerForm.css';
 import Button from '../Button/Button';
-import { useNavigate, useParams } from 'react-router-dom';
 
 function TrainerForm({isEditMode=false}) {
 
