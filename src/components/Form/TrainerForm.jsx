@@ -1,12 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './TrainerForm.css';
 import Button from '../Button/Button';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function TrainerForm() {
+function TrainerForm({isEditMode=false}) {
+
+        // const { id } = useParams();  // Recupera l'ID dalla URL se in modalità modifica
+        const navigate = useNavigate();
+    
+        const [trainer, setTrainer] = useState({
+            first_name: '',
+            last_name: '',
+            fiscal_code: ''
+        });
+    
+        // Se in modalità modifica, carica i dati dell'atleta selezionato
+        /* useEffect(() => {
+            if (isEditMode && id) {
+                profilesService.getAthleteById(id)
+                    .then(response => setAthlete(response.data))
+                    .catch(error => console.error("Errore nel recupero atleta:", error));
+            }
+        }, [id, isEditMode]);
+        */
+    
+        // Aggiorna lo stato quando cambiano i campi
+        const handleChange = (e) => {
+            //setAthlete({ ...athlete, [e.target.name]: e.target.value });
+        };
+    
+        // Gestisce il submit (Crea o Modifica)
+        const handleSubmit = (e) => {
+            alert("Allenatore Modificato con Successo!!!")
+        /*
+            e.preventDefault();
+            if (isEditMode) {
+                // MODIFICA Atleta
+                profilesService.updateAthlete(id, athlete)
+                    .then(() => {
+                        alert("Atleta aggiornato con successo!");
+                        navigate('/athletes');
+                    })
+                    .catch(error => console.error("Errore nell'aggiornamento:", error));
+            } else {
+                // NUOVO Atleta
+                profilesService.createAthlete(athlete)
+                    .then(() => {
+                        alert("Atleta creato con successo!");
+                        navigate('/athletes');
+                    })
+                    .catch(error => console.error("Errore nella creazione:", error));
+            }
+                    */
+        };
 
 return (
     <div id="form-container">
-    <h1>Aggiungi Allenatore</h1>
+    <h1>{isEditMode ? "Modifica Allenatore" : "Aggiungi Allenatore"}</h1>
     <form id="trainers-form">
     <div id="trainers-container">
         <div class="trainers-group">
@@ -23,8 +74,8 @@ return (
         </div>
     </div>
     <div class="buttons">
-        <Button id="add-trainers" buttonText="Aggiungi Altro Allenatore" onClick={()=>{alert("Aggiungi Altro Allenatore")}} />
-        <Button id="submit-form" type="submit" buttonText="Invia" onClick={()=>{alert("Nuovo Allenatore Inserito")}} />
+        <Button type="submit" buttonText={isEditMode ? "Salva Modifiche" : "Crea Allenatore"} />
+        <Button buttonText="Annulla" onClick={() => navigate('/trainers')} />
     </div>
     </form>
     </div>

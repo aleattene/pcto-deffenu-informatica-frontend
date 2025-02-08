@@ -31,8 +31,9 @@ function Trainers() {
 
     // Handler Modify Button
     const handleModifyButton = (selectedId) => {
-      alert(`Modifichiamo Allenatore con ID: ${selectedId}`);
-    };
+    //alert(`Modifichiamo Allenatore con ID: ${selectedId}`);
+    navigate(`/trainers/edit/${selectedId}`)
+  };
   
     // Handler Delete Button
     const handleDeleteButton = (selectedId) => {
