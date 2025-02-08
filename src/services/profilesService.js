@@ -7,10 +7,6 @@ const profilesService = {
 
     // Read Athlets
     getAthletes: async () => {
-        return Promise.resolve([
-            { id: 1, nome: 'Mario', cognome: 'Rossi' },
-            { id: 2, nome: 'Giulia', cognome: 'Bianchi' },
-          ]);
         // const response = await axios.get(`${API_BASE_URL}/athletes`);
         // return response.data;
     },

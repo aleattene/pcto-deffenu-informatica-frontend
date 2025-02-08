@@ -9,7 +9,7 @@ function AthleteInsert() {
 
   return (
     <div>
-      <Dashboard content={<AthleteForm />}/>
+      <Dashboard content={<AthleteForm isEditMode={false} />}/>
     </div>
   );
 }

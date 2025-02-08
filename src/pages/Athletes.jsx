@@ -35,7 +35,8 @@ function Athletes() {
 
   // Handler Modify Button
   const handleModifyButton = (selectedId) => {
-    alert(`Modifichiamo Atleta con ID: ${selectedId}`);
+	navigate(`/athletes/edit/${selectedId}`)
+    //alert(`Modifichiamo Atleta con ID: ${selectedId}`);
   };
 
   // Handler Delete Button
