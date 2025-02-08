@@ -12,6 +12,13 @@ import TrainerInsert from './pages/TrainerInsert.jsx';
 import TrainerModify from './pages/TrainerModify.jsx';
 import SportDoctorInsert from './pages/SportDoctorInsert.jsx';
 import SportDoctorModify from './pages/SportDoctorModify.jsx';
+import Payments from './pages/Payments.jsx';
+import PaymentModify from './pages/PaymentModify.jsx';
+import PaymentInsert from './pages/PaymentInsert.jsx';
+import SportCertifcates from './pages/SportCertificates.jsx';
+import SportCertifcateModify from './pages/SportCertificateModify.jsx';
+import SportCertifcateInsert from './pages/SportCertificateInsert.jsx';
+
 function App() {
 
 	return (
@@ -29,6 +36,12 @@ function App() {
 					<Route path="/sport-doctors" element={<SportDoctors />} />
 					<Route path="/sport-doctors/new" element={<SportDoctorInsert />} />
 				    <Route path="/sport-doctors/edit/:id" element={<SportDoctorModify />} />
+					<Route path="/payments" element={<Payments />} />
+					<Route path="/payments/new" element={<PaymentInsert />} />
+					<Route path="/payments/edit/:id" element={<PaymentModify />} />
+					<Route path="/sport-certificates" element={<SportCertifcates />} />
+					<Route path="/sport-certificates/new" element={<SportCertifcateInsert />} />
+					<Route path="/sport-certificates/edit/:id" element={<SportCertifcateModify />} />
 				</Routes>
 				{/*<Footer />*/}
 			</Router>
