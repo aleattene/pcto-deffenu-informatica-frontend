@@ -21,13 +21,14 @@
     width: 80%;
     margin-left: 50px;
 }
-.athletes-group input {
+.athletes-group input, select {
     width: 80%;
     padding: 10px;
     margin-bottom: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #262D34;
+    color: white
 }
 .buttons {
     text-align: center;

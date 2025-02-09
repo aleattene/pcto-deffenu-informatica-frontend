@@ -14,7 +14,8 @@ const headers_map = {
     issue_date: "Data di Emissione",
     expiration_date: "Data di Scadenza",
     payment_date: "Data di Pagamento",
-    amount: "importo"
+    amount: "importo",
+    trainers: "Allenatore"
 }
 
 
@@ -55,7 +56,7 @@ function Table({title, data, actions}) {
                 <th> Codice fiscale </th>
                 <th>Seleziona</th>
               */}
-              {Object.keys(data[0]).flatMap((key, idx) => 
+              {data.length > 0 && Object.keys(data[0]).flatMap((key, idx) => 
                 idx === 1 
                   ? [<th key={`select-${idx}`}>Seleziona</th>, <th key={idx}>{headers_map[key]}</th>]
                   : [<th key={idx}>{headers_map[key]}</th>]
@@ -64,7 +65,7 @@ function Table({title, data, actions}) {
             </thead>
             <tbody>
                 {/* Righe della tabella */}
-                {data.map((item, index) => (
+                {data.length > 0 && data.map((item, index) => (
                 <tr id="table-tr" key={index}>
                 
                 {Object.entries(item).flatMap(([key,value], idx) =>
@@ -87,6 +88,7 @@ function Table({title, data, actions}) {
                 ))}
             </tbody>
         </table> 
+        {data.length < 1 && <p>Nessun Atleta Individuato. </p> }
         {selectedId && <p>Hai selezionato la riga con ID: {selectedId} </p> }
         {selectedId && (
                 <div id="table-actions">
