@@ -18,6 +18,8 @@ const API_SPORT_DOCTORS = `${URL}${SPORT_DOCTORS_ENDPOINT}`
 
 const profilesService = {
 
+    // ATHLETS
+
     // Read Athlets
     getAthletes: async () => {
         const response = await axios.get(`${API_ATHLETES}`);
@@ -45,11 +47,11 @@ const profilesService = {
     // Read Athlete by ID
     getAthleteByID: async (id) => {
         const response = await axios.get(`${API_ATHLETES}${id}/`);
-        console.log(response)
         return response.data;
     },
 
 
+    // CATEGORIES
 
     // Read Category
     getCategories: async () => {
@@ -60,34 +62,41 @@ const profilesService = {
     },
 
 
+    // TRAINERS
+
     // Read Trainers
     getTrainers: async () => {
-        return Promise.resolve([
-            { id: 1, nome: 'Luca', cognome: 'Verdi' },
-            { id: 2, nome: 'Francesca', cognome: 'Neri' },
-          ]);
-        // const response = await axios.get(`${API_BASE_URL}/trainers`);
-        // return response.data;
+        const response = await axios.get(`${API_TRAINERS}`);
+        return response.data;
     },
 
-    /* Create Trainer
+    // Create Trainer
     createTrainer: async (trainer) => {
-        const response = await axios.post(`${API_BASE_URL}/trainers`, trainer);
+        console.log(trainer)
+        const response = await axios.post(`${API_TRAINERS}`, trainer);
         return response.data;
     },
 
     // Update Trainer
     updateTrainer: async (id, updatedTrainer) => {
-        const response = await axios.put(`${API_BASE_URL}/trainers/${id}`, updatedTrainer);
+        const response = await axios.put(`${API_TRAINERS}${id}/`, updatedTrainer);
         return response.data;
     },
 
     // Delete Trainer
     deleteTrainer: async (id) => {
-        const response = await axios.delete(`${API_BASE_URL}/trainers/${id}`);
+        const response = await axios.delete(`${API_TRAINERS}${id}/`);
         return response.data;
     },
 
+    // Read Trainer by ID
+    getTrainerByID: async (id) => {
+        const response = await axios.get(`${API_TRAINERS}${id}/`);
+        return response.data;
+    },
+
+
+    /*
     // Read SportDoctors
     getSportDoctors: async () => {
         return Promise.resolve([

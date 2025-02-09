@@ -1,74 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import profilesService from '../../services/profilesService';
 import './TrainerForm.css';
 import Button from '../Button/Button';
 
-function TrainerForm({isEditMode=false}) {
+function TrainerForm({isEditMode=false, dataTrainer = {}}) {
 
-        // const { id } = useParams();  // Recupera l'ID dalla URL se in modalità modifica
-        const navigate = useNavigate();
-    
-        const [trainer, setTrainer] = useState({
-            first_name: '',
-            last_name: '',
-            fiscal_code: ''
-        });
-    
-        // Se in modalità modifica, carica i dati dell'atleta selezionato
-        /* useEffect(() => {
-            if (isEditMode && id) {
-                profilesService.getAthleteById(id)
-                    .then(response => setAthlete(response.data))
-                    .catch(error => console.error("Errore nel recupero atleta:", error));
+    const navigate = useNavigate();
+
+    // Set the initial state to empty array
+    const [trainer, setTrainer] = useState([]);
+
+    // Update the state when dataTrainer are available
+        useEffect(() => {
+            if (isEditMode && dataTrainer) {
+                setTrainer(dataTrainer);
             }
-        }, [id, isEditMode]);
-        */
+        }, [isEditMode, dataTrainer]);
     
-        // Aggiorna lo stato quando cambiano i campi
-        const handleChange = (e) => {
-            //setAthlete({ ...athlete, [e.target.name]: e.target.value });
-        };
-    
-        // Gestisce il submit (Crea o Modifica)
-        const handleSubmit = (e) => {
-            alert("Allenatore Modificato con Successo!!!")
-        /*
-            e.preventDefault();
+    // Update the state when fields change
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setTrainer(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    // Handle the submit (create or update trainer)
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
             if (isEditMode) {
-                // MODIFICA Atleta
-                profilesService.updateAthlete(id, athlete)
-                    .then(() => {
-                        alert("Atleta aggiornato con successo!");
-                        navigate('/athletes');
-                    })
-                    .catch(error => console.error("Errore nell'aggiornamento:", error));
+                await profilesService.updateTrainer(trainer.id, trainer);
+                alert("Allenatore aggiornato con successo!");
             } else {
-                // NUOVO Atleta
-                profilesService.createAthlete(athlete)
-                    .then(() => {
-                        alert("Atleta creato con successo!");
-                        navigate('/athletes');
-                    })
-                    .catch(error => console.error("Errore nella creazione:", error));
+                await profilesService.createTrainer(trainer);
+                alert("Allenatore creato con successo!");
             }
-                    */
-        };
+            navigate('/trainers')
+        } catch (error) {
+            console.error("Errore nel salvataggio dell'allenatore: ", error);
+            alert("Si è verificato un errore nel salvataggio dell'allenatore.");
+        }
+    };
 
 return (
     <div id="form-container">
     <h1>{isEditMode ? "Modifica Allenatore" : "Aggiungi Allenatore"}</h1>
-    <form id="trainers-form">
+    <form id="trainers-form" onSubmit={handleSubmit}>
     <div id="trainers-container">
         <div class="trainers-group">
             
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome[]" required />
+            <label for="first_name">Nome</label>
+            <input type="text" id="first_name" name="first_name" value={trainer.first_name} onChange={handleChange} required />
             
-            <label for="cognome">Cognome</label>
-            <input type="text" id="cognome" name="cognome[]" required />    
+            <label for="last_name">Cognome</label>
+            <input type="text" id="last_name" name="last_name" value={trainer.last_name} onChange={handleChange} required />    
             
-            <label for="codice-fiscale">Codice fiscale</label>
-            <input type="text" id="codice-fiscale" name="codice_fiscale[]" required />
+            <label for="fiscal_code">Codice fiscale</label>
+            <input type="text" id="fiscal_code" name="fiscal_code" value={trainer.fiscal_code} onChange={handleChange} maxLength={16} required />
         
         </div>
     </div>

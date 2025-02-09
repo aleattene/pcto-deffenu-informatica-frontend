@@ -9,7 +9,7 @@ function TrainerInsert() {
 
   return (
     <div>
-      <Dashboard content={<TrainerForm />}/>
+      <Dashboard content={<TrainerForm isEditMode={false} />}/>
     </div>
   );
 }

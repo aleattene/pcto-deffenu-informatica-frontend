@@ -6,8 +6,9 @@ import Button from '../components/Button/Button';
 import AthleteForm from '../components/Form/AthleteForm';
 
 function AthleteModify() {
+    
     const { id } = useParams();
-    // const navigate = useNavigate();
+
     const [athlete, setAthlete] = useState({
         first_name: '',
         last_name: '',
@@ -22,7 +23,6 @@ function AthleteModify() {
             try {
                 const response = await profilesService.getAthleteByID(id);
                 const {trainers, ...dataAthlete} = response
-                console.log(dataAthlete)
                 setAthlete(dataAthlete);
             } catch (error) {
                 console.error("Errore nel recupero dell'atleta:", error);
@@ -33,7 +33,7 @@ function AthleteModify() {
     
     return (
         <div>
-           <Dashboard content={<AthleteForm isEditMode={true} dataAthlete={athlete}/>} />
+           <Dashboard content={<AthleteForm isEditMode={true} dataAthlete={athlete} />} />
         </div>
     );
 }

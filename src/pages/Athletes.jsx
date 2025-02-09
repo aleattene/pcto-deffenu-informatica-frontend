@@ -53,7 +53,6 @@ function Athletes() {
 
   return (
     <div>
-      {console.log(athletes)}
       <Dashboard 
         content={<Table 
           title="Elenco Atleti"

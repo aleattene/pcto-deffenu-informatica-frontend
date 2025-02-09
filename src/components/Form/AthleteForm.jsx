@@ -56,7 +56,6 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
             } else {
                 await profilesService.createAthlete(athlete);
                 alert("Atleta creato con successo!");
-                navigate('/athletes');
             }
             navigate('/athletes')
         } catch (error) {
@@ -84,7 +83,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     <input type="text" name="place_of_birth" value={athlete.place_of_birth} onChange={handleChange} required />
 
                     <label>Codice Fiscale</label>
-                    <input type="text" name="fiscal_code" maxLength={16} value={athlete.fiscal_code} onChange={handleChange} required />
+                    <input type="text" name="fiscal_code" value={athlete.fiscal_code} onChange={handleChange} maxLength={16} required />
 
                     <label>Categoria</label>
                     <select name="category" value={athlete.category} onChange={handleChange} required>
