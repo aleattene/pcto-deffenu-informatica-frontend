@@ -1,82 +1,73 @@
-
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import './SportDoctorForm.css';
+import { useNavigate } from 'react-router-dom';
+import profilesService from '../../services/profilesService';
 import Button from '../Button/Button';
+import './SportDoctorForm.css';
 
-function SportDoctorForm({isEditMode=false}) {
-    // const { id } = useParams();  // Recupera l'ID dalla URL se in modalità modifica
+function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
+
     const navigate = useNavigate();
-    
-    const [sportDoctor, setSportDoctor] = useState({
-        first_name: '',
-        last_name: '',
-        vat_number: ''
-    });
 
-    // Se in modalità modifica, carica i dati dell'atleta selezionato
-    /* useEffect(() => {
-        if (isEditMode && id) {
-            profilesService.getAthleteById(id)
-                .then(response => setAthlete(response.data))
-                .catch(error => console.error("Errore nel recupero atleta:", error));
+    // Set the initial state to empty array
+    const [sportDoctor, setSportDoctor] = useState([]);
+
+    // Update the state when dataSportDoctor are available
+    useEffect(() => {
+        if (isEditMode && dataSportDoctor) {
+            setSportDoctor(dataSportDoctor);
         }
-    }, [id, isEditMode]);
-    */
+    }, [isEditMode, dataSportDoctor]);
 
-    // Aggiorna lo stato quando cambiano i campi
-    const handleChange = (e) => {
-        //setAthlete({ ...athlete, [e.target.name]: e.target.value });
+    // Update the state when fields change
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setSportDoctor(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
     };
 
-    // Gestisce il submit (Crea o Modifica)
-    const handleSubmit = (e) => {
-        alert("Medico Modificato con Successo!!!")
-    /*
-        e.preventDefault();
-        if (isEditMode) {
-            // MODIFICA Atleta
-            profilesService.updateAthlete(id, athlete)
-                .then(() => {
-                    alert("Atleta aggiornato con successo!");
-                    navigate('/athletes');
-                })
-                .catch(error => console.error("Errore nell'aggiornamento:", error));
-        } else {
-            // NUOVO Atleta
-            profilesService.createAthlete(athlete)
-                .then(() => {
-                    alert("Atleta creato con successo!");
-                    navigate('/athletes');
-                })
-                .catch(error => console.error("Errore nella creazione:", error));
+    // Handle the submit (create or update sportDoctor)
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            if (isEditMode) {
+                await profilesService.updateSportDoctor(sportDoctor.id, sportDoctor);
+                alert("Medico Sportivo aggiornato con successo!");
+            } else {
+                await profilesService.createSportDoctor(sportDoctor);
+                alert("Medico Sportivo creato con successo!");
+            }
+            navigate('/sport-doctors')
+        } catch (error) {
+            console.error("Errore nel salvataggio del medico sportivo: ", error);
+            alert("Si è verificato un errore nel salvataggio del medico sportivo.");
         }
-                */
     };
 
-return (
-    <div id="form-container">
-    <h1>{isEditMode ? "Modifica Medico" : "Aggiungi Medico"}</h1>
-    <form id="sport-doctors-form">
-    <div id="sport-doctors-container">
-        <div class="sport-doctors-group">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome[]" required />
+    return (
+        <div id="form-container">
+            <h1>{isEditMode ? "Modifica Medico" : "Aggiungi Medico"}</h1>
+            <form id="sport-doctors-form" onSubmit={handleSubmit}>
+                <div id="sport-doctors-container">
+                    <div class="sport-doctors-group">
+                        <label>Nome</label>
+                        <input type="text" name="first_name" value={sportDoctor.first_name} onChange={handleChange} required />
 
-            <label for="cognome">Cognome</label>
-            <input type="text" id="cognome" name="cognome[]" required />
-            
-            <label for="partita-iva">Partita Iva</label>
-            <input type="text" id="partita-iva" name="partita-iva[]" required />
-        
+                        <label>Cognome</label>
+                        <input type="text" name="last_name" value={sportDoctor.last_name} onChange={handleChange} required />
+
+                        <label for="vat_number">Partita Iva</label>
+                        <input type="text" id="vat_number" name="vat_number" value={sportDoctor.vat_number} onChange={handleChange} maxLength={11} required />
+
+                    </div>
+                </div>
+                <div class="buttons">
+                    <Button type="submit" buttonText={isEditMode ? "Salva Modifiche" : "Crea Medico"} />
+                    <Button buttonText="Annulla" onClick={() => navigate('/sport-doctors')} /> </div>
+            </form>
         </div>
-    </div>
-    <div class="buttons">
-    <Button type="submit" buttonText={isEditMode ? "Salva Modifiche" : "Crea Medico"} />
-    <Button buttonText="Annulla" onClick={() => navigate('/sport-doctors')} /> </div>
-    </form>
-    </div>
     );
-    }
+}
 
 export default SportDoctorForm;

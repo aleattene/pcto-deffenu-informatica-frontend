@@ -56,8 +56,6 @@ const profilesService = {
     // Read Category
     getCategories: async () => {
         const response = await axios.get(`${API_CATEGORIES}`);
-        console.log(API_ATHLETES)
-        console.log(response)
         return response.data;
     },
 
@@ -72,7 +70,6 @@ const profilesService = {
 
     // Create Trainer
     createTrainer: async (trainer) => {
-        console.log(trainer)
         const response = await axios.post(`${API_TRAINERS}`, trainer);
         return response.data;
     },
@@ -96,35 +93,38 @@ const profilesService = {
     },
 
 
-    /*
+    // SPORT DOCTORS
+
     // Read SportDoctors
     getSportDoctors: async () => {
-        return Promise.resolve([
-            { id: 1, nome: 'Elisa', cognome: 'Conti' },
-            { id: 2, nome: 'Paolo', cognome: 'Galli' },
-          ]);
-        // const response = await axios.get(`${API_BASE_URL}/sport-doctors`);
-        // return response.data;
+        const response = await axios.get(`${API_SPORT_DOCTORS}`);
+        return response.data;
     },
 
-    // Create Trainer
+    // Create SportDoctor
     createSportDoctor: async (sportDoctor) => {
-        const response = await axios.post(`${API_BASE_URL}/sport-doctors`, sportDoctor);
+        console.log(sportDoctor)
+        const response = await axios.post(`${API_SPORT_DOCTORS}`, sportDoctor);
         return response.data;
     },
 
-    // Update Trainer
+    // Update SportDoctor
     updateSportDoctor: async (id, updatedSportDoctor) => {
-        const response = await axios.put(`${API_BASE_URL}/sport-doctors/${id}`, updatedSportDoctor);
+        const response = await axios.put(`${API_SPORT_DOCTORS}${id}/`, updatedSportDoctor);
         return response.data;
     },
 
-    // Delete Trainer
+    // Delete SportDoctor
     deleteSportDoctor: async (id) => {
-        const response = await axios.delete(`${API_BASE_URL}/sport-doctors/${id}`);
+        const response = await axios.delete(`${API_SPORT_DOCTORS}${id}/`);
         return response.data;
     },
-    */
+
+    // Read SportDoctor by ID
+    getSportDoctorByID: async (id) => {
+        const response = await axios.get(`${API_SPORT_DOCTORS}${id}/`);
+        return response.data;
+    },
 
 };
 
