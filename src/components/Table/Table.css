@@ -23,5 +23,15 @@ th {
 }
 
 
+.buttons button {
+    background-color: #262D34;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
+#table-actions button {
+    background-color: #262D34;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
