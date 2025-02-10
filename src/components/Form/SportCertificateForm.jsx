@@ -14,6 +14,8 @@ function SportCertificateForm({ isEditMode = false, dataSportCertificate = {} })
 
     // Athletes
     const [athletes, setAthletes] = useState([])
+
+    // SportCertificates
     const [sportCertificate, setSportCertificate] = useState([]);
 
     useEffect(() => {

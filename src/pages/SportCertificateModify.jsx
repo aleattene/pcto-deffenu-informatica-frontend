@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import documentationService from '../services/documentationService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import SportCertificateForm from '../components/Form/SportCertificateForm';

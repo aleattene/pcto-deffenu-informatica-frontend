@@ -1,55 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-// import profilesService from '../services/profilesService';
+import { useParams } from 'react-router-dom';
+import profilesService from '../services/profilesService';
+import paymentsService from '../services/paymentsService';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Button from '../components/Button/Button';
 import PaymentForm from '../components/Form/PaymentForm';
 
 function PaymentModify() {
-    // ID from URL
-    // const { id } = useParams();
-    // const navigate = useNavigate();
-    const [athlete, setAthlete] = useState({
+
+    const { id } = useParams();
+  
+    const [payment, setPayment] = useState({
          payment_date:'',
-         amount: 0,
+         amount: '',
+         trainer: ''
 
     });
 
-    /* Recupera i dati dell'atleta all'avvio
     useEffect(() => {
-        profilesService.getAthleteById(id)
-            .then(response => {
-                setAthlete(response.data);
-            })
-            .catch(error => {
-                console.error("Errore nel recupero dell'atleta:", error);
-            });
+        const fetchPayment = async () => {
+            try {
+                const response = await paymentsService.getPaymentByID(id);
+                setPayment(response);
+            } catch (error) {
+                console.error("Errore nel recupero del compenso:", error);
+            }
+        };
+        fetchPayment();
     }, [id]);
-    */
     
-
-    // Aggiorna lo stato al cambio degli input
-    const handleChange = (e) => {
-        setPayment({ ...payment, [e.target.name]: e.target.value });
-    };
-
-    /* Invia i dati aggiornati al backend
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        profilesService.updateAthlete(id, athlete)
-            .then(() => {
-                alert("Atleta aggiornato con successo!");
-                navigate('/athletes');  // Torna alla lista degli atleti
-            })
-            .catch(error => {
-                console.error("Errore nell'aggiornamento:", error);
-            });
-    };
-    */
-
     return (
         <div>
-           <Dashboard content={<PaymentForm isEditMode={true} />} />
+           <Dashboard content={<PaymentForm isEditMode={true} dataPayment={payment}/>} />
         </div>
     );
 }

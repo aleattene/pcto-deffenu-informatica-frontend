@@ -15,7 +15,8 @@ const headers_map = {
     expiration_date: "Data di Scadenza",
     payment_date: "Data di Pagamento",
     amount: "importo",
-    trainers: "Allenatore"
+    trainers: "Allenatore",
+    trainer: "Allenatore"
 }
 
 
@@ -35,9 +36,9 @@ function Table({title, data, actions}) {
           const [year, month, day] = value.split("-");
           return `${day}/${month}/${year}`;
       }
-      if (key === "amount" && typeof value === "number") {
+      if (key === "amount") {
       
-          return `€ ${value.toFixed(2)}`;
+          return `€ ${Number(value).toFixed(2)}`;
       }
       return value; 
   };
