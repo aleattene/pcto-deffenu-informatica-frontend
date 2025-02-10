@@ -1,54 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-// import profilesService from '../services/profilesService';
+import documentationService from '../services/documentationService';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Button from '../components/Button/Button';
 import SportCertificateForm from '../components/Form/SportCertificateForm';
 
 function SportCertificateModify() {
-    // ID from URL
-    // const { id } = useParams();
-    // const navigate = useNavigate();
+
+    const { id } = useParams();
+
     const [sportCertificate, setSportCertificate] = useState({
         issue_date: '',
-        expiration_date: ''
+        expiration_date: '',
+        sport_doctor: '',
+        athlete: ''
     });
 
-    /* Recupera i dati dell'atleta all'avvio
     useEffect(() => {
-        profilesService.getAthleteById(id)
-            .then(response => {
-                setAthlete(response.data);
-            })
-            .catch(error => {
-                console.error("Errore nel recupero dell'atleta:", error);
-            });
+        const fetchSportCertificate = async () => {
+            try {
+                const response = await documentationService.getSportCertificateByID(id);
+                setSportCertificate(response);
+            } catch (error) {
+                console.error("Errore nel recupero del certificato medico:", error);
+            }
+        };
+        fetchSportCertificate();
     }, [id]);
-    */
-    
-
-    // Aggiorna lo stato al cambio degli input
-    const handleChange = (e) => {
-        setSportCertificate({ ...sportCertificate, [e.target.name]: e.target.value });
-    };
-
-    /* Invia i dati aggiornati al backend
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        profilesService.updateAthlete(id, athlete)
-            .then(() => {
-                alert("Atleta aggiornato con successo!");
-                navigate('/athletes');  // Torna alla lista degli atleti
-            })
-            .catch(error => {
-                console.error("Errore nell'aggiornamento:", error);
-            });
-    };
-    */
 
     return (
         <div>
-           <Dashboard content={<SportCertificateForm isEditMode={true} />} />
+            <Dashboard content={<SportCertificateForm isEditMode={true} dataSportCertificate={sportCertificate}/>} />
         </div>
     );
 }
