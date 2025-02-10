@@ -6,7 +6,7 @@ const APP = 'profiles/'
 const URL = `${API_BASE_URL}${API_VERSION}${APP}`
 
 const ATHLETES_ENDPOINT = 'athletes/'
-const CATEGORIES_ENDPOINT = 'categories/'
+const CATEGORIES_ENDPOINT = 'athletes-categories/'
 const TRAINERS_ENDPOINT = 'trainers/'
 const SPORT_DOCTORS_ENDPOINT = 'sport-doctors/'
 

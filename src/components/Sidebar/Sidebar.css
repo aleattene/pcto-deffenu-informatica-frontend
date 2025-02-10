@@ -1,27 +1,26 @@
-/* Sidebar Styles */
 #sidebar {
-    background-color: #262D34;    /* Colore di sfondo */
-    padding: 20px;                  /* Spaziatura interna dal bordo*/
-    width: 15vw;                   /* Larghezza fissa di 250 pixel*/
-    height: 100vh;                /* Altezza dell'intera viewport (parte visibile dello schermo) */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombra per evidenziare il bordo */
+    background-color: #262D34;
+    padding: 20px;
+    width: 15vw;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;   /* Disposizione verticale degli elementi */
-    align-items: center;      /* Centrare i pulsanti orizzontalmente */
-    gap: 80px;                /* Spaziatura tra i pulsanti */
-    border-radius: 10px;      /* Bordo sidebar */
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
     margin: 15px;
-  }
+}
 
-#sidebar-buttons{
-  display: flex;              /* Definisce il contenitore come flex */
-    flex-direction: column;   /* Dispone i bottoni in colonna */
-    align-items: center;      /* Allinea i bottoni orizzontalmente al centro */
-    justify-content: center;  /* Centra i bottoni verticalmente */
-    width: 100%;              /* Opzionale: Adatta la larghezza al contenitore padre */
-    flex-grow: 0.5;             /* Permette a questo contenitore di occupare lo spazio disponibile */
-    gap: 80px;                /* Spaziatura tra i pulsanti */
+#sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 0.5;
+    gap: 80px;
 }

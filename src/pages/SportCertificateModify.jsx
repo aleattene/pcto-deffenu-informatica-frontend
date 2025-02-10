@@ -8,6 +8,7 @@ function SportCertificateModify() {
 
     const { id } = useParams();
 
+    // Sport Certificates
     const [sportCertificate, setSportCertificate] = useState({
         issue_date: '',
         expiration_date: '',

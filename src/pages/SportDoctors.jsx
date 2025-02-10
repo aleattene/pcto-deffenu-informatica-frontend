@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
+import Button from '../components/Button/Button';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Table from '../components/Table/Table';
-import Button from '../components/Button/Button';
-import { useNavigate } from 'react-router-dom'
+
 
 function SportDoctors() {
 
 	const navigate = useNavigate()
 
+	// Sport Doctors
 	const [sportDoctors, setSportDoctors] = useState([]);
 
 	useEffect(() => {
@@ -24,6 +26,7 @@ function SportDoctors() {
 		fetchSportDoctors();
 	}, []);
 
+	// Redirect
 	const handleClickSix = () => navigate('/sport-doctors/new')
 
 	// Handler Modify Button
@@ -69,7 +72,7 @@ export default SportDoctors;
 
 
 // DATA Sample
-
+/*
 const data = [
 	{ id: 1, first_name: 'Mario', last_name: 'Rossi', vat_number: 'RSSMRA00A15H501Z' },
 	{ id: 2, first_name: 'Giulia', last_name: 'Bianchi', vat_number: 'BNCGLI99E20F205Y' },
@@ -82,3 +85,4 @@ const data = [
 	{ id: 9, first_name: 'Federico', last_name: 'Lombardi', vat_number: 'LMBFRC98D22G224J' },
 	{ id: 10, first_name: 'Martina', last_name: 'Ricci', vat_number: 'RCCMRT96B14C415S' },
 ];
+*/

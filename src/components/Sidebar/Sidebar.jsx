@@ -1,8 +1,8 @@
 import React from 'react'
-import './Sidebar.css'
+import { useNavigate } from 'react-router-dom'
 import Button from './../Button/Button.jsx'
 import Logo from './../Logo/Logo.jsx'
-import { useNavigate } from 'react-router-dom'
+import './Sidebar.css'
 
 function Sidebar() {
 
@@ -11,7 +11,7 @@ function Sidebar() {
 	// Logo Action
 	const handleClickLogo = () => navigate('/')
 
-	// Button Actions
+	// Buttons Actions
 	const handleClickOne = () => navigate('/athletes')
 	const handleClickTwo = () => navigate('/trainers')
 	const handleClickThree = () => navigate('/sport-doctors')

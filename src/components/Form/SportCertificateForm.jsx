@@ -21,11 +21,11 @@ function SportCertificateForm({ isEditMode = false, dataSportCertificate = {} })
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Chiamata API per ottenere atleti
+                // Retrieve all athletes
                 const dataAthletes = await profilesService.getAthletes();
                 setAthletes(dataAthletes);
 
-                // Chiamata API per ottenere i medici sportivi
+                // Retrieve all sport-doctors
                 const dataSportDoctors = await profilesService.getSportDoctors();
                 setSportDoctors(dataSportDoctors);
             } catch (error) {
@@ -36,7 +36,7 @@ function SportCertificateForm({ isEditMode = false, dataSportCertificate = {} })
         fetchData();
     }, []);
 
-    // Update the state when dataAthlete are available
+    // Update the state when dataSportCertificate sare available
     useEffect(() => {
         if (isEditMode && dataSportCertificate) {
             setSportCertificate(dataSportCertificate);

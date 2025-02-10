@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import profilesService from '../../services/profilesService';
-import './TrainerForm.css';
 import Button from '../Button/Button';
+import './TrainerForm.css';
 
 function TrainerForm({isEditMode=false, dataTrainer = {}}) {
 
