@@ -20,12 +20,13 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
 
     // Categories 
     const [categories, setCategories] = useState(dataCategories)
+    
     /*
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const data = await profilesService.getCategories();
-                setCategories(data);
+                const dataCategories = await profilesService.getCategories();
+                setCategories(dataCategories);
             } catch (error) {
                 console.error("Errore nel caricamento delle categorie:", error);
             }
@@ -34,6 +35,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
         fetchCategories();
     }, []);
     */
+
     // Trainers
     // const [trainers, setTrainers] = useState(dataTrainers)
 
