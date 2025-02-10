@@ -5,7 +5,7 @@ function Dashboard({ imageSrc, altText, content, buttons }) {
 
     return (
         <div id="dashboard">
-              {imageSrc && <img id="dashboard-img" src={imageSrc} alt={altText} />}
+              {imageSrc && <img id="dashboard-img" src={imageSrc} alt={altText} class="h-lvh"/>}
               {content && <div id="dashboard-content">{content}</div>}
               <div id="dashboard-operations">
                 {buttons}

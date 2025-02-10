@@ -25,9 +25,8 @@ function App() {
     return (
         <>
             <Router>
-                <Sidebar />
                 <Routes>
-                    <Route path="/" element={<Homepage />} />
+                    <Route path="/" element={<><Homepage /> </>} />              
                     <Route path="/athletes" element={<Athletes />} />
                     <Route path="/athletes/new" element={<AthleteInsert />} />
                     <Route path="/athletes/edit/:id" element={<AthleteModify />} />
@@ -44,7 +43,6 @@ function App() {
                     <Route path="/sport-certificates/new" element={<SportCertifcateInsert />} />
                     <Route path="/sport-certificates/edit/:id" element={<SportCertifcateModify />} />
                 </Routes>
-                <Footer />
             </Router>
         </>
     )

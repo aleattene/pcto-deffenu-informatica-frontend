@@ -1,21 +1,15 @@
+@import "tailwindcss";
 #dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80vw;
-    
+    /*width: 88vw;*/
+    /*height: 100vh;*/
     overflow: auto;
     position: absolute;
     top: 0;
     right: 0;
-    margin: 15px;
-}
-
-#dashboard-img {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    border-radius: 100px;
 }
 
 #dashboard-operations {
@@ -23,7 +17,7 @@
 }
 
 #dashboard-operations button {
-    background-color: #262D34;
+    background-color: #262626;
     margin-left: 10px;
     margin-right: 10px;
 

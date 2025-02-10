@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Logo.css";
-import logo from './../../assets/img/logo.png'
+import logo from './../../assets/img/logo.svg'
 
 function LogoWithText(props) {
 
