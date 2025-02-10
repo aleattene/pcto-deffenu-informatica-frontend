@@ -1,10 +1,7 @@
 import React from 'react'
 import './Dashboard.css'
-import Button from './../Button/Button'
 
 function Dashboard({ imageSrc, altText, content, buttons }) {
-
-    //const handleClickAdd = () => navigate('/athletes/new/')
 
     return (
         <div id="dashboard">

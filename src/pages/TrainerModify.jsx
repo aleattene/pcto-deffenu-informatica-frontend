@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Button from '../components/Button/Button';
 import TrainerForm from '../components/Form/TrainerForm';
+
 
 function TrainerModify() {
     
     const { id } = useParams();
 
+    // Trainers
     const [trainer, setTrainer] = useState({
         first_name: '',
         last_name: '',

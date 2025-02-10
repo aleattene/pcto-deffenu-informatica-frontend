@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import profilesService from '../services/profilesService';
-import Dashboard from '../components/Dashboard/Dashboard';
 import AthleteForm from '../components/Form/AthleteForm';
+import Dashboard from '../components/Dashboard/Dashboard';
+
 
 function AthleteModify() {
 

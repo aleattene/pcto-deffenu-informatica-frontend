@@ -1,6 +1,6 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard/Dashboard';
 import AthleteForm from '../components/Form/AthleteForm';
+import Dashboard from '../components/Dashboard/Dashboard';
 
 function AthleteInsert() {
 

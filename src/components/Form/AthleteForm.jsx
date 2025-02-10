@@ -4,6 +4,7 @@ import profilesService from '../../services/profilesService';
 import Button from '../Button/Button';
 import './AthleteForm.css';
 
+
 function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
 
     const navigate = useNavigate();
@@ -19,9 +20,9 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
     }, [isEditMode, dataAthlete]);
 
     // Categories 
-    const [categories, setCategories] = useState(dataCategories)
+    const [categories, setCategories] = useState([])
     
-    /*
+    
     useEffect(() => {
         const fetchCategories = async () => {
             try {
@@ -34,7 +35,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
     
         fetchCategories();
     }, []);
-    */
+    
 
     // Trainers
     // const [trainers, setTrainers] = useState(dataTrainers)
@@ -123,6 +124,7 @@ export default AthleteForm;
 
 // Data Sample
 
+/*
 const dataCategories = [
     { id: 1, code: 'AM', description: 'Allievi Maschile' },
     { id: 2, code: 'AF', description: 'Allieve Femminile' },
@@ -133,7 +135,7 @@ const dataCategories = [
     { id: 7, code: 'SM', description: 'Seniores Maschile' },
     { id: 8, code: 'SF', description: 'Seniores Femminile' }
 ];
-
+*/
 
 const dataTrainers = [
     { id: 1, first_name: "Luca", last_name: "Bianchi", fiscal_code: "LCABNC80A01H501Z" },

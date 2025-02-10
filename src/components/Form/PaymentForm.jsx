@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import './PaymentForm.css';
-import Button from '../Button/Button';
-import profilesService from '../../services/profilesService';
+import { useNavigate } from 'react-router-dom';
 import paymentsService from '../../services/paymentsService';
+import profilesService from '../../services/profilesService';
+import Button from '../Button/Button';
+import './PaymentForm.css';
 
 function PaymentForm({ isEditMode = false, dataPayment = {} }) {
 
@@ -19,6 +19,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
         trainer: ''
     });
 
+    // Trainers
     useEffect(() => {
         const fetchData = async () => {
             try {

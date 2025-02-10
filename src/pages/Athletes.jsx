@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
+import Button from '../components/Button/Button';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Table from '../components/Table/Table';
-import Button from '../components/Button/Button';
-import { useNavigate } from 'react-router-dom'
+
 
 function Athletes() {
 
     const navigate = useNavigate()
 
+    // Athletes
     const [athletes, setAthletes] = useState([]);
 
     useEffect(() => {
@@ -24,6 +26,7 @@ function Athletes() {
         fetchAthletes();
     }, []);
 
+    // Redirect
     const handleClickFour = () => navigate('/athletes/new')
 
     // Handler Modify Button

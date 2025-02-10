@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import profilesService from '../services/profilesService';
 import paymentsService from '../services/paymentsService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import PaymentForm from '../components/Form/PaymentForm';
@@ -9,6 +8,7 @@ function PaymentModify() {
 
     const { id } = useParams();
   
+    // Payments
     const [payment, setPayment] = useState({
          payment_date:'',
          amount: '',
