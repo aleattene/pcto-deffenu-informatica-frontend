@@ -27,12 +27,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<><Homepage /> </>} />              
                     <Route path="/athletes" element={<Athletes/>} />
-                    {/*<Route path="/athletes/new" element={<AthleteInsert />} />
-                    <Route path="/athletes/edit/:id" element={<AthleteModify />} />*/}
+                    <Route path="/athletes/new" element={<AthleteInsert />} />
+                    {/*<Route path="/athletes/edit/:id" element={<AthleteModify />} />*/}
                     <Route path="/trainers" element={<Trainers />} />
-                    {/*
                     <Route path="/trainers/new" element={<TrainerInsert />} />
-                    <Route path="/trainers/edit/:id" element={<TrainerModify />} />*/}
+                    {/*<Route path="/trainers/edit/:id" element={<TrainerModify />} />*/}
                     <Route path="/sport-doctors" element={<SportDoctors />} />
                     {/*<Route path="/sport-doctors/new" element={<SportDoctorInsert />} />
                     <Route path="/sport-doctors/edit/:id" element={<SportDoctorModify />} />*/}
