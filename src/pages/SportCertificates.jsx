@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import documentationService from '../services/documentationService';
-import Button from '../components/Button/Button';
+import ButtonInsert from '../components/Button/ButtonInsert';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
+import PageLayout from '../components/Layout/PageLayout';
 
 
 function SportCertifcates() {
@@ -12,6 +12,7 @@ function SportCertifcates() {
 
     // Sport Certificates
     const [sportCertifcates, setSportCertificates] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchSportCertifcates = async () => {
@@ -20,6 +21,8 @@ function SportCertifcates() {
                 setSportCertificates(data);
             } catch (error) {
                 console.error("Errore nel recupero dei Certificati Medici:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -55,18 +58,20 @@ function SportCertifcates() {
 
 
     return (
-        <div>
-            <Dashboard
-                content={<Table
-                    title="Elenco Certificati Medici"
-                    data={sportCertifcates}
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+            <PageLayout>
+                <Dashboard
+                    titleTable="Elenco Certificati Medici"
+                    isLoading={isLoading}
+                    dataTable={sportCertifcates}
                     actions={[
                         { label: "Modifica Certificato Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                         { label: "Elimina Certificato Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                     ]}
-                />}
-                buttons={<Button buttonText="Inserisci Certificato Medico" onClick={handleClickFour} />}
-            />
+                    buttons={[<ButtonInsert buttonText="Inserisci Certificato Medico" onClick={handleClickFour} />]}
+                    entity="Certificato Medico"
+                />
+            </PageLayout>
         </div>
     );
 }

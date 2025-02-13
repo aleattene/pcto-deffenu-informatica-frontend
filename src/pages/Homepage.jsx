@@ -1,16 +1,19 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard/Dashboard';
-import { useNavigate } from 'react-router-dom';
 import federer from './../assets/img/homepage.svg';
-import Button from '../components/Button/Button';
+import { Link } from 'react-router-dom';
 
 function Homepage() {
-  const navigate = useNavigate() 
-  const handleClickFour = () => navigate('/athletes')
+
     return (
-        <Dashboard imageSrc={federer} altText={federer}    
-        buttons={<Button buttonText="Get Started" onClick={handleClickFour} />}/>
-  );
+        <div className='bg-[rgb(20,30,37)] w-full justify-items-center relative'>
+            <img src={federer} className='w-full'/>
+            <div className='text-3xl text-semibold text-amber-400 hover:text-4xl w-64 h-16 -my-200 text-center'>
+            <Link to='/athletes'
+                className=''
+                >GET STARTED</Link>
+                </div>
+        </div>
+    );
 }
 
 export default Homepage;

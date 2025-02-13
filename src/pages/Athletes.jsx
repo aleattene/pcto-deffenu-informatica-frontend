@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
-import Button from '../components/Button/Button';
+import ButtonInsert from '../components/Button/ButtonInsert';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
+import PageLayout from '../components/Layout/PageLayout';
 
 
 function Athletes() {
@@ -12,6 +12,7 @@ function Athletes() {
 
     // Athletes
     const [athletes, setAthletes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchAthletes = async () => {
@@ -20,6 +21,8 @@ function Athletes() {
                 setAthletes(data);
             } catch (error) {
                 console.error("Errore nel recupero degli atleti:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -37,7 +40,6 @@ function Athletes() {
     // Handler Delete Button
     const handleDeleteButton = async (selectedId) => {
         const isConfirmed = window.confirm(`Sei sicuro di voler eliminare l'atleta con ID: ${selectedId}?`);
-        console.log(isConfirmed)
 
         if (isConfirmed) {
             try {
@@ -53,18 +55,20 @@ function Athletes() {
     };
 
     return (
-        <div>
-            <Dashboard
-                content={<Table
-                    title="Elenco Atleti"
-                    data={athletes}
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+            <PageLayout>
+                <Dashboard
+                    titleTable="Elenco Atleti"
+                    isLoading={isLoading}
+                    dataTable={athletes}
                     actions={[
                         { label: "Modifica Atleta Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                         { label: "Elimina Atleta Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                     ]}
-                />}
-                buttons={<Button buttonText="Inserisci Atleta" onClick={handleClickFour} />}
-            />
+                    buttons={[<ButtonInsert buttonText="Inserisci Atleta" onClick={handleClickFour} />]}
+                    entity="Atleta"
+                />
+            </PageLayout>
         </div>
     );
 }

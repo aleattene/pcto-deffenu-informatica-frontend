@@ -14,7 +14,7 @@ function LogoWithText() {
             <div class="flex items-center mx-4" >
                 <img id="logo-img" className='w-13 h-13 rounded-full' src={logo} alt="Logo SM"
                 />
-                <span class="mx-4 text-2xl font-semibold text-gray-300">Sport Management</span>
+                <span class="mx-4 text-2xl font-semibold text-gray-300 text-center">Sport Management</span>
             </div>
         </div>
     );

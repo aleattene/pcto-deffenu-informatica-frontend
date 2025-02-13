@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
+
+function DashboardLayout({ children }) {
+  
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const closeSidebar = () => setSidebarOpen(false);
+
+  return (
+    <div className="flex h-screen bg-gray-300 w-full">
+      {/* Overlay: visible only on small devices and sidebar is open*/}
+      <div
+        className={`${sidebarOpen ? "block" : "hidden"} fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden`}
+        onClick={closeSidebar}
+      ></div>
+
+      {/* Sidebar */}
+      <div
+        className={`
+          fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-[rgb(20,30,37)]
+          ${sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"}
+          lg:translate-x-0 lg:static lg:inset-0
+        `}
+      >
+        <Sidebar closeSidebar={closeSidebar}/>
+      </div>
+
+      {/* Main Area (Header + Dashboard Table) */}
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <Header toggleSidebar={toggleSidebar} />
+        <main
+          id="dashboard"
+          className="flex-1 overflow-x-hidden overflow-y-auto"
+        >
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default DashboardLayout;

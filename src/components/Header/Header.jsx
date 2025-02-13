@@ -1,5 +1,4 @@
-import { useState } from "react";
-import React from 'react'
+import React, { useState } from 'react'
 
 
 function Header({ toggleSidebar }) {
@@ -8,12 +7,12 @@ function Header({ toggleSidebar }) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     return (
-        <div className="flex items-center justify-between p-4 bg-amber-500 border-b-8 border-[rgb(20,30,37)] h-32 mb-8">
+        <div className="flex items-center justify-between p-4 bg-[rgb(20,30,37)] border-b-8 border-[rgb(20,30,37)] h-32 mb-8">
             {/* Button to open sidebat (only small devices) */}
             <div className="flex items-center">
                 <button
                     onClick={toggleSidebar}
-                    className="text-gray-900 focus:outline-none lg:hidden"
+                    className="text-gray-300 focus:outline-none lg:hidden"
                 >
                     {/* Hamburger Icons */}
                     <svg
@@ -32,10 +31,10 @@ function Header({ toggleSidebar }) {
             <div className="flex items-center">
 
                 <div className="flex flex-col w-48 items-center">
-                    <span className="text-[rgb(20,30,37)] mt-1 text-xl font-bold">
+                    <span className="text-gray-300 mt-1 text-xl font-bold">
                         Attene Davide
                     </span>
-                    <span className="text-[rgb(20,30,37)] font-medium">
+                    <span className="text-gray-300 font-medium">
                         I.T.T. Deffenu - Olbia
                     </span>
                 </div>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
-import Button from '../components/Button/Button';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
-
+import PageLayout from '../components/Layout/PageLayout';
+import ButtonInsert from '../components/Button/ButtonInsert';
 
 function SportDoctors() {
 
@@ -12,6 +11,7 @@ function SportDoctors() {
 
 	// Sport Doctors
 	const [sportDoctors, setSportDoctors] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchSportDoctors = async () => {
@@ -20,7 +20,9 @@ function SportDoctors() {
 				setSportDoctors(data);
 			} catch (error) {
 				console.error("Errore nel recupero dei medici sportivi:", error);
-			}
+            } finally {
+                setIsLoading(false);
+            }
 		};
 
 		fetchSportDoctors();
@@ -52,19 +54,22 @@ function SportDoctors() {
 	};
 
 	return (
-		<div>
+		<div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+			<PageLayout>
 			<Dashboard
-				content={<Table
-					title="Elenco Medici Sportivi"
-					data={sportDoctors}
-					actions={[
-						{ label: "Modifica Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-						{ label: "Elimina Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-					]}
-				/>}
-				buttons={<Button buttonText="Inserisci Medico" onClick={handleClickSix} />}
+				titleTable="Elenco Medici Sportivi"
+				isLoading={isLoading}
+				dataTable={sportDoctors}
+				actions={[
+					{ label: "Modifica Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
+					{ label: "Elimina Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
+				]}
+				buttons={[<ButtonInsert buttonText="Inserisci Medico Sportivo" onClick={handleClickSix} />]}
+				entity="Medico Sportivo"
 			/>
+			</PageLayout>
 		</div>
+
 	);
 }
 

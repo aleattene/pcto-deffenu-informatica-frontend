@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import paymentsService from '../services/paymentsService';
-import Button from '../components/Button/Button';
+import ButtonInsert from '../components/Button/ButtonInsert';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
+import PageLayout from '../components/Layout/PageLayout';
 
 
 function Payments() {
@@ -12,6 +12,7 @@ function Payments() {
 
     // Payments
     const [payments, setPayments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchPayments = async () => {
@@ -20,6 +21,8 @@ function Payments() {
                 setPayments(dataPayments);
             } catch (error) {
                 console.error("Errore nel recupero dei Compensi:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -53,18 +56,20 @@ function Payments() {
 
 
     return (
-        <div>
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+            <PageLayout>
             <Dashboard
-                content={<Table
-                    title="Elenco Compensi"
-                    data={payments}
-                    actions={[
-                        { label: "Modifica Compenso Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                        { label: "Elimina Compenso Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                    ]}
-                />}
-                buttons={<Button buttonText="Inserisci Compenso" onClick={handleClickFour} />}
+                titleTable="Elenco Compensi"
+                isLoading={isLoading}
+                dataTable={payments}
+                actions={[
+                    { label: "Modifica Compenso Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
+                    { label: "Elimina Compenso Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
+                ]}
+                buttons={[<ButtonInsert buttonText="Inserisci Compenso" onClick={handleClickFour} />]}
+                entity="Compenso"
             />
+            </PageLayout>
         </div>
     );
 }

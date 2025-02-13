@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
-import Button from '../components/Button/Button';
+import ButtonInsert from '../components/Button/ButtonInsert';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
-
+import Sidebar from '../components/Sidebar/Sidebar';
+import PageLayout from '../components/Layout/PageLayout';
 
 function Trainers() {
 
@@ -12,6 +12,8 @@ function Trainers() {
 
     // Trainers
     const [trainers, setTrainers] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    
 
     useEffect(() => {
         const fetchTrainers = async () => {
@@ -20,6 +22,8 @@ function Trainers() {
                 setTrainers(data);
             } catch (error) {
                 console.error("Errore nel recupero degliallenatori:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -54,18 +58,20 @@ function Trainers() {
 
 
     return (
-        <div>
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+            <PageLayout>
             <Dashboard
-                content={<Table
-                    title="Elenco Allenatori"
-                    data={trainers}
-                    actions={[
-                        { label: "Modifica Allenatore Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                        { label: "Elimina Allenatore Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                    ]}
-                />}
-                buttons={<Button buttonText="Inserisci Allenatore" onClick={handleClickFive} />}
+                titleTable="Elenco Allenatori"
+                isLoading={isLoading}
+                dataTable={trainers}
+                actions={[
+                    { label: "Modifica Allenatore Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
+                    { label: "Elimina Allenatore Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
+                ]}
+                buttons={[<ButtonInsert buttonText="Inserisci Allenatore" onClick={handleClickFive} />]}
+                entity="Allenatore"
             />
+             </PageLayout>
         </div>
     );
 }
