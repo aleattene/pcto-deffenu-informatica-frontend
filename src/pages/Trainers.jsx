@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import profilesService from '../services/profilesService';
 import ButtonInsert from '../components/Button/ButtonInsert';
 import Dashboard from '../components/Dashboard/Dashboard';
-import Sidebar from '../components/Sidebar/Sidebar';
 import PageLayout from '../components/Layout/PageLayout';
 
 function Trainers() {
