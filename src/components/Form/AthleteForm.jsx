@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilesService from '../../services/profilesService';
-import Button from '../Button/Button';
-import './AthleteForm.css';
+import ButtonInsert from '../Button/ButtonInsert';
+import ButtonUndo from '../Button/ButtonUndo';
 
 
 function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
@@ -21,8 +21,8 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
 
     // Categories 
     const [categories, setCategories] = useState([])
-    
-    
+
+
     useEffect(() => {
         const fetchCategories = async () => {
             try {
@@ -32,10 +32,10 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                 console.error("Errore nel caricamento delle categorie:", error);
             }
         };
-    
+
         fetchCategories();
     }, []);
-    
+
 
     // Trainers
     // const [trainers, setTrainers] = useState(dataTrainers)
@@ -68,53 +68,80 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
     };
 
     return (
-        <div id="form-container">
-            <h1>{isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}</h1>
-            <form id="athletes-form" onSubmit={handleSubmit}>
-                <div id="athletes-container">
-                    <div className="athletes-group">
-                        <label>Nome</label>
-                        <input type="text" name="first_name" value={athlete.first_name} onChange={handleChange} required />
+        <div class="container px-6 py-8 mx-auto w-180">
+            <h3 class="text-3xl font-semibold text-gray-900">{isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}</h3>
+            <div class="flex flex-col mt-8 mb-4" >
+                <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                    <div
+                        class="inline-block min-w-full overflow-hidden align-middle border-gray-300 shadow sm:rounded-lg">
+                        <form id="athletes-form" onSubmit={handleSubmit}>
+                            <div id="athletes-container" className='border border-gray-300 p-4 rounded-md bg-[rgb(20,30,37)]'>
+                                <div className="athletes-group">
 
-                        <label>Cognome</label>
-                        <input type="text" name="last_name" value={athlete.last_name} onChange={handleChange} required />
+                                    <label className='block text-white font-bold mb-3'>Nome</label>
+                                    <input type="text" name="first_name" value={athlete.first_name}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
+                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
-                        <label>Data di Nascita</label>
-                        <input type="date" name="date_of_birth" value={athlete.date_of_birth} onChange={handleChange} required />
+                                    <label className='block text-white font-bold mb-3'>Cognome</label>
+                                    <input type="text" name="last_name" value={athlete.last_name}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
+                                                 bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
-                        <label>Luogo di Nascita</label>
-                        <input type="text" name="place_of_birth" value={athlete.place_of_birth} onChange={handleChange} required />
+                                    <label className='block text-white font-bold mb-3'>Data di Nascita</label>
+                                    <input type="date" name="date_of_birth" value={athlete.date_of_birth}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md bg-gray-300 text-gray-900 
+                        focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
-                        <label>Codice Fiscale</label>
-                        <input type="text" name="fiscal_code" value={athlete.fiscal_code} onChange={handleChange} maxLength={16} required />
+                                    <label className='block text-white font-bold mb-3'>Luogo di Nascita</label>
+                                    <input type="text" name="place_of_birth" value={athlete.place_of_birth}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md bg-gray-300 text-gray-900 
+                        focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
-                        <label>Categoria</label>
-                        <select name="category" value={athlete.category} onChange={handleChange} required>
-                            <option value="">Seleziona categoria</option>
-                            {categories.map(cat => (
-                                <option key={cat.id} value={cat.id}>
-                                    {cat.code} - {cat.description}
-                                </option>
-                            ))}
-                        </select>
-                        {/*
-                    <label>Allenatore</label>
-                    <select name="trainer" value={athlete.trainers} onChange={handleChange} required>
-                        <option value="">Seleziona allenatore</option>
-                        {trainers.map(trainer => (
-                            <option key={trainer.id} value={trainer.id}>
-                                {trainer.first_name} {trainer.last_name}
-                            </option>
-                        ))}
-                    </select>
-                    */}
+                                    <label className='block text-white font-bold mb-3'>Codice Fiscale</label>
+                                    <input type="text" name="fiscal_code" value={athlete.fiscal_code}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md bg-gray-300 text-gray-900 
+                        focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} maxLength={16} required />
+
+                                    <label className='block text-white font-bold mb-3'>Categoria</label>
+                                    <select name="category" value={athlete.category}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md bg-gray-300 text-gray-900 
+                        focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required>
+                                        <option value="">Seleziona categoria</option>
+                                        {categories.map(cat => (
+                                            <option key={cat.id} value={cat.id}>
+                                                {cat.code} - {cat.description}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    {/*
+                                    <label>Allenatore</label>
+                                        <select name="trainer" value={athlete.trainers} onChanGE={handleChange} required>
+                                        <option value="">Seleziona allenatore</option>
+                                            {trainers.map(trainer => (
+                                        <option key={trainer.id} value={trainer.id}>
+                                            {trainer.first_name} {trainer.last_name}
+                                        </option>
+                                    ))}
+                                    </select>
+                                    */}
+                                    <ButtonInsert
+                                        type="submit"
+                                        buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
+                                    />
+                                    <ButtonUndo buttonText="Annulla" onClick={() => navigate('/athletes')} />
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div className="buttons">
-                    <Button type="submit" buttonText={isEditMode ? "Salva Modifiche" : "Inserisci Atleta"} />
-                    <Button buttonText="Annulla" onClick={() => navigate('/athletes')} />
-                </div>
-            </form>
+            </div>
         </div>
     );
 }

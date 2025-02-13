@@ -65,7 +65,7 @@ function Athletes() {
                         { label: "Modifica Atleta Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                         { label: "Elimina Atleta Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                     ]}
-                    buttons={[<ButtonInsert buttonText="Inserisci Atleta" onClick={handleClickFour} />]}
+                    buttons={[<ButtonInsert buttonText="Aggiungi Atleta" onClick={handleClickFour} />]}
                     entity="Atleta"
                 />
             </PageLayout>
