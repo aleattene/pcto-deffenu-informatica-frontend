@@ -67,7 +67,7 @@ function Trainers() {
                     { label: "Modifica Allenatore Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                     { label: "Elimina Allenatore Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                 ]}
-                buttons={[<ButtonInsert buttonText="Inserisci Allenatore" onClick={handleClickFive} />]}
+                buttons={[<ButtonInsert buttonText="Aggiungi Allenatore" onClick={handleClickFive} />]}
                 entity="Allenatore"
             />
              </PageLayout>

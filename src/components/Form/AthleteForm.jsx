@@ -131,12 +131,12 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                                     ))}
                                     </select>
                                     */}
-                                    <ButtonInsert
-                                        type="submit"
-                                        buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
-                                    />
-                                    <ButtonUndo buttonText="Annulla" onClick={() => navigate('/athletes')} />
                                 </div>
+                                <ButtonInsert
+                                    type="submit"
+                                    buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
+                                />
+                                <ButtonUndo buttonText="Annulla" onClick={() => navigate('/athletes')} />
                             </div>
                         </form>
                     </div>

@@ -4,6 +4,8 @@ import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import PageLayout from '../components/Layout/PageLayout';
 import ButtonInsert from '../components/Button/ButtonInsert';
+import PageLayout from '../components/Layout/PageLayout';
+
 
 function SportDoctors() {
 
@@ -64,7 +66,7 @@ function SportDoctors() {
 					{ label: "Modifica Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
 					{ label: "Elimina Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
 				]}
-				buttons={[<ButtonInsert buttonText="Inserisci Medico Sportivo" onClick={handleClickSix} />]}
+				buttons={[<ButtonInsert buttonText="Aggiungi Medico Sportivo" onClick={handleClickSix} />]}
 				entity="Medico Sportivo"
 			/>
 			</PageLayout>

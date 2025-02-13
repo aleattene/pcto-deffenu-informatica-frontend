@@ -33,8 +33,8 @@ function App() {
                     <Route path="/trainers/new" element={<TrainerInsert />} />
                     {/*<Route path="/trainers/edit/:id" element={<TrainerModify />} />*/}
                     <Route path="/sport-doctors" element={<SportDoctors />} />
-                    {/*<Route path="/sport-doctors/new" element={<SportDoctorInsert />} />
-                    <Route path="/sport-doctors/edit/:id" element={<SportDoctorModify />} />*/}
+                    <Route path="/sport-doctors/new" element={<SportDoctorInsert />} />
+                    {/*<Route path="/sport-doctors/edit/:id" element={<SportDoctorModify />} />*/}
                     <Route path="/payments" element={<Payments />} />
                     {/*<Route path="/payments/new" element={<PaymentInsert />} />
                     <Route path="/payments/edit/:id" element={<PaymentModify />} />*/}
