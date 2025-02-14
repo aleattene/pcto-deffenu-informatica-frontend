@@ -62,7 +62,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
             <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                Inserimento Allenatore
+                {isEditMode ? "Modifica Allenatore" : "Inserimento Allenatore"}
                 </div>
 
               <div

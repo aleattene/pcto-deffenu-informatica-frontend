@@ -62,7 +62,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
               <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                Inserimento Medico Sportivo
+                {isEditMode ? "Modifica Medico Sportivo" : "Inserimento Medico Sportivo"}
                 </div>
               <div
                 id="sport-doctors-container"

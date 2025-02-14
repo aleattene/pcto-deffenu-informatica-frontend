@@ -85,7 +85,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
             <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                Inserimento Compenso
+                {isEditMode ? "Modifica Compenso" : "Inserimento Compenso"}
                 </div>
               <div
                 id="payments-container"

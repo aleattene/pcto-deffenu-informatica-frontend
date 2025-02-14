@@ -80,7 +80,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
             <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                Inserimento Allenatore
+                {isEditMode ? "Modifica Atleta" : "Inserimento Atleta"}
                 </div>
               <div
                 id="athletes-container"

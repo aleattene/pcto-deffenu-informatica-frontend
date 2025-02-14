@@ -100,7 +100,7 @@ function SportCertificateForm({
             <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                Inserimento Certificato Medico
+                {isEditMode ? "Modifica Certificato Medico" : "Inserimento Certificato Medico"}
                 </div>
               <div
                 id="sport-certificates-container"
