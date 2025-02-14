@@ -29,7 +29,6 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
         console.error("Errore nel caricamento delle categorie:", error);
       }
     };
-
     fetchCategories();
   }, []);
 

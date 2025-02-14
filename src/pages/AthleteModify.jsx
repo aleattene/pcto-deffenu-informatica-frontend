@@ -36,8 +36,9 @@ function AthleteModify() {
       <PageLayout>
         <Dashboard
           isViewMode={false}
-          formComponent={<AthleteForm isEditMode={true} />}
-          dataAthlete={athlete}
+          formComponent={
+            <AthleteForm isEditMode={true} dataAthlete={athlete} />
+          }
         />
       </PageLayout>
     </div>

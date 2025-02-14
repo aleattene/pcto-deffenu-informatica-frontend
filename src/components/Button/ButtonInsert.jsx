@@ -1,5 +1,3 @@
-
-
 function ButtonInsert({ buttonText, onClick, type = "button" }) {
   return (
     <button

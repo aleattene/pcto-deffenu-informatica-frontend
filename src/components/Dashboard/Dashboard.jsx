@@ -1,6 +1,5 @@
 import Table from "../Table/Table";
 
-
 function Dashboard({
   titleTable,
   dataTable,

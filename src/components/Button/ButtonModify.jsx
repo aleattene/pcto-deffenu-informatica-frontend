@@ -1,5 +1,3 @@
-
-
 function ButtonModify({ buttonText, onClick, type = "button" }) {
   return (
     <button

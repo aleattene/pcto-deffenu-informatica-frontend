@@ -1,5 +1,3 @@
-
-
 function ButtonDelete({ buttonText, onClick, type = "button" }) {
   return (
     <button
