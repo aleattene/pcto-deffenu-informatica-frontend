@@ -3,11 +3,11 @@ function ButtonModify({ buttonText, onClick, type = "button" }) {
     <button
       type={type}
       onClick={onClick}
-      className="py-2 bg-gray-50 rounded-md shadow-sm transition hover:bg-blue-500 hover:text-white mt-2 w-auto h-auto mr-8"
+      className="py-2 bg-[#E5E7EB] text-gray-700 rounded-md shadow-sm transition hover:bg-orange-500 hover:text-white mt-2 w-auto h-auto mr-8"
     >
       <div className="flex items-center px-3">
         {/* Icon */}
-        <div className="p-2 bg-sky-600 bg-opacity-75 rounded-full">
+        <div className="p-2 bg-[#FF9500] bg-opacity-75 rounded-full">
           <svg
             className="w-4 h-4 text-white"
             viewBox="0 0 28 30"
@@ -43,7 +43,7 @@ function ButtonModify({ buttonText, onClick, type = "button" }) {
 
         {/* Button Text */}
         <div className="ml-3">
-          <h4 className="align-text-top font-semibold text-gray-700">
+          <h4 className="align-text-top font-semibold">
             {buttonText}
           </h4>
         </div>

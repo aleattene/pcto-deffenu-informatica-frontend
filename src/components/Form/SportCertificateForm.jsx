@@ -86,23 +86,29 @@ function SportCertificateForm({
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180">
-      <h3 className="text-3xl font-semibold text-gray-900">
+    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
+      {/*<h3 className="text-3xl font-semibold text-gray-900">
         {isEditMode
           ? "Modifica Certificato Medico"
           : "Aggiungi Certificato Medico"}
-      </h3>
-      <div className="flex flex-col mt-8 mb-4">
-        <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle border-gray-300 shadow sm:rounded-lg">
+      </h3>*/}
+      <div className="flex flex-col mb-4">
+      <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
+          bg-white √ border-gray-700 border-4">
             <form id="athletes-form" onSubmit={handleSubmit}>
-              <div
-                id="athletes-container"
-                className="border border-gray-300 p-4 rounded-md bg-[rgb(20,30,37)]"
+            <div
+                className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
-                <div className="athletes-group">
+                Inserimento Certificato Medico
+                </div>
+              <div
+                id="sport-certificates-container"
+                className="border border-gray-300 p-4 rounded-md opacity-95"
+              >
+                <div className="sport-certificates-group">
                   <label
-                    className="block text-white font-bold mb-3"
+                    className="block font-bold mb-3 text-gray-700"
                     htmlFor="issue_date"
                   >
                     Data di Emissione
@@ -112,14 +118,14 @@ function SportCertificateForm({
                     id="issue_date"
                     name="issue_date"
                     value={sportCertificate.issue_date}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   />
 
                   <label
-                    className="block text-white font-bold mb-3"
+                    className="block font-bold mb-3 text-gray-700"
                     htmlFor="expiration_date"
                   >
                     Data di Scadenza
@@ -129,20 +135,20 @@ function SportCertificateForm({
                     id="expiration_date"
                     name="expiration_date"
                     value={sportCertificate.expiration_date}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   />
 
-                  <label className="block text-white font-bold mb-3">
+                  <label className="block font-bold mb-3 text-gray-700">
                     Medico Sportivo
                   </label>
                   <select
                     name="sport_doctor"
                     value={sportCertificate.sport_doctor}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   >
@@ -153,14 +159,14 @@ function SportCertificateForm({
                       </option>
                     ))}
                   </select>
-                  <label className="block text-white font-bold mb-3">
+                  <label className="block font-bold mb-3 text-gray-700">
                     Atleta
                   </label>
                   <select
                     name="athlete"
                     value={sportCertificate.athlete}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                        bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   >

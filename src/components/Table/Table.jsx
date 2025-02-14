@@ -23,14 +23,7 @@ const headers_map = {
 };
 
 function Table({ title, data = [], isLoading, buttons, entity, actions }) {
-  const [selectedId, setSelectedId] = useState(null);
-
-  // Handler Selected Row
-  const handleRowSelect = (id) => {
-    setSelectedId(id);
-    console.log(`Riga selezionata con ID: ${id}`);
-  };
-
+  
   const formatValue = (key, value) => {
     if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
       const [year, month, day] = value.split("-");
@@ -43,19 +36,19 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto">
-      <h3 className="text-3xl font-semibold text-gray-900">{title}</h3>
-      <div className="flex flex-col mt-8">
+    <div className="container px-6 py-8 text-[#1F2937]">
+      {/* <h3 className="text-xl font-semibold text-[#FFFFFF] uppercase">{title}</h3>*/}
+      <div className="flex flex-col mt-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle border-gray-50 shadow sm:rounded-lg">
+          <div className="inline-block min-w-full overflow-hidden align-middle border-gray-50 shadow sm:rounded-lg bg-[#FFFFFF] opacity-90">
             {data.length > 0 && (
               <table className="min-w-full">
                 <thead>
-                  <tr className="bg-[rgb(20,30,37)]">
+                  <tr className="bg-gray-700 text-[#E5E7EB]">
                     {Object.keys(data[0]).map((key, idx) => {
                       return (
                         <th
-                          className="px-6 py-3 text-xs leading-4 tracking-wider text-left text-gray-200 font-semibold uppercase border-b border-gray-200"
+                          className="px-6 py-3 text-xs leading-4 tracking-wider text-left font-bold uppercase border-b border-gray-200"
                           key={idx}
                         >
                           {headers_map[key]}
@@ -66,13 +59,13 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
                     <th className="px-6 py-3 border-b border-gray-200"></th>
                   </tr>
                 </thead>
-                <tbody className="bg-gray-50">
+                <tbody>
                   {data.length > 0 &&
                     data.map((item, index) => (
                       <tr
                         id="table-tr"
                         key={index}
-                        className="hover:bg-amber-100"
+                        className="hover:bg-cyan-600 hover:text-white"
                       >
                         {Object.entries(item).flatMap(([key, value], idx) => (
                           <td
@@ -80,12 +73,12 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
                             key={idx}
                             id="table-td"
                           >
-                            <div className="text-md leading-8 text-gray-900 font-semibold">
+                            <div className="text-md leading-8 font-semibold">
                               {formatValue(key, value)}
                             </div>
                           </td>
                         ))}
-                        <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                        <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 text-gray-700">
                           <ButtonModify
                             buttonText="Modifica"
                             onClick={() => {
@@ -98,7 +91,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
                             }}
                           />
                         </td>
-                        <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                        <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 text-gray-700">
                           <ButtonDelete
                             buttonText="Elimina"
                             onClick={() => {

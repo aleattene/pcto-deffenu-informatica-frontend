@@ -50,46 +50,51 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180">
-      <h3 className="text-3xl font-semibold text-gray-900">
+    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
+      {/*<h3 className="text-3xl font-semibold text-gray-900">
         {isEditMode ? "Modifica Medico Sportivo" : "Aggiungi Medico Sportivo"}
-      </h3>
-      <div className="flex flex-col mt-8 mb-4">
+      </h3>*/}
+      <div className="flex flex-col mb-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle border-gray-300 shadow sm:rounded-lg">
+        <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
+          bg-white √ border-gray-700 border-4">
             <form id="sport-doctors-form" onSubmit={handleSubmit}>
               <div
+                className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
+              >
+                Inserimento Medico Sportivo
+                </div>
+              <div
                 id="sport-doctors-container"
-                className="border border-gray-300 p-4 rounded-md bg-[rgb(20,30,37)]"
+                className="border border-gray-300 p-4 rounded-md opacity-95"
               >
                 <div className="sport-doctors-group">
-                  <label className="block text-white font-bold mb-3">
+                <label className="block font-bold mb-3 text-gray-700">
                     Nome
                   </label>
                   <input
                     type="text"
                     name="first_name"
                     value={sportDoctor.first_name}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   />
-                  <label className="block text-white font-bold mb-3">
+                  <label className="block font-bold mb-3 text-gray-700">
                     Cognome
                   </label>
                   <input
                     type="text"
                     name="last_name"
                     value={sportDoctor.last_name}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     required
                   />
 
-                  <label
-                    className="block text-white font-bold mb-3"
+                  <label className="block font-bold mb-3 text-gray-700"
                     htmlFor="vat_number"
                   >
                     Partita Iva
@@ -100,7 +105,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
                     name="vat_number"
                     value={sportDoctor.vat_number}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                                  bg-gray-200 focus:bg-orange-200"
                     onChange={handleChange}
                     maxLength={11}
                     required

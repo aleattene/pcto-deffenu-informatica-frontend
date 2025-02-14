@@ -9,17 +9,18 @@ function DashboardLayout({ children }) {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className="flex h-screen bg-gray-300 w-full">
+    <div className="flex h-screen w-full bg-gradient-to-b from-blue-700 to-orange-400 pl-4">
       {/* Overlay: visible only on small devices and sidebar is open*/}
       <div
-        className={`${sidebarOpen ? "block" : "hidden"} fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden`}
+        className={`${sidebarOpen ? "block" : "hidden"} fixed inset-0 z-20 transition-opacity bg-gradient-to-b from-blue-700 to-orange-400 opacity:10 pl-4 opacity-90 lg:hidden`}
         onClick={closeSidebar}
       ></div>
 
       {/* Sidebar */}
       <div
         className={`
-          fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-[rgb(20,30,37)]
+          fixed inset-y-0 left-0 z-30 w-68 overflow-y-auto transition duration-300 transform border-r-1
+          
           ${sidebarOpen ? "translate-x-0 ease-out" : "-translate-x-full ease-in"}
           lg:translate-x-0 lg:static lg:inset-0
         `}

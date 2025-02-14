@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Header({ toggleSidebar }) {
   // User Dropdown (Profile, Logout)
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Aggiorna ogni secondo
+
+    return () => clearInterval(interval); // Pulizia dell'intervallo quando il componente si smonta
+  }, []);
+
   return (
-    <div className="flex items-center justify-between p-4 bg-[rgb(20,30,37)] border-b-8 border-[rgb(20,30,37)] h-32 mb-8">
+    <div className="flex items-center justify-between p-4 text-[#FFFFFF] h-32 border-b-1">
       {/* Button to open sidebat (only small devices) */}
       <div className="flex items-center">
         <button
           onClick={toggleSidebar}
-          className="text-gray-300 focus:outline-none lg:hidden"
+          className="text-[#E5E7EB] focus:outline-none lg:hidden"
         >
           {/* Hamburger Icons */}
           <svg
@@ -29,14 +39,16 @@ function Header({ toggleSidebar }) {
           </svg>
         </button>
       </div>
+      
+      
 
       {/* User Dropsown Menu */}
       <div className="flex items-center">
         <div className="flex flex-col w-48 items-center">
-          <span className="text-gray-300 mt-1 text-xl font-bold">
+          <span className="text-[#E5E7EB] mt-1 text-xl font-bold">
             Attene Davide
           </span>
-          <span className="text-gray-300 font-medium">
+          <span className="text-[#E5E7EB] font-medium">
             I.T.T. Deffenu - Olbia
           </span>
         </div>
