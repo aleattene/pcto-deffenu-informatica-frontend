@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
 
 function DashboardLayout({ children }) {
-  
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
@@ -25,7 +24,7 @@ function DashboardLayout({ children }) {
           lg:translate-x-0 lg:static lg:inset-0
         `}
       >
-        <Sidebar closeSidebar={closeSidebar}/>
+        <Sidebar closeSidebar={closeSidebar} />
       </div>
 
       {/* Main Area (Header + Dashboard Table) */}

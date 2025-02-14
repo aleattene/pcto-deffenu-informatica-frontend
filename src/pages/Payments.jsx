@@ -1,81 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
-import paymentsService from '../services/paymentsService';
-import ButtonInsert from '../components/Button/ButtonInsert';
-import Dashboard from '../components/Dashboard/Dashboard';
-import PageLayout from '../components/Layout/PageLayout';
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import paymentsService from "../services/paymentsService";
+import ButtonInsert from "../components/Button/ButtonInsert";
+import Dashboard from "../components/Dashboard/Dashboard";
+import PageLayout from "../components/Layout/PageLayout";
 
 function Payments() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
- 
-    // Payments
-    const [payments, setPayments] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+  // Payments
+  const [payments, setPayments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchPayments = async () => {
-            try {
-                const dataPayments = await paymentsService.getPayments();
-                setPayments(dataPayments);
-            } catch (error) {
-                console.error("Errore nel recupero dei Compensi:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchPayments();
-    }, []);
-
-    const handleClickFour = () => navigate('/payments/new')
-
-    // Handler Modify Button
-    const handleModifyButton = (selectedId) => {
-        navigate(`/payments/edit/${selectedId}`)
+  useEffect(() => {
+    const fetchPayments = async () => {
+      try {
+        const dataPayments = await paymentsService.getPayments();
+        setPayments(dataPayments);
+      } catch (error) {
+        console.error("Errore nel recupero dei Compensi:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    // Handler Delete Button
-    const handleDeleteButton = async (selectedId) => {
-        const isConfirmed = window.confirm(`Sei sicuro di voler eliminare il compenso con ID: ${selectedId}?`);
+    fetchPayments();
+  }, []);
 
-        if (isConfirmed) {
-            try {
-                await paymentsService.deletePayment(selectedId);
-                alert("Compenso eliminato con successo!");
-                const updatedPayments = await paymentsService.getPayments();
-                setPayments(updatedPayments);
+  const handleClickFour = () => navigate("/payments/new");
 
-            } catch (error) {
-                console.error("Errore durante l'eliminazione:", error);
-                alert("Errore durante l'eliminazione del compenso.");
-            }
-        }
-    };
+  // Handler Modify Button
+  const handleModifyButton = (selectedId) => {
+    navigate(`/payments/edit/${selectedId}`);
+  };
 
-
-    return (
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-            <PageLayout>
-            <Dashboard
-                titleTable="Elenco Compensi"
-                isLoading={isLoading}
-                dataTable={payments}
-                actions={[
-                    { label: "Modifica Compenso Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                    { label: "Elimina Compenso Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                ]}
-                buttons={[<ButtonInsert buttonText="Aggiungi Compenso" onClick={handleClickFour} />]}
-                entity="Compenso"
-            />
-            </PageLayout>
-        </div>
+  // Handler Delete Button
+  const handleDeleteButton = async (selectedId) => {
+    const isConfirmed = window.confirm(
+      `Sei sicuro di voler eliminare il compenso con ID: ${selectedId}?`,
     );
+
+    if (isConfirmed) {
+      try {
+        await paymentsService.deletePayment(selectedId);
+        alert("Compenso eliminato con successo!");
+        const updatedPayments = await paymentsService.getPayments();
+        setPayments(updatedPayments);
+      } catch (error) {
+        console.error("Errore durante l'eliminazione:", error);
+        alert("Errore durante l'eliminazione del compenso.");
+      }
+    }
+  };
+
+  return (
+    <div x-data="{ sidebarOpen: false }" className="flex h-screen bg-gray-200">
+      <PageLayout>
+        <Dashboard
+          titleTable="Elenco Compensi"
+          isLoading={isLoading}
+          dataTable={payments}
+          actions={[
+            {
+              label: "Modifica Compenso Selezionato",
+              onClick: (selectedId) => handleModifyButton(selectedId),
+            },
+            {
+              label: "Elimina Compenso Selezionato",
+              onClick: (selectedId) => handleDeleteButton(selectedId),
+            },
+          ]}
+          buttons={[
+            <ButtonInsert
+              buttonText="Aggiungi Compenso"
+              onClick={handleClickFour}
+            />,
+          ]}
+          entity="Compenso"
+        />
+      </PageLayout>
+    </div>
+  );
 }
 
 export default Payments;
-
 
 // DATA Sample
 

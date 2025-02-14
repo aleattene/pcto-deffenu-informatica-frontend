@@ -1,80 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
-import profilesService from '../services/profilesService';
-import ButtonInsert from '../components/Button/ButtonInsert';
-import Dashboard from '../components/Dashboard/Dashboard';
-import PageLayout from '../components/Layout/PageLayout';
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import profilesService from "../services/profilesService";
+import ButtonInsert from "../components/Button/ButtonInsert";
+import Dashboard from "../components/Dashboard/Dashboard";
+import PageLayout from "../components/Layout/PageLayout";
 
 function Athletes() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  // Athletes
+  const [athletes, setAthletes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // Athletes
-    const [athletes, setAthletes] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchAthletes = async () => {
-            try {
-                const data = await profilesService.getAthletes();
-                setAthletes(data);
-            } catch (error) {
-                console.error("Errore nel recupero degli atleti:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchAthletes();
-    }, []);
-
-    // Redirect
-    const handleClickFour = () => navigate('/athletes/new')
-
-    // Handler Modify Button
-    const handleModifyButton = (selectedId) => {
-        navigate(`/athletes/edit/${selectedId}`)
+  useEffect(() => {
+    const fetchAthletes = async () => {
+      try {
+        const data = await profilesService.getAthletes();
+        setAthletes(data);
+      } catch (error) {
+        console.error("Errore nel recupero degli atleti:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    // Handler Delete Button
-    const handleDeleteButton = async (selectedId) => {
-        const isConfirmed = window.confirm(`Sei sicuro di voler eliminare l'atleta con ID: ${selectedId}?`);
+    fetchAthletes();
+  }, []);
 
-        if (isConfirmed) {
-            try {
-                await profilesService.deleteAthlete(selectedId);
-                alert("Atleta eliminato con successo!");
-                const updatedAthletes = await profilesService.getAthletes();
-                setAthletes(updatedAthletes);
-            } catch (error) {
-                console.error("Errore durante l'eliminazione:", error);
-                alert("Errore durante l'eliminazione dell'atleta.");
-            }
-        }
-    };
+  // Redirect
+  const handleClickFour = () => navigate("/athletes/new");
 
-    return (
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-            <PageLayout>
-                <Dashboard
-                    titleTable="Elenco Atleti"
-                    isLoading={isLoading}
-                    dataTable={athletes}
-                    actions={[
-                        { label: "Modifica Atleta Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                        { label: "Elimina Atleta Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                    ]}
-                    buttons={[<ButtonInsert buttonText="Aggiungi Atleta" onClick={handleClickFour} />]}
-                    entity="Atleta"
-                />
-            </PageLayout>
-        </div>
+  // Handler Modify Button
+  const handleModifyButton = (selectedId) => {
+    navigate(`/athletes/edit/${selectedId}`);
+  };
+
+  // Handler Delete Button
+  const handleDeleteButton = async (selectedId) => {
+    const isConfirmed = window.confirm(
+      `Sei sicuro di voler eliminare l'atleta con ID: ${selectedId}?`,
     );
+
+    if (isConfirmed) {
+      try {
+        await profilesService.deleteAthlete(selectedId);
+        alert("Atleta eliminato con successo!");
+        const updatedAthletes = await profilesService.getAthletes();
+        setAthletes(updatedAthletes);
+      } catch (error) {
+        console.error("Errore durante l'eliminazione:", error);
+        alert("Errore durante l'eliminazione dell'atleta.");
+      }
+    }
+  };
+
+  return (
+    <div x-data="{ sidebarOpen: false }" className="flex h-screen bg-gray-200">
+      <PageLayout>
+        <Dashboard
+          titleTable="Elenco Atleti"
+          isLoading={isLoading}
+          dataTable={athletes}
+          actions={[
+            {
+              label: "Modifica Atleta Selezionato",
+              onClick: (selectedId) => handleModifyButton(selectedId),
+            },
+            {
+              label: "Elimina Atleta Selezionato",
+              onClick: (selectedId) => handleDeleteButton(selectedId),
+            },
+          ]}
+          buttons={[
+            <ButtonInsert
+              buttonText="Aggiungi Atleta"
+              onClick={handleClickFour}
+            />,
+          ]}
+          entity="Atleta"
+        />
+      </PageLayout>
+    </div>
+  );
 }
 
 export default Athletes;
-
 
 /*
 const data = [

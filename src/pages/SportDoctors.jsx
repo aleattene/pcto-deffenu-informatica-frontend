@@ -1,81 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
-import profilesService from '../services/profilesService';
-import Dashboard from '../components/Dashboard/Dashboard';
-import PageLayout from '../components/Layout/PageLayout';
-import ButtonInsert from '../components/Button/ButtonInsert';
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import profilesService from "../services/profilesService";
+import Dashboard from "../components/Dashboard/Dashboard";
+import PageLayout from "../components/Layout/PageLayout";
+import ButtonInsert from "../components/Button/ButtonInsert";
 
 function SportDoctors() {
+  const navigate = useNavigate();
 
-	const navigate = useNavigate()
+  // Sport Doctors
+  const [sportDoctors, setSportDoctors] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-	// Sport Doctors
-	const [sportDoctors, setSportDoctors] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchSportDoctors = async () => {
+      try {
+        const data = await profilesService.getSportDoctors();
+        setSportDoctors(data);
+      } catch (error) {
+        console.error("Errore nel recupero dei medici sportivi:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-	useEffect(() => {
-		const fetchSportDoctors = async () => {
-			try {
-				const data = await profilesService.getSportDoctors();
-				setSportDoctors(data);
-			} catch (error) {
-				console.error("Errore nel recupero dei medici sportivi:", error);
-            } finally {
-                setIsLoading(false);
-            }
-		};
+    fetchSportDoctors();
+  }, []);
 
-		fetchSportDoctors();
-	}, []);
+  // Redirect
+  const handleClickSix = () => navigate("/sport-doctors/new");
 
-	// Redirect
-	const handleClickSix = () => navigate('/sport-doctors/new')
+  // Handler Modify Button
+  const handleModifyButton = (selectedId) => {
+    navigate(`/sport-doctors/edit/${selectedId}`);
+  };
 
-	// Handler Modify Button
-	const handleModifyButton = (selectedId) => {
-		navigate(`/sport-doctors/edit/${selectedId}`)
-	};
+  const handleDeleteButton = async (selectedId) => {
+    const isConfirmed = window.confirm(
+      `Sei sicuro di voler eliminare il medico sportivo con ID: ${selectedId}?`,
+    );
+    console.log(isConfirmed);
 
-	const handleDeleteButton = async (selectedId) => {
-		const isConfirmed = window.confirm(`Sei sicuro di voler eliminare il medico sportivo con ID: ${selectedId}?`);
-		console.log(isConfirmed)
+    if (isConfirmed) {
+      try {
+        await profilesService.deleteSportDoctor(selectedId);
+        alert("Medico Sportivo eliminato con successo!");
+        const updatedSportDoctors = await profilesService.getSportDoctors();
+        setSportDoctors(updatedSportDoctors);
+      } catch (error) {
+        console.error("Errore durante l'eliminazione:", error);
+        alert("Errore durante l'eliminazione del medico sportivo.");
+      }
+    }
+  };
 
-		if (isConfirmed) {
-			try {
-				await profilesService.deleteSportDoctor(selectedId);
-				alert("Medico Sportivo eliminato con successo!");
-				const updatedSportDoctors = await profilesService.getSportDoctors();
-				setSportDoctors(updatedSportDoctors);
-			} catch (error) {
-				console.error("Errore durante l'eliminazione:", error);
-				alert("Errore durante l'eliminazione del medico sportivo.");
-			}
-		}
-	};
-
-	return (
-		<div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-			<PageLayout>
-			<Dashboard
-				titleTable="Elenco Medici Sportivi"
-				isLoading={isLoading}
-				dataTable={sportDoctors}
-				actions={[
-					{ label: "Modifica Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-					{ label: "Elimina Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-				]}
-				buttons={[<ButtonInsert buttonText="Aggiungi Medico Sportivo" onClick={handleClickSix} />]}
-				entity="Medico Sportivo"
-			/>
-			</PageLayout>
-		</div>
-
-	);
+  return (
+    <div x-data="{ sidebarOpen: false }" className="flex h-screen bg-gray-200">
+      <PageLayout>
+        <Dashboard
+          titleTable="Elenco Medici Sportivi"
+          isLoading={isLoading}
+          dataTable={sportDoctors}
+          actions={[
+            {
+              label: "Modifica Medico Selezionato",
+              onClick: (selectedId) => handleModifyButton(selectedId),
+            },
+            {
+              label: "Elimina Medico Selezionato",
+              onClick: (selectedId) => handleDeleteButton(selectedId),
+            },
+          ]}
+          buttons={[
+            <ButtonInsert
+              buttonText="Aggiungi Medico Sportivo"
+              onClick={handleClickSix}
+            />,
+          ]}
+          entity="Medico Sportivo"
+        />
+      </PageLayout>
+    </div>
+  );
 }
 
 export default SportDoctors;
-
 
 // DATA Sample
 /*
