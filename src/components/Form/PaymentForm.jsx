@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import paymentsService from '../../services/paymentsService';
 import profilesService from '../../services/profilesService';
-import Button from '../Button/Button';
-import './PaymentForm.css';
+import ButtonInsert from '../Button/ButtonInsert';
+import ButtonUndo from '../Button/ButtonUndo';
+
 
 function PaymentForm({ isEditMode = false, dataPayment = {} }) {
 
@@ -69,34 +70,53 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
     };
 
     return (
-        <div id="form-container">
-            <h1>{isEditMode ? "Modifica Compenso" : "Aggiungi Compenso"}</h1>
-            <form id="payments-form" onSubmit={handleSubmit}>
-                <div id="payments-container">
-                    <div class="payments-group">
+        <div class="container px-6 py-8 mx-auto w-180">
+            <h3 class="text-3xl font-semibold text-gray-900">{isEditMode ? "Modifica Compenso" : "Aggiungi Compenso"}</h3>
+            <div class="flex flex-col mt-8 mb-4" >
+                <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                    <div
+                        class="inline-block min-w-full overflow-hidden align-middle border-gray-300 shadow sm:rounded-lg">
+                        <form id="athletes-form" onSubmit={handleSubmit}>
+                            <div id="athletes-container" className='border border-gray-300 p-4 rounded-md bg-[rgb(20,30,37)]'>
+                                <div className="athletes-group">
 
-                        <label for="payment_date">Data di Pagamento</label>
-                        <input type="date" id="payment_date" name="payment_date" value={payment.payment_date} onChange={handleChange} required />
 
-                        <label for="amount">Importo</label>
-                        <input type="text" id="amount" name="amount" value={payment.amount} onChange={handleChange} required />
+                                    <label className='block text-white font-bold mb-3' for="payment_date">Data di Pagamento</label>
+                                    <input type="date" id="payment_date" name="payment_date" value={payment.payment_date}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
+                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
-                        <select name="trainer" value={payment.trainer} onChange={handleChange} required>
-                            <option value="">Seleziona allenatore</option>
-                            {trainers.map(trainer => (
-                                <option key={trainer.id} value={trainer.id}>
-                                    {trainer.first_name} {trainer.last_name}
-                                </option>
-                            ))}
-                        </select>
+                                    <label className='block text-white font-bold mb-3' for="amount">Importo</label>
+                                    <input type="text" id="amount" name="amount" value={payment.amount}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
+                                                  bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required />
 
+                                    <label className='block text-white font-bold mb-3' for="amount">Allenatore</label>
+                                    <select name="trainer" value={payment.trainer}
+                                        className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
+                            bg-gray-300 text-gray-900 focus:ring focus:ring-blue-500 focus:border-blue-500 focus:bg-amber-100"
+                                        onChange={handleChange} required>
+                                        <option value="">Seleziona allenatore</option>
+                                        {trainers.map(trainer => (
+                                            <option key={trainer.id} value={trainer.id}>
+                                                {trainer.first_name} {trainer.last_name}
+                                            </option>
+                                        ))}
+                                    </select>
+
+                                </div>
+                                <ButtonInsert
+                                    type="submit"
+                                    buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Compenso"}
+                                />
+                                <ButtonUndo buttonText="Annulla" onClick={() => navigate('/payments')} />
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="buttons">
-                    <Button type="submit" buttonText={isEditMode ? "Salva Modifiche" : "Crea Compenso"} />
-                    <Button buttonText="Annulla" onClick={() => navigate('/payments')} />
-                </div>
-            </form>
+            </div>
         </div>
     );
 }

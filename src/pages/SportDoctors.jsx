@@ -4,7 +4,6 @@ import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import PageLayout from '../components/Layout/PageLayout';
 import ButtonInsert from '../components/Button/ButtonInsert';
-import PageLayout from '../components/Layout/PageLayout';
 
 
 function SportDoctors() {

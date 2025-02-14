@@ -66,7 +66,7 @@ function Payments() {
                     { label: "Modifica Compenso Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                     { label: "Elimina Compenso Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                 ]}
-                buttons={[<ButtonInsert buttonText="Inserisci Compenso" onClick={handleClickFour} />]}
+                buttons={[<ButtonInsert buttonText="Aggiungi Compenso" onClick={handleClickFour} />]}
                 entity="Compenso"
             />
             </PageLayout>
