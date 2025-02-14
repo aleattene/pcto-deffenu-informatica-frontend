@@ -130,6 +130,14 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
           Nessun {entity} individuato.
         </p>
       )}
+      {!isLoading &&
+        buttons.map((button, idx) => (
+          <ButtonInsert
+            key={idx}
+            buttonText={button.props.buttonText}
+            onClick={button.props.onClick}
+          />
+        ))}
     </div>
   );
 }
