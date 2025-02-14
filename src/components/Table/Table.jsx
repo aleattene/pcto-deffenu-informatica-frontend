@@ -121,20 +121,15 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
           </div>
         </div>
       </div>
-
+      {isLoading && 
+      <p className="text-xl font-medium text-white mb-8">
+          Caricaremento dati in corso ...
+        </p>}
       {!data.length && !isLoading && (
-        <p className="text-xl font-medium text-red-600 mb-8">
+        <p className="text-xl font-medium text-white mb-8">
           Nessun {entity} individuato.
         </p>
       )}
-      {!isLoading &&
-        buttons.map((button, idx) => (
-          <ButtonInsert
-            key={idx}
-            buttonText={button.props.buttonText}
-            onClick={button.props.onClick}
-          />
-        ))}
     </div>
   );
 }
