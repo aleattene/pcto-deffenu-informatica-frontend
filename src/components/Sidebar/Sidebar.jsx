@@ -19,35 +19,35 @@ function Sidebar({ closeSidebar }) {
       <nav id="sidebar" className="mt-10">
         <Link
           to="/athletes"
-          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700 hover:text-[#FF9500] hover:bg-opacity-25"
+          className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700 hover:text-[#FF9500] hover:bg-opacity-25"
           onClick={closeSidebar}
         >
           <span className="mx-3">Atleti</span>
         </Link>
         <Link
           to="/trainers"
-          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
           onClick={closeSidebar}
         >
           <span className="mx-3">Allenatori</span>
         </Link>
         <Link
           to="/sport-doctors"
-          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
           onClick={closeSidebar}
         >
           <span className="mx-3">Medici Sportivi</span>
         </Link>
         <Link
           to="/payments"
-          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
           onClick={closeSidebar}
         >
           <span className="mx-3">Compensi</span>
         </Link>
         <Link
           to="/sport-certificates"
-          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
           onClick={closeSidebar}
         >
           <span className="mx-3">Certificati Medici</span>

@@ -12,7 +12,7 @@ function DashboardLayout({ children }) {
     <div className="flex h-screen w-full bg-gradient-to-b from-blue-700 to-orange-400 pl-4">
       {/* Overlay: visible only on small devices and sidebar is open*/}
       <div
-        className={`${sidebarOpen ? "block" : "hidden"} fixed inset-0 z-20 transition-opacity bg-gradient-to-b from-blue-700 to-orange-400 opacity:10 pl-4 opacity-90 lg:hidden`}
+        className={`${sidebarOpen ? "block" : "hidden"} fixed inset-0 z-20 transition-opacity bg-gradient-to-b from-blue-700 to-orange-400 pl-4 opacity-95 lg:hidden`}
         onClick={closeSidebar}
       ></div>
 
