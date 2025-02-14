@@ -68,7 +68,7 @@ function SportCertifcates() {
                         { label: "Modifica Certificato Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
                         { label: "Elimina Certificato Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
                     ]}
-                    buttons={[<ButtonInsert buttonText="Inserisci Certificato Medico" onClick={handleClickFour} />]}
+                    buttons={[<ButtonInsert buttonText="Aggiungi Certificato Medico" onClick={handleClickFour} />]}
                     entity="Certificato Medico"
                 />
             </PageLayout>

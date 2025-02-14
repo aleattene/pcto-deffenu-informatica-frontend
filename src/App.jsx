@@ -39,8 +39,8 @@ function App() {
                     <Route path="/payments/new" element={<PaymentInsert />} />
                     {/*<Route path="/payments/edit/:id" element={<PaymentModify />} />*/}
                     <Route path="/sport-certificates" element={<SportCertifcates />} />
-                    {/*<Route path="/sport-certificates/new" element={<SportCertifcateInsert />} />
-                    <Route path="/sport-certificates/edit/:id" element={<SportCertifcateModify />} />*/}
+                    <Route path="/sport-certificates/new" element={<SportCertifcateInsert />} />
+                    {/*<Route path="/sport-certificates/edit/:id" element={<SportCertifcateModify />} />*/}
                 </Routes>
             </Router>
         </>
