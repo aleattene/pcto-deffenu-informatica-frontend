@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ButtonInsert from '../Button/ButtonInsert';
+import ButtonDelete from '../Button/ButtonDelete';
+
 
 const headers_map = {
     id: "ID",
@@ -21,7 +23,7 @@ const headers_map = {
 }
 
 
-function Table({ title, data = [], isLoading, buttons, entity }) {
+function Table({ title, data = [], isLoading, buttons, entity, actions }) {
 
     const [selectedId, setSelectedId] = useState(null);
 
@@ -87,8 +89,16 @@ function Table({ title, data = [], isLoading, buttons, entity }) {
                                                 <a href="#" class="text-sky-600 hover:text-sky-900 font-semibold">Modifica</a>
                                             </td>
                                             <td
-                                                class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 hover:bg-red-200">
-                                                <a href="#" class="text-red-600">Elimina</a>
+                                                class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                                                <ButtonDelete
+                                                    buttonText="Elimina"
+                                                    onClick={() => {
+                                                        const deleteAction = actions.find(action => action.label.includes("Elimina"));
+                                                        if (deleteAction) {
+                                                            deleteAction.onClick(item.id);
+                                                        }
+                                                    }}
+                                                />
                                             </td>
 
                                         </tr>
