@@ -45,6 +45,11 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
         }
     };
 
+    // Hanlde the Undo operation
+    const handleUndo = () => {
+        navigate('/trainers');
+    };
+
     return (
         <div class="container px-6 py-8 mx-auto w-180">
             <h3 class="text-3xl font-semibold text-gray-900">{isEditMode ? "Modifica Allenatore" : "Aggiungi Allenatore"}</h3>
@@ -78,7 +83,9 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
                                         type="submit"
                                         buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Allenatore"}
                                     />
-                                    <ButtonUndo buttonText="Annulla" onClick={() => navigate('/trainers')} />
+                                                  <ButtonUndo 
+                                    buttonText="Annulla" 
+                                    onClick={handleUndo} />
                                 </div>
                             </div>
                         </form>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ButtonInsert from '../Button/ButtonInsert';
 import ButtonDelete from '../Button/ButtonDelete';
+import ButtonModify from '../Button/ButtonModify';
 
 
 const headers_map = {
@@ -85,11 +86,19 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
                                                 </td>
                                             )}
                                             <td
-                                                class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 hover:bg-cyan-100">
-                                                <a href="#" class="text-sky-600 hover:text-sky-900 font-semibold">Modifica</a>
+                                                class="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                                                <ButtonModify
+                                                    buttonText="Modifica"
+                                                    onClick={() => {
+                                                        const modifyAction = actions.find(action => action.label.includes("Modifica"));
+                                                        if (modifyAction) {
+                                                            modifyAction.onClick(item.id);
+                                                        }
+                                                    }}
+                                                />
                                             </td>
                                             <td
-                                                class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                                                class="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
                                                 <ButtonDelete
                                                     buttonText="Elimina"
                                                     onClick={() => {

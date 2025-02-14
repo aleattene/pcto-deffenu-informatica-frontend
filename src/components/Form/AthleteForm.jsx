@@ -67,6 +67,11 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
         }
     };
 
+    // Hanlde the Undo operation
+    const handleUndo = () => {
+        navigate('/athletes');
+    };
+
     return (
         <div class="container px-6 py-8 mx-auto w-180">
             <h3 class="text-3xl font-semibold text-gray-900">{isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}</h3>
@@ -136,7 +141,9 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                                     type="submit"
                                     buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
                                 />
-                                <ButtonUndo buttonText="Annulla" onClick={() => navigate('/athletes')} />
+                                 <ButtonUndo 
+                                    buttonText="Annulla" 
+                                    onClick={handleUndo} />
                             </div>
                         </form>
                     </div>

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import profilesService from '../services/profilesService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import TrainerForm from '../components/Form/TrainerForm';
+import PageLayout from '../components/Layout/PageLayout';
 
 
 function TrainerModify() {
@@ -30,7 +31,15 @@ function TrainerModify() {
     
     return (
         <div>
-           <Dashboard content={<TrainerForm isEditMode={true} dataTrainer={trainer}/>} />
+            <PageLayout>
+                <Dashboard
+                    isViewMode={false}
+                    formComponent={<TrainerForm
+                        isEditMode={true}
+                        dataTrainer={trainer}
+                    />}
+                />
+            </PageLayout>
         </div>
     );
 }

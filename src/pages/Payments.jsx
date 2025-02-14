@@ -9,7 +9,7 @@ import PageLayout from '../components/Layout/PageLayout';
 function Payments() {
 
     const navigate = useNavigate()
-
+ 
     // Payments
     const [payments, setPayments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);

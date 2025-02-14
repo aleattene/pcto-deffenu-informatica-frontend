@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ButtonInsert({ buttonText, onClick, type="button" }) {
+function ButtonDelete({ buttonText, onClick, type="button" }) {
 
     return (
         <button
@@ -49,5 +49,5 @@ function ButtonInsert({ buttonText, onClick, type="button" }) {
     );
 }
 
-export default ButtonInsert
+export default ButtonDelete
 

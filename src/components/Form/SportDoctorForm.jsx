@@ -46,6 +46,11 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
         }
     };
 
+        // Hanlde the Undo operation
+        const handleUndo = () => {
+            navigate('/sport-doctors');
+        };
+
     return (
 
         <div class="container px-6 py-8 mx-auto w-180">
@@ -79,7 +84,9 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
                                     type="submit"
                                     buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Medico Sportivo"}
                                 />
-                                <ButtonUndo buttonText="Annulla" onClick={() => navigate('/sport-doctors')} />
+                                                                <ButtonUndo 
+                                    buttonText="Annulla" 
+                                    onClick={handleUndo} />
                             </div>
                         </form>
                     </div>

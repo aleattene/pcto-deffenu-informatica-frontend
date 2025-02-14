@@ -69,6 +69,11 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
         }
     };
 
+    // Hanlde the Undo operation
+    const handleUndo = () => {
+        navigate('/payments');
+    };
+
     return (
         <div class="container px-6 py-8 mx-auto w-180">
             <h3 class="text-3xl font-semibold text-gray-900">{isEditMode ? "Modifica Compenso" : "Aggiungi Compenso"}</h3>
@@ -111,7 +116,9 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                                     type="submit"
                                     buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Compenso"}
                                 />
-                                <ButtonUndo buttonText="Annulla" onClick={() => navigate('/payments')} />
+                                <ButtonUndo 
+                                    buttonText="Annulla" 
+                                    onClick={handleUndo} />
                             </div>
                         </form>
                     </div>

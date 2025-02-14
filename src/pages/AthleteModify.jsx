@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import profilesService from '../services/profilesService';
 import AthleteForm from '../components/Form/AthleteForm';
 import Dashboard from '../components/Dashboard/Dashboard';
-
+import PageLayout from '../components/Layout/PageLayout';
 
 function AthleteModify() {
 
     const { id } = useParams();
 
+    // Athletes
     const [athlete, setAthlete] = useState({
         first_name: '',
         last_name: '',
@@ -33,7 +34,14 @@ function AthleteModify() {
 
     return (
         <div>
-            <Dashboard content={<AthleteForm isEditMode={true} dataAthlete={athlete} />} />
+            <PageLayout>
+                <Dashboard
+                    isViewMode={false}
+                    formComponent={<AthleteForm
+                        isEditMode={true} />}
+                        dataAthlete={athlete}
+                />
+            </PageLayout>
         </div>
     );
 }

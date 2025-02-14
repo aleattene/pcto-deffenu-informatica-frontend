@@ -1,16 +1,16 @@
 import React from 'react'
 
-function ButtonUndo({ buttonText, onClick, type="button" }) {
+function ButtonModify({ buttonText, onClick, type="button" }) {
 
     return (
         <button
-        type={type}
-        onClick={onClick}
-            className="py-2 bg-gray-50 rounded-md shadow-sm transition hover:bg-blue-500 mt-2 w-auto h-auto mr-8"
+            type={type}
+            onClick={onClick}
+            className="py-2 bg-gray-50 rounded-md shadow-sm transition hover:bg-blue-500 hover:text-white mt-2 w-auto h-auto mr-8"
         >
             <div className="flex items-center px-3">
                 {/* Icon */}
-                <div className="p-2 bg-orange-600 bg-opacity-75 rounded-full">
+                <div className="p-2 bg-sky-600 bg-opacity-75 rounded-full">
                     <svg className="w-4 h-4 text-white" viewBox="0 0 28 30" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -49,5 +49,5 @@ function ButtonUndo({ buttonText, onClick, type="button" }) {
     );
 }
 
-export default ButtonUndo
+export default ButtonModify
 

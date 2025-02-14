@@ -3,16 +3,17 @@ import { useParams } from 'react-router-dom';
 import paymentsService from '../services/paymentsService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import PaymentForm from '../components/Form/PaymentForm';
+import PageLayout from '../components/Layout/PageLayout';
 
 function PaymentModify() {
 
     const { id } = useParams();
-  
+
     // Payments
     const [payment, setPayment] = useState({
-         payment_date:'',
-         amount: '',
-         trainer: ''
+        payment_date: '',
+        amount: '',
+        trainer: ''
 
     });
 
@@ -27,10 +28,18 @@ function PaymentModify() {
         };
         fetchPayment();
     }, [id]);
-    
+
     return (
         <div>
-           <Dashboard content={<PaymentForm isEditMode={true} dataPayment={payment}/>} />
+            <PageLayout>
+                <Dashboard
+                    isViewMode={false}
+                    formComponent={<PaymentForm
+                        isEditMode={true}
+                        dataPayment={payment}
+                    />}
+                />
+            </PageLayout>
         </div>
     );
 }

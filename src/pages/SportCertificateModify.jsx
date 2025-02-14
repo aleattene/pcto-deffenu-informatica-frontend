@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import documentationService from '../services/documentationService';
 import Dashboard from '../components/Dashboard/Dashboard';
 import SportCertificateForm from '../components/Form/SportCertificateForm';
+import PageLayout from '../components/Layout/PageLayout';
 
 function SportCertificateModify() {
 
@@ -30,8 +31,16 @@ function SportCertificateModify() {
 
     return (
         <div>
-            <Dashboard content={<SportCertificateForm isEditMode={true} dataSportCertificate={sportCertificate}/>} />
-        </div>
+        <PageLayout>
+            <Dashboard
+                isViewMode={false}
+                formComponent={<SportCertificateForm
+                    isEditMode={true}
+                    dataSportCertificate={sportCertificate}
+                />}
+            />
+        </PageLayout>
+    </div>
     );
 }
 
