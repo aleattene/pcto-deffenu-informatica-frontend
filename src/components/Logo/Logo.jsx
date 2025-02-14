@@ -1,22 +1,27 @@
-import React from 'react';
-import "./Logo.css";
-import logo from './../../assets/img/logo.png'
+import { useNavigate } from "react-router-dom";
+import logo from "./../../assets/img/logo.svg";
 
-function LogoWithText(props) {
-
-  const {onClick} = props;
+function LogoWithText() {
+  // Redirect to Homepage
+  const navigate = useNavigate();
+  const goToHomepage = () => navigate("/");
 
   return (
-    <div id="container-logo" onClick={onClick}>
-      {/* Logo */}
-      <img id="logo-img"
-        /* Path da cui recuperare la risorsa */
-        src={logo} 
-        /* Placeholder che viene scritto se immagine non trovata */
-        alt="Logo SM" 
-      />
-      {/* Testo */}
-      <span id="logo-description">Sport Management </span> 
+    <div
+      className="flex items-center justify-center mt-8 cursor-pointer"
+      onClick={goToHomepage}
+    >
+      <div className="flex items-center mx-4">
+        <img
+          id="logo-img"
+          className="w-12 h-12 rounded-full"
+          src={logo}
+          alt="Logo SM"
+        />
+        <span className="mx-4 text-lg font-bold text-gray-[#E5E7EB] text-center uppercase">
+          Sport Management
+        </span>
+      </div>
     </div>
   );
 }

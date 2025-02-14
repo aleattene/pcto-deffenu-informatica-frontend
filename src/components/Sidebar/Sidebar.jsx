@@ -1,38 +1,60 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Button from './../Button/Button.jsx'
-import Logo from './../Logo/Logo.jsx'
-import './Sidebar.css'
+import { useNavigate } from "react-router-dom";
+import Logo from "./../Logo/Logo.jsx";
+import { Link } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ closeSidebar }) {
+  const navigate = useNavigate();
 
-	const navigate = useNavigate()
+  // Logo Action
+  const handleClickLogo = () => navigate("/");
 
-	// Logo Action
-	const handleClickLogo = () => navigate('/')
+  // TO FIX ${sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'}
 
-	// Buttons Actions
-	const handleClickOne = () => navigate('/athletes')
-	const handleClickTwo = () => navigate('/trainers')
-	const handleClickThree = () => navigate('/sport-doctors')
-	const handleClickFour = () => navigate('/payments')
-	const handleClickFive = () => navigate('/sport-certificates')
-
-
-	return (
-		<div id="sidebar">
-			<div id="sidebar-logo">
-				<Logo onClick={handleClickLogo} />
-			</div>
-			<div id="sidebar-buttons">
-				<Button buttonText="Atleti" onClick={handleClickOne} />
-				<Button buttonText="Allenatori" onClick={handleClickTwo} />
-				<Button buttonText="Medici Sportivi" onClick={handleClickThree} />
-				<Button buttonText="Compensi" onClick={handleClickFour} />
-				<Button buttonText="Certificati Medici" onClick={handleClickFive} />
-			</div>
-		</div>
-	)
+  return (
+    <div
+      className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform
+                        lg:translate-x-0 lg:static lg:inset-0"
+    >
+      <Logo onClick={handleClickLogo} />
+      <nav id="sidebar" className="mt-10">
+        <Link
+          to="/athletes"
+          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700 hover:text-[#FF9500] hover:bg-opacity-25"
+          onClick={closeSidebar}
+        >
+          <span className="mx-3">Atleti</span>
+        </Link>
+        <Link
+          to="/trainers"
+          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          onClick={closeSidebar}
+        >
+          <span className="mx-3">Allenatori</span>
+        </Link>
+        <Link
+          to="/sport-doctors"
+          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          onClick={closeSidebar}
+        >
+          <span className="mx-3">Medici Sportivi</span>
+        </Link>
+        <Link
+          to="/payments"
+          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          onClick={closeSidebar}
+        >
+          <span className="mx-3">Compensi</span>
+        </Link>
+        <Link
+          to="/sport-certificates"
+          className="flex items-center px-6 py-2 mt-4 text-white hover:bg-gray-700  hover:text-[#FF9500] hover:bg-opacity-25"
+          onClick={closeSidebar}
+        >
+          <span className="mx-3">Certificati Medici</span>
+        </Link>
+      </nav>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

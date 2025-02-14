@@ -1,77 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
-import profilesService from '../services/profilesService';
-import Button from '../components/Button/Button';
-import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import profilesService from "../services/profilesService";
+import ButtonInsert from "../components/Button/ButtonInsert";
+import Dashboard from "../components/Dashboard/Dashboard";
+import PageLayout from "../components/Layout/PageLayout";
 
 function Trainers() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  // Trainers
+  const [trainers, setTrainers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // Trainers
-    const [trainers, setTrainers] = useState([]);
-
-    useEffect(() => {
-        const fetchTrainers = async () => {
-            try {
-                const data = await profilesService.getTrainers();
-                setTrainers(data);
-            } catch (error) {
-                console.error("Errore nel recupero degliallenatori:", error);
-            }
-        };
-
-        fetchTrainers();
-    }, []);
-
-    // Redirect
-    const handleClickFive = () => navigate('/trainers/new')
-
-    // Handler Modify Button
-    const handleModifyButton = (selectedId) => {
-        navigate(`/trainers/edit/${selectedId}`)
+  useEffect(() => {
+    const fetchTrainers = async () => {
+      try {
+        const data = await profilesService.getTrainers();
+        setTrainers(data);
+      } catch (error) {
+        console.error("Errore nel recupero degliallenatori:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    // Handler Delete Button
-    const handleDeleteButton = async (selectedId) => {
-        const isConfirmed = window.confirm(`Sei sicuro di voler eliminare l'allenatore con ID: ${selectedId}?`);
+    fetchTrainers();
+  }, []);
 
-        if (isConfirmed) {
-            try {
-                await profilesService.deleteTrainer(selectedId);
-                alert("Allenatore eliminato con successo!");
-                const updatedTrainers = await profilesService.getTrainers();
-                setTrainers(updatedTrainers);
+  // Redirect
+  const handleClickFive = () => navigate("/trainers/new");
 
-            } catch (error) {
-                console.error("Errore durante l'eliminazione:", error);
-                alert("Errore durante l'eliminazione dell'allenatore.");
-            }
-        }
-    };
+  // Handler Modify Button
+  const handleModifyButton = (selectedId) => {
+    navigate(`/trainers/edit/${selectedId}`);
+  };
 
-
-    return (
-        <div>
-            <Dashboard
-                content={<Table
-                    title="Elenco Allenatori"
-                    data={trainers}
-                    actions={[
-                        { label: "Modifica Allenatore Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                        { label: "Elimina Allenatore Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                    ]}
-                />}
-                buttons={<Button buttonText="Inserisci Allenatore" onClick={handleClickFive} />}
-            />
-        </div>
+  // Handler Delete Button
+  const handleDeleteButton = async (selectedId) => {
+    const isConfirmed = window.confirm(
+      `Sei sicuro di voler eliminare l'allenatore con ID: ${selectedId}?`,
     );
+
+    if (isConfirmed) {
+      try {
+        await profilesService.deleteTrainer(selectedId);
+        alert("Allenatore eliminato con successo!");
+        const updatedTrainers = await profilesService.getTrainers();
+        setTrainers(updatedTrainers);
+      } catch (error) {
+        console.error("Errore durante l'eliminazione:", error);
+        alert("Errore durante l'eliminazione dell'allenatore.");
+      }
+    }
+  };
+
+  return (
+    <div x-data="{ sidebarOpen: false }" className="flex h-screen bg-gray-200">
+      <PageLayout>
+        <Dashboard
+          titleTable="Elenco Allenatori"
+          isLoading={isLoading}
+          dataTable={trainers}
+          actions={[
+            {
+              label: "Modifica Allenatore Selezionato",
+              onClick: (selectedId) => handleModifyButton(selectedId),
+            },
+            {
+              label: "Elimina Allenatore Selezionato",
+              onClick: (selectedId) => handleDeleteButton(selectedId),
+            },
+          ]}
+          buttons={[
+            <ButtonInsert
+              buttonText="Aggiungi Allenatore"
+              onClick={handleClickFive}
+            />,
+          ]}
+          entity="Allenatore"
+        />
+      </PageLayout>
+    </div>
+  );
 }
 
 export default Trainers;
-
 
 // DATA Sample
 /*

@@ -1,7 +1,1 @@
-/*@import "tailwindcss";*/
-
-#root {
-  display:flex;
-  margin: 0 auto;
-  text-align: center;
-}
+@import "tailwindcss";

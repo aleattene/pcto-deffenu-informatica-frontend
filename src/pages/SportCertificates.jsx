@@ -1,78 +1,91 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
-import documentationService from '../services/documentationService';
-import Button from '../components/Button/Button';
-import Dashboard from '../components/Dashboard/Dashboard';
-import Table from '../components/Table/Table';
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import documentationService from "../services/documentationService";
+import ButtonInsert from "../components/Button/ButtonInsert";
+import Dashboard from "../components/Dashboard/Dashboard";
+import PageLayout from "../components/Layout/PageLayout";
 
 function SportCertifcates() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  // Sport Certificates
+  const [sportCertifcates, setSportCertificates] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // Sport Certificates
-    const [sportCertifcates, setSportCertificates] = useState([]);
-
-    useEffect(() => {
-        const fetchSportCertifcates = async () => {
-            try {
-                const data = await documentationService.getSportCertificates();
-                setSportCertificates(data);
-            } catch (error) {
-                console.error("Errore nel recupero dei Certificati Medici:", error);
-            }
-        };
-
-        fetchSportCertifcates();
-    }, []);
-
-    // Redirect
-    const handleClickFour = () => navigate('/sport-certificates/new')
-
-    // Handler Modify Button
-    const handleModifyButton = (selectedId) => {
-        navigate(`/sport-certificates/edit/${selectedId}`)
+  useEffect(() => {
+    const fetchSportCertifcates = async () => {
+      try {
+        const data = await documentationService.getSportCertificates();
+        setSportCertificates(data);
+      } catch (error) {
+        console.error("Errore nel recupero dei Certificati Medici:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
+    fetchSportCertifcates();
+  }, []);
 
-    // Handler Delete Button
-    const handleDeleteButton = async (selectedId) => {
-        const isConfirmed = window.confirm(`Sei sicuro di voler eliminare il certificato medico con ID: ${selectedId}?`);
+  // Redirect
+  const handleClickFour = () => navigate("/sport-certificates/new");
 
-        if (isConfirmed) {
-            try {
-                await documentationService.deleteSportCertificate(selectedId);
-                alert("Certificato Medico eliminato con successo!");
-                const updatedSportCertifcates = await documentationService.getSportCertificates();
-                setSportCertificates(updatedSportCertifcates);
+  // Handler Modify Button
+  const handleModifyButton = (selectedId) => {
+    navigate(`/sport-certificates/edit/${selectedId}`);
+  };
 
-            } catch (error) {
-                console.error("Errore durante l'eliminazione:", error);
-                alert("Errore durante l'eliminazione del certificato medico.");
-            }
-        }
-    };
-
-
-    return (
-        <div>
-            <Dashboard
-                content={<Table
-                    title="Elenco Certificati Medici"
-                    data={sportCertifcates}
-                    actions={[
-                        { label: "Modifica Certificato Medico Selezionato", onClick: (selectedId) => handleModifyButton(selectedId) },
-                        { label: "Elimina Certificato Medico Selezionato", onClick: (selectedId) => handleDeleteButton(selectedId) }
-                    ]}
-                />}
-                buttons={<Button buttonText="Inserisci Certificato Medico" onClick={handleClickFour} />}
-            />
-        </div>
+  // Handler Delete Button
+  const handleDeleteButton = async (selectedId) => {
+    const isConfirmed = window.confirm(
+      `Sei sicuro di voler eliminare il certificato medico con ID: ${selectedId}?`,
     );
+
+    if (isConfirmed) {
+      try {
+        await documentationService.deleteSportCertificate(selectedId);
+        alert("Certificato Medico eliminato con successo!");
+        const updatedSportCertifcates =
+          await documentationService.getSportCertificates();
+        setSportCertificates(updatedSportCertifcates);
+      } catch (error) {
+        console.error("Errore durante l'eliminazione:", error);
+        alert("Errore durante l'eliminazione del certificato medico.");
+      }
+    }
+  };
+
+  return (
+    <div x-data="{ sidebarOpen: false }" className="flex h-screen bg-gray-200">
+      <PageLayout>
+        <Dashboard
+          titleTable="Elenco Certificati Medici"
+          isLoading={isLoading}
+          dataTable={sportCertifcates}
+          actions={[
+            {
+              label: "Modifica Certificato Medico Selezionato",
+              onClick: (selectedId) => handleModifyButton(selectedId),
+            },
+            {
+              label: "Elimina Certificato Medico Selezionato",
+              onClick: (selectedId) => handleDeleteButton(selectedId),
+            },
+          ]}
+          buttons={[
+            <ButtonInsert
+              buttonText="Aggiungi Certificato Medico"
+              onClick={handleClickFour}
+            />,
+          ]}
+          entity="Certificato Medico"
+        />
+      </PageLayout>
+    </div>
+  );
 }
 
 export default SportCertifcates;
-
 
 // DATA Sample
 

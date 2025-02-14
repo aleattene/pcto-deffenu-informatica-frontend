@@ -1,17 +1,30 @@
-import React from 'react'
-import './Dashboard.css'
+import Table from "../Table/Table";
 
-function Dashboard({ imageSrc, altText, content, buttons }) {
-
-    return (
-        <div id="dashboard">
-              {imageSrc && <img id="dashboard-img" src={imageSrc} alt={altText} />}
-              {content && <div id="dashboard-content">{content}</div>}
-              <div id="dashboard-operations">
-                {buttons}
-            </div>
-        </div>
-    )
+function Dashboard({
+  titleTable,
+  dataTable,
+  isLoading,
+  buttons,
+  isViewMode = true,
+  entity,
+  formComponent,
+  actions,
+}) {
+  return (
+    <main id="dashboard" className="flex-1 overflow-x-hidden overflow-y-auto">
+      {isViewMode && (
+        <Table
+          title={titleTable}
+          data={dataTable}
+          isLoading={isLoading}
+          buttons={buttons}
+          entity={entity}
+          actions={actions}
+        />
+      )}
+      {!isViewMode && formComponent}
+    </main>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

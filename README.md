@@ -9,7 +9,7 @@
 
 ## Descrizione Progetto
 
-Il progetto [Nome Progetto] mira alla realizzazione di un [ ... ] per un'Associazione Sportiva Dilettantistica. 
+Il progetto [Nome Progetto] mira alla realizzazione di un [ ... ] per un'Associazione Sportiva Dilettantistica.
 
 La pianificazione dello stesso segue il modello [Kamban] ed è dispoibile al seguete link:
 
@@ -56,10 +56,11 @@ git commit -m "messaggio_commit"
 ```
 git push origin feature/aggiunta-crud-atleti
 ```
+
 <br>
 Apri una Pull Request (PR) da nome_tuo_branch (branch di origine) verso main (branch di destinazione).
 
-Attendi che il responsabile di progetto controlli e valuti il tuo codice. 
+Attendi che il responsabile di progetto controlli e valuti il tuo codice.
 
 Se non ti verranno richieste modifiche, approvato il lavoro, il tuo codice verrà fuso (merge) con il resto della codebase.
 
