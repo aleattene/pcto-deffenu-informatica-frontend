@@ -90,7 +90,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="vat_number"
+                    htmlFor="vat_number"
                   >
                     Partita Iva
                   </label>

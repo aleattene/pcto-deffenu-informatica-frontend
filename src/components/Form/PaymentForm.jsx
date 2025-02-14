@@ -88,7 +88,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                 <div className="athletes-group">
                   <label
                     className="block text-white font-bold mb-3"
-                    for="payment_date"
+                    htmlFor="payment_date"
                   >
                     Data di Pagamento
                   </label>
@@ -105,7 +105,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="amount"
+                    htmlFor="amount"
                   >
                     Importo
                   </label>
@@ -122,7 +122,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="amount"
+                    htmlFor="amount"
                   >
                     Allenatore
                   </label>

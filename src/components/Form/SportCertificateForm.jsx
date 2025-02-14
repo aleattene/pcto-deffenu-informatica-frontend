@@ -103,7 +103,7 @@ function SportCertificateForm({
                 <div className="athletes-group">
                   <label
                     className="block text-white font-bold mb-3"
-                    for="issue_date"
+                    htmlFor="issue_date"
                   >
                     Data di Emissione
                   </label>
@@ -120,7 +120,7 @@ function SportCertificateForm({
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="expiration_date"
+                    htmlFor="expiration_date"
                   >
                     Data di Scadenza
                   </label>

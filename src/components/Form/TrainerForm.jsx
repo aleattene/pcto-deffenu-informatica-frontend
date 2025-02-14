@@ -65,7 +65,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
                 <div className="trainers-group">
                   <label
                     className="block text-white font-bold mb-3"
-                    for="first_name"
+                    htmlFor="first_name"
                   >
                     Nome
                   </label>
@@ -82,7 +82,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="last_name"
+                    htmlFor="last_name"
                   >
                     Cognome
                   </label>
@@ -99,7 +99,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
 
                   <label
                     className="block text-white font-bold mb-3"
-                    for="fiscal_code"
+                    htmlFor="fiscal_code"
                   >
                     Codice fiscale
                   </label>
