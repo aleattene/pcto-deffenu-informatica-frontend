@@ -95,7 +95,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
       </div>
       </div>
 
-      {/* {/* Table for SM-MD-LG Devices */} */}
+      {/* {/* Table for SM-MD-LG Devices */}
       <div className="xl:hidden">
         {data.map((item, index) => (
           <div
