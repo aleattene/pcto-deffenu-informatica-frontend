@@ -3,7 +3,7 @@ function ButtonInsert({ buttonText, onClick, type = "button" }) {
     <button
       type={type}
       onClick={onClick}
-      className="py-2 bg-[#E5E7EB] text-gray-700 rounded-md shadow-sm transition hover:bg-green-500 hover:text-white mt-4 w-auto h-auto mr-8"
+      className="py-2 bg-[#E5E7EB] text-gray-700 rounded-md shadow-sm transition hover:bg-green-500 hover:text-white mt-4 h-14 w-full"
     >
       <div className="flex items-center px-3">
         {/* Icon */}

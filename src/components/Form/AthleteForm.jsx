@@ -69,22 +69,19 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
 
   return (
     <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
-      {/*<h3 className="text-3xl font-semibold ">
-        {isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}
-      </h3>*/}
       <div className="flex flex-col mb-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
-          bg-white √ border-gray-700 border-4">
-            <form id="athletes-form" onSubmit={handleSubmit}>
-            <div
+          <form id="athletes-form" onSubmit={handleSubmit}>
+            <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
+          bg-white">
+              <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
                 {isEditMode ? "Modifica Atleta" : "Inserimento Atleta"}
-                </div>
+              </div>
               <div
                 id="athletes-container"
-                className="p-4 border-4 border-gray-300 rounded-md bg-gray-100"
+                className="p-4 border-gray-300 rounded-md"
               >
                 <div className="athletes-group">
                   <label className="block font-bold mb-3 text-gray-700">
@@ -179,19 +176,28 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                                     </select>
                                     */}
                 </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row w-full gap-2">
+              <div className="pl-1 w-full -mb-2">
                 <ButtonInsert
                   type="submit"
-                  buttonText={
-                    isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"
-                  }
+                  buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
+                  className="w-full sm:w-auto"
                 />
-                <ButtonUndo buttonText="Annulla" onClick={handleUndo} />
               </div>
-            </form>
-          </div>
+              <div className="pl-1 w-full">
+                <ButtonUndo
+                  buttonText="Annulla"
+                  onClick={handleUndo}
+                  className="w-full sm:w-auto"
+                />
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 

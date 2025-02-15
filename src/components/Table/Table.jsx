@@ -23,7 +23,7 @@ const headers_map = {
 };
 
 function Table({ title, data = [], isLoading, buttons, entity, actions }) {
-  
+
   const formatValue = (key, value) => {
     if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
       const [year, month, day] = value.split("-");
@@ -39,8 +39,8 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
     <div className="container px-6 py-8 text-[#1F2937] max-w-full">
       {/* <h3 className="text-xl font-semibold text-[#FFFFFF] uppercase">{title}</h3>*/}
       <div className="flex flex-col mt-4">
-        <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle border-gray-50 shadow sm:rounded-lg bg-[#FFFFFF] opacity-90">
+        <div className="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="inline-block min-w-full align-middle border-gray-50 shadow sm:rounded-lg bg-[#FFFFFF] opacity-90">
             {data.length > 0 && (
               <table className="min-w-full">
                 <thead>
@@ -121,8 +121,8 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
           </div>
         </div>
       </div>
-      {isLoading && 
-      <p className="text-xl font-medium text-white mb-8">
+      {isLoading &&
+        <p className="text-xl font-medium text-white mb-8">
           Caricaremento dati in corso ...
         </p>}
       {!data.length && !isLoading && (
@@ -130,14 +130,20 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
           Nessun {entity} individuato.
         </p>
       )}
-      {!isLoading &&
-        buttons.map((button, idx) => (
-          <ButtonInsert
-            key={idx}
-            buttonText={button.props.buttonText}
-            onClick={button.props.onClick}
-          />
-        ))}
+      <div className={
+        entity === 'Atleta' || entity === 'Allenatore' || entity === 'Compenso'
+          ? "w-60"
+          : "w-75"
+      }>
+        {!isLoading &&
+          buttons.map((button, idx) => (
+            <ButtonInsert
+              key={idx}
+              buttonText={button.props.buttonText}
+              onClick={button.props.onClick}
+            />
+          ))}
+      </div>
     </div>
   );
 }

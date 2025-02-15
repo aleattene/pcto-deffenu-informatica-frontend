@@ -87,24 +87,19 @@ function SportCertificateForm({
 
   return (
     <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
-      {/*<h3 className="text-3xl font-semibold text-gray-900">
-        {isEditMode
-          ? "Modifica Certificato Medico"
-          : "Aggiungi Certificato Medico"}
-      </h3>*/}
       <div className="flex flex-col mb-4">
-      <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
-          bg-white √ border-gray-700 border-4">
-            <form id="athletes-form" onSubmit={handleSubmit}>
-            <div
+        <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <form id="sport-certificates-form" onSubmit={handleSubmit}>
+            <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
+          bg-white">
+              <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
                 {isEditMode ? "Modifica Certificato Medico" : "Inserimento Certificato Medico"}
-                </div>
+              </div>
               <div
                 id="sport-certificates-container"
-                className="border border-gray-300 p-4 rounded-md opacity-95"
+                className="p-4 border-gray-300 rounded-md"
               >
                 <div className="sport-certificates-group">
                   <label
@@ -178,21 +173,28 @@ function SportCertificateForm({
                     ))}
                   </select>
                 </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row w-full gap-2">
+              <div className="pl-1 w-full -mb-2">
                 <ButtonInsert
                   type="submit"
-                  buttonText={
-                    isEditMode
-                      ? "Salva Modifiche"
-                      : "Aggiungi Certificato Medico"
-                  }
+                  buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Certificato Medico"}
+                  className="w-full sm:w-auto"
                 />
-                <ButtonUndo buttonText="Annulla" onClick={handleUndo} />
               </div>
-            </form>
-          </div>
+              <div className="pl-1 w-full">
+                <ButtonUndo
+                  buttonText="Annulla"
+                  onClick={handleUndo}
+                  className="w-full sm:w-auto"
+                />
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
