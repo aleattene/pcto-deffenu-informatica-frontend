@@ -34,7 +34,8 @@ function Homepage() {
       </div>
       <img
         src={federer}
-        className="w-full h-screen opacity-80 sepia-90 xl:object-cover portrait:block landscape:opacity-10"
+        className="w-full h-screen sepia-80 xl:object-cover portrait:block max-xl:landscape:opacity-10 opacity-100
+        "
         alt="Federer"
       />
     </div>
