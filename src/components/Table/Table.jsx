@@ -36,7 +36,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
   };
 
   return (
-    <div className="container px-6 py-8 text-[#1F2937]">
+    <div className="container px-6 py-8 text-[#1F2937] max-w-full">
       {/* <h3 className="text-xl font-semibold text-[#FFFFFF] uppercase">{title}</h3>*/}
       <div className="flex flex-col mt-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">

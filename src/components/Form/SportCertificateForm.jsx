@@ -86,7 +86,7 @@ function SportCertificateForm({
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
       {/*<h3 className="text-3xl font-semibold text-gray-900">
         {isEditMode
           ? "Modifica Certificato Medico"

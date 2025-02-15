@@ -68,7 +68,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
       {/*<h3 className="text-3xl font-semibold ">
         {isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}
       </h3>*/}
@@ -84,7 +84,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                 </div>
               <div
                 id="athletes-container"
-                className="border-4 border-gray-300 p-4 rounded-md opacity-95"
+                className="p-4 border-4 border-gray-300 rounded-md bg-gray-100"
               >
                 <div className="athletes-group">
                   <label className="block font-bold mb-3 text-gray-700">

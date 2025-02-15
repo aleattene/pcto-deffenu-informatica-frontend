@@ -73,11 +73,11 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
       {/*<h3 className="text-3xl font-semibold text-gray-900">
         {isEditMode ? "Modifica Compenso" : "Aggiungi Compenso"}
       </h3>*/}
-      <div className="flex flex-col mb-4">
+      <div className="flex flex-col mb-4 mt-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
           bg-white √ border-gray-700 border-4">
