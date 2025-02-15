@@ -101,7 +101,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                     name="payment_date"
                     value={payment.payment_date}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -118,7 +118,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                     name="amount"
                     value={payment.amount}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     required
                   />
 
@@ -132,7 +132,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                     name="trainer"
                     value={payment.trainer}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   >

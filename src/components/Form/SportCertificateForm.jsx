@@ -114,7 +114,7 @@ function SportCertificateForm({
                     name="issue_date"
                     value={sportCertificate.issue_date}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -131,7 +131,7 @@ function SportCertificateForm({
                     name="expiration_date"
                     value={sportCertificate.expiration_date}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -143,7 +143,7 @@ function SportCertificateForm({
                     name="sport_doctor"
                     value={sportCertificate.sport_doctor}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   >
@@ -161,7 +161,7 @@ function SportCertificateForm({
                     name="athlete"
                     value={sportCertificate.athlete}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   >

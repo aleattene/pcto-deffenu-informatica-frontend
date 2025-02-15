@@ -74,7 +74,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
                     name="first_name"
                     value={sportDoctor.first_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -86,7 +86,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
                     name="last_name"
                     value={sportDoctor.last_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -102,7 +102,7 @@ function SportDoctorForm({ isEditMode = false, dataSportDoctor = {} }) {
                     name="vat_number"
                     value={sportDoctor.vat_number}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     maxLength={11}
                     required

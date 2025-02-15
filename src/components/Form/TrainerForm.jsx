@@ -79,7 +79,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
                     name="first_name"
                     value={trainer.first_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -96,7 +96,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
                     name="last_name"
                     value={trainer.last_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -113,7 +113,7 @@ function TrainerForm({ isEditMode = false, dataTrainer = {} }) {
                     name="fiscal_code"
                     value={trainer.fiscal_code}
                     className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     maxLength={16}
                     required

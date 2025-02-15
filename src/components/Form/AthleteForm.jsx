@@ -92,7 +92,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     name="first_name"
                     value={athlete.first_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -105,7 +105,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     name="last_name"
                     value={athlete.last_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                 bg-gray-200 focus:bg-orange-200"
+                                                 bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -117,7 +117,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="date"
                     name="date_of_birth"
                     value={athlete.date_of_birth}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -129,7 +129,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="text"
                     name="place_of_birth"
                     value={athlete.place_of_birth}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -141,7 +141,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="text"
                     name="fiscal_code"
                     value={athlete.fiscal_code}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     maxLength={16}
                     required
@@ -153,7 +153,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                   <select
                     name="category"
                     value={athlete.category}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   >
@@ -165,16 +165,15 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     ))}
                   </select>
                   {/*
-                                    <label>Allenatore</label>
-                                        <select name="trainer" value={athlete.trainers} onChanGE={handleChange} required>
-                                        <option value="">Seleziona allenatore</option>
-                                            {trainers.map(trainer => (
-                                        <option key={trainer.id} value={trainer.id}>
-                                            {trainer.first_name} {trainer.last_name}
-                                        </option>
-                                    ))}
-                                    </select>
-                                    */}
+                  <label>Allenatore</label>
+                    <select name="trainer" value={athlete.trainers} onChanGE={handleChange} required>
+                      <option value="">Seleziona allenatore</option>
+                        {trainers.map(trainer => (
+                      <option key={trainer.id} value={trainer.id}>
+                        {trainer.first_name} {trainer.last_name}
+                      </option>
+                    </select>
+                  */}
                 </div>
               </div>
             </div>
