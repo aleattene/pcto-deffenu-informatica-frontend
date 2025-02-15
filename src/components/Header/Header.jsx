@@ -15,7 +15,7 @@ function Header({ toggleSidebar }) {
   }, []);
 
   return (
-    <div className="flex items-center justify-between p-4 text-[#FFFFFF] h-32 border-b-1">
+    <div className="flex items-center justify-between p-4 text-[#FFFFFF] h-32 border-b border-gray-700 shadow-lg mb-4">
       {/* Button to open sidebat (only small devices) */}
       <div className="flex items-center">
         <button

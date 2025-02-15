@@ -68,23 +68,20 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto w-180 text-gray-700">
-      {/*<h3 className="text-3xl font-semibold ">
-        {isEditMode ? "Modifica Atleta" : "Aggiungi Atleta"}
-      </h3>*/}
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
       <div className="flex flex-col mb-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
-          bg-white √ border-gray-700 border-4">
-            <form id="athletes-form" onSubmit={handleSubmit}>
-            <div
+          <form id="athletes-form" onSubmit={handleSubmit}>
+            <div className="inline-block min-w-full overflow-hidden align-middle shadow sm:rounded-lg 
+          bg-white">
+              <div
                 className="p-3 opacity-95 bg-gray-700 text-[#E5E7EB] uppercase font-bold text-sm"
               >
                 {isEditMode ? "Modifica Atleta" : "Inserimento Atleta"}
-                </div>
+              </div>
               <div
                 id="athletes-container"
-                className="border-4 border-gray-300 p-4 rounded-md opacity-95"
+                className="p-4 border-gray-300 rounded-md"
               >
                 <div className="athletes-group">
                   <label className="block font-bold mb-3 text-gray-700">
@@ -95,7 +92,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     name="first_name"
                     value={athlete.first_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                  bg-gray-200 focus:bg-orange-200"
+                                                  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -108,7 +105,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     name="last_name"
                     value={athlete.last_name}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
-                                                 bg-gray-200 focus:bg-orange-200"
+                                                 bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -120,7 +117,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="date"
                     name="date_of_birth"
                     value={athlete.date_of_birth}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -132,7 +129,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="text"
                     name="place_of_birth"
                     value={athlete.place_of_birth}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   />
@@ -144,7 +141,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     type="text"
                     name="fiscal_code"
                     value={athlete.fiscal_code}
-                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     maxLength={16}
                     required
@@ -156,7 +153,7 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                   <select
                     name="category"
                     value={athlete.category}
-                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md  bg-gray-200 focus:bg-orange-200"
+                    className="w-full px-4 py-2 mb-12 border border-gray-500 rounded-md  bg-gray-200 focus:bg-amber-200"
                     onChange={handleChange}
                     required
                   >
@@ -168,30 +165,38 @@ function AthleteForm({ isEditMode = false, dataAthlete = {} }) {
                     ))}
                   </select>
                   {/*
-                                    <label>Allenatore</label>
-                                        <select name="trainer" value={athlete.trainers} onChanGE={handleChange} required>
-                                        <option value="">Seleziona allenatore</option>
-                                            {trainers.map(trainer => (
-                                        <option key={trainer.id} value={trainer.id}>
-                                            {trainer.first_name} {trainer.last_name}
-                                        </option>
-                                    ))}
-                                    </select>
-                                    */}
+                  <label>Allenatore</label>
+                    <select name="trainer" value={athlete.trainers} onChanGE={handleChange} required>
+                      <option value="">Seleziona allenatore</option>
+                        {trainers.map(trainer => (
+                      <option key={trainer.id} value={trainer.id}>
+                        {trainer.first_name} {trainer.last_name}
+                      </option>
+                    </select>
+                  */}
                 </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row w-full gap-2">
+              <div className="pl-1 w-full -mb-2">
                 <ButtonInsert
                   type="submit"
-                  buttonText={
-                    isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"
-                  }
+                  buttonText={isEditMode ? "Salva Modifiche" : "Aggiungi Atleta"}
+                  className="w-full sm:w-auto"
                 />
-                <ButtonUndo buttonText="Annulla" onClick={handleUndo} />
               </div>
-            </form>
-          </div>
+              <div className="pl-1 w-full">
+                <ButtonUndo
+                  buttonText="Annulla"
+                  onClick={handleUndo}
+                  className="w-full sm:w-auto"
+                />
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 

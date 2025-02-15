@@ -3,7 +3,7 @@ function ButtonUndo({ buttonText, onClick, type = "button" }) {
     <button
       type={type}
       onClick={onClick}
-      className="py-2 bg-[#E5E7EB] text-gray-700 rounded-md shadow-sm transition hover:bg-gray-500 hover:text-white mt-2 w-auto h-auto mr-8"
+      className="py-2 bg-[#E5E7EB] text-gray-700 rounded-md shadow-sm transition hover:bg-gray-500 hover:text-white mt-4 w-full h-14"
     >
       <div className="flex items-center px-3">
         {/* Icon */}
