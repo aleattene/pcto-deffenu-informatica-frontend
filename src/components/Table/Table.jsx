@@ -48,7 +48,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
         )
       }
 
-      {!isLoading && data.length &&
+      {!isLoading && data.length > 0 &&
         /* Table for XL Devices */
         <div className="hidden xl:block overflow-x-auto">
           <table className="min-w-full border border-gray-700">
@@ -108,7 +108,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
         </div>
       }
 
-      {!isLoading && data.length &&
+      {!isLoading && data.length > 0 &&
         /* Table for SM-MD-LG Devices */
         <div className="xl:hidden">
           {data.map((item, index) => (
