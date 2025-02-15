@@ -16,7 +16,7 @@ function Sidebar({ closeSidebar }) {
                         lg:translate-x-0 lg:static lg:inset-0"
     >
       <Logo onClick={handleClickLogo} />
-      <nav id="sidebar" className="mt-10">
+      <nav id="sidebar" className="mt-10 tracking-wider">
         <Link
           to="/athletes"
           className="flex items-center px-6 py-2 mt-4 text-white font-semibold hover:bg-gray-700 hover:text-[#FF9500] hover:bg-opacity-25"

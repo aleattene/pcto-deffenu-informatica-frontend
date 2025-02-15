@@ -86,7 +86,7 @@ function SportCertificateForm({
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4 tracking-wider">
       <div className="flex flex-col mb-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <form id="sport-certificates-form" onSubmit={handleSubmit}>

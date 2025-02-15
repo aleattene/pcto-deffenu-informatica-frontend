@@ -30,7 +30,7 @@ function DashboardLayout({ children }) {
       </div>
 
       {/* Main Area (Header + Dashboard Table) */}
-      <div className="flex flex-col flex-1 overflow-hidden">
+      <div className="flex flex-col flex-1 overflow-hidden tracking-wider">
         <Header toggleSidebar={toggleSidebar} />
         <main
           id="dashboard"
