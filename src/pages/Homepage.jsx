@@ -4,14 +4,28 @@ import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="bg-gradient-to-b from-blue-600 to-orange-400 w-full h-screen flex flex-col items-center relative">
-      <div className="absolute bottom-[15%] left-1/2 lg:left-1/3 -translate-x-1/2 z-10">
+      
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-10 block text-center min-w-80 max-w-full">
+        <h1 className="text-[#E5E7EB] font-bold text-2xl mb-2 shadow">
+          ATTENE DAVIDE
+        </h1>
+        <h3 className="text-[#E5E7EB] font-semibold text-md mb-2">
+          I.T.T. Deffenu Informatica
+        </h3>
+        <h2 className="text-[#E5E7EB] font-semibold text-md mb-2">
+          Progetto PCTO 2025
+        </h2>
+
+      </div>
+      
+      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 z-10">
 
         <Link
           to="/athletes">
             <button
-          className="bg-blue-600 text-gray-200 font-bold shadow-xl outline-2 outline-gray-600
+          className="bg-blue-600 text-[#E5E7EB] font-bold shadow-xl outline-2 outline-gray-600
           px-6 py-3 rounded-md text-xl transition duration-300 hover:bg-orange-400 hover:text-white
-          w-screen max-w-[200px]
+          max-w-full min-w-60
           " 
         >
           GET STARTED
@@ -20,7 +34,7 @@ function Homepage() {
       </div>
       <img
         src={federer}
-        className="w-full h-screen opacity-80 sepia-90 xl:object-cover"
+        className="w-full h-screen opacity-80 sepia-90 xl:object-cover portrait:block landscape:opacity-10"
         alt="Federer"
       />
     </div>
