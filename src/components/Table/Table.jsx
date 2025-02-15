@@ -48,53 +48,55 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
         )
       }
 
-      {!isLoading && data.length > 0 &&
+      {!isLoading &&
         /* Table for XL Devices */
         <div className="hidden xl:block overflow-x-auto">
-          <table className="min-w-full border border-gray-700">
-            <thead className="bg-gray-700 text-white">
-              <tr>
-                {Object.keys(data[0] || {}).map((key, idx) => (
-                  <th key={idx} className="px-6 py-3 text-sm uppercase border-b text-center">
-                    {headers_map[key]}
-                  </th>
-                ))}
-                <th className="px-6 py-3 border-b"></th>
-                <th className="px-6 py-3 border-b"></th>
-              </tr>
-            </thead>
-            <tbody className="bg-white opacity-90">
-              {data.map((item, index) => (
-                <tr key={index} className="hover:bg-amber-200 font-semibold">
-                  {Object.entries(item).map(([key, value], idx) => (
-                    <td key={idx} className="px-6 py-4 border-b border-gray-300 text-center">
-                      {formatValue(key, value)}
-                    </td>
+          {data.length > 0 &&
+            <table className="min-w-full border border-gray-700">
+              <thead className="bg-gray-700 text-white">
+                <tr>
+                  {Object.keys(data[0] || {}).map((key, idx) => (
+                    <th key={idx} className="px-6 py-3 text-sm uppercase border-b text-center">
+                      {headers_map[key]}
+                    </th>
                   ))}
-                  <td className="px-6 py-4 border-b border-gray-300 text-right">
-                    <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
-                      onClick={() =>
-                        actions.find((action) => action.label.includes("Modifica"))?.onClick(item.id)
-                      }
-                    >
-                      Modifica
-                    </button>
-                  </td>
-                  <td className="px-6 py-4 border-b border-gray-300 text-right">
-                    <button
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
-                      onClick={() =>
-                        actions.find((action) => action.label.includes("Elimina"))?.onClick(item.id)
-                      }
-                    >
-                      Elimina
-                    </button>
-                  </td>
+                  <th className="px-6 py-3 border-b"></th>
+                  <th className="px-6 py-3 border-b"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="bg-white opacity-90">
+                {data.map((item, index) => (
+                  <tr key={index} className="hover:bg-amber-200 font-semibold">
+                    {Object.entries(item).map(([key, value], idx) => (
+                      <td key={idx} className="px-6 py-4 border-b border-gray-300 text-center">
+                        {formatValue(key, value)}
+                      </td>
+                    ))}
+                    <td className="px-6 py-4 border-b border-gray-300 text-right">
+                      <button
+                        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
+                        onClick={() =>
+                          actions.find((action) => action.label.includes("Modifica"))?.onClick(item.id)
+                        }
+                      >
+                        Modifica
+                      </button>
+                    </td>
+                    <td className="px-6 py-4 border-b border-gray-300 text-right">
+                      <button
+                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
+                        onClick={() =>
+                          actions.find((action) => action.label.includes("Elimina"))?.onClick(item.id)
+                        }
+                      >
+                        Elimina
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          }
           <div className={
             entity === 'Atleta' || entity === 'Allenatore' || entity === 'Compenso'
               ? "w-60 mb-20"
@@ -108,45 +110,47 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
         </div>
       }
 
-      {!isLoading && data.length > 0 &&
+      {!isLoading &&
         /* Table for SM-MD-LG Devices */
         <div className="xl:hidden">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="mb-2 border border-gray-300 rounded shadow p-4 bg-gray-100"
-            >
-              {Object.entries(item).map(([key, value], idx) => (
-                <div
-                  key={idx}
-                  className={`flex justify-between mb-2 ${idx === 0 ? 'bg-gray-700 text-white font-bold p-2 rounded' : ''
-                    }`}
-                >
-                  <span className="font-semibold">{headers_map[key]}:</span>
-                  <span>{formatValue(key, value)}</span>
-                </div>
-              ))}
+          {data.lenght > 0 &&
+            data.map((item, index) => (
+              <div
+                key={index}
+                className="mb-2 border border-gray-300 rounded shadow p-4 bg-gray-100"
+              >
+                {Object.entries(item).map(([key, value], idx) => (
+                  <div
+                    key={idx}
+                    className={`flex justify-between mb-2 ${idx === 0 ? 'bg-gray-700 text-white font-bold p-2 rounded' : ''
+                      }`}
+                  >
+                    <span className="font-semibold">{headers_map[key]}:</span>
+                    <span>{formatValue(key, value)}</span>
+                  </div>
+                ))}
 
-              <div className="flex justify-end gap-2 mt-3">
-                <button
-                  className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
-                  onClick={() =>
-                    actions.find((action) => action.label.includes("Modifica"))?.onClick(item.id)
-                  }
-                >
-                  Modifica
-                </button>
-                <button
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
-                  onClick={() =>
-                    actions.find((action) => action.label.includes("Elimina"))?.onClick(item.id)
-                  }
-                >
-                  Elimina
-                </button>
+                <div className="flex justify-end gap-2 mt-3">
+                  <button
+                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
+                    onClick={() =>
+                      actions.find((action) => action.label.includes("Modifica"))?.onClick(item.id)
+                    }
+                  >
+                    Modifica
+                  </button>
+                  <button
+                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
+                    onClick={() =>
+                      actions.find((action) => action.label.includes("Elimina"))?.onClick(item.id)
+                    }
+                  >
+                    Elimina
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
           <div className="w-full">
             <ButtonInsert
               buttonText={buttons[0].props?.buttonText}
