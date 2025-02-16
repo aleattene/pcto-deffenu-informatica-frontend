@@ -15,7 +15,6 @@ import PaymentInsert from "./pages/PaymentInsert.jsx";
 import SportCertificates from "./pages/SportCertificates.jsx";
 import SportCertificateModify from "./pages/SportCertificateModify.jsx";
 import SportCertificateInsert from "./pages/SportCertificateInsert.jsx";
-import "./App.css";
 
 function App() {
   return (
