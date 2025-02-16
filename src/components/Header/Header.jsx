@@ -4,16 +4,6 @@ function Header({ toggleSidebar }) {
   // User Dropdown (Profile, Logout)
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000); // Aggiorna ogni secondo
-
-    return () => clearInterval(interval); // Pulizia dell'intervallo quando il componente si smonta
-  }, []);
-
   return (
     <div className="flex items-center justify-between p-4 text-[#FFFFFF] h-32 border-b border-gray-700 shadow-lg mb-4">
       {/* Button to open sidebat (only small devices) */}
@@ -39,8 +29,8 @@ function Header({ toggleSidebar }) {
           </svg>
         </button>
       </div>
-      
-      
+
+
 
       {/* User Dropsown Menu */}
       <div className="flex items-center">

@@ -113,7 +113,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
       {!isLoading &&
         /* Table for SM-MD-LG Devices */
         <div className="xl:hidden">
-          {data.lenght > 0 &&
+          {data.length > 0 &&
             data.map((item, index) => (
               <div
                 key={index}
