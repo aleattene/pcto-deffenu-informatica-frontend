@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import documentationService from "../services/documentationService";
-import Dashboard from "../components/Dashboard/Dashboard";
-import SportCertificateForm from "../components/Form/SportCertificateForm";
-import PageLayout from "../components/Layout/PageLayout";
+import sportCertificatesService from "../../services/documentation/sportCertificatesService";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import SportCertificateForm from "../../components/Form/SportCertificateForm";
+import PageLayout from "../../components/Layout/PageLayout";
 
 function SportCertificateModify() {
   const { id } = useParams();
@@ -19,7 +19,7 @@ function SportCertificateModify() {
   useEffect(() => {
     const fetchSportCertificate = async () => {
       try {
-        const response = await documentationService.getSportCertificateByID(id);
+        const response = await sportCertificatesService.getSportCertificateByID(id);
         setSportCertificate(response);
       } catch (error) {
         console.error("Errore nel recupero del certificato medico:", error);

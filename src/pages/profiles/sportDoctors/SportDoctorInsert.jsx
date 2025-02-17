@@ -1,6 +1,6 @@
-import Dashboard from "../components/Dashboard/Dashboard";
-import SportDoctorForm from "../components/Form/SportDoctorForm.jsx";
-import PageLayout from "../components/Layout/PageLayout";
+import Dashboard from "../../../components/Dashboard/Dashboard.jsx";
+import SportDoctorForm from "../../../components/Form/SportDoctorForm.jsx";
+import PageLayout from "../../../components/Layout/PageLayout.jsx";
 
 function SportDoctorInsert() {
   return (

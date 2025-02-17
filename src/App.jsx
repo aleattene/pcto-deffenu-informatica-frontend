@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage.jsx";
-import Athletes from "./pages/Athletes.jsx";
-import AthleteInsert from "./pages/AthleteInsert.jsx";
-import AthleteModify from "./pages/AthleteModify.jsx";
-import Trainers from "./pages/Trainers.jsx";
-import TrainerInsert from "./pages/TrainerInsert.jsx";
-import TrainerModify from "./pages/TrainerModify.jsx";
-import SportDoctors from "./pages/SportDoctors.jsx";
-import SportDoctorInsert from "./pages/SportDoctorInsert.jsx";
-import SportDoctorModify from "./pages/SportDoctorModify.jsx";
-import Payments from "./pages/Payments.jsx";
-import PaymentModify from "./pages/PaymentModify.jsx";
-import PaymentInsert from "./pages/PaymentInsert.jsx";
-import SportCertificates from "./pages/SportCertificates.jsx";
-import SportCertificateModify from "./pages/SportCertificateModify.jsx";
-import SportCertificateInsert from "./pages/SportCertificateInsert.jsx";
+import Athletes from "./pages/profiles/athletes/Athletes.jsx";
+import AthleteInsert from "./pages/profiles/athletes/AthleteInsert.jsx";
+import AthleteModify from "./pages/profiles/athletes/AthleteModify.jsx";
+import Trainers from "./pages/profiles/trainers/Trainers.jsx";
+import TrainerInsert from "./pages/profiles/trainers/TrainerInsert.jsx";
+import TrainerModify from "./pages/profiles/trainers/TrainerModify.jsx";
+import SportDoctors from "./pages/profiles/sportDoctors/SportDoctors.jsx";
+import SportDoctorInsert from "./pages/profiles/sportDoctors/SportDoctorInsert.jsx";
+import SportDoctorModify from "./pages/profiles/sportDoctors/SportDoctorModify.jsx";
+import Payments from "./pages/payments/Payments.jsx";
+import PaymentModify from "./pages/payments/PaymentModify.jsx";
+import PaymentInsert from "./pages/payments/PaymentInsert.jsx";
+import SportCertificates from "./pages/documentation/SportCertificates.jsx";
+import SportCertificateModify from "./pages/documentation/SportCertificateModify.jsx";
+import SportCertificateInsert from "./pages/documentation/SportCertificateInsert.jsx";
 import "./App.css";
 
 function App() {
@@ -22,14 +22,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Homepage />{" "}
-              </>
-            }
-          />
+          <Route path="/" element={<Homepage />} />
           <Route path="/athletes" element={<Athletes />} />
           <Route path="/athletes/new" element={<AthleteInsert />} />
           <Route path="/athletes/edit/:id" element={<AthleteModify />} />

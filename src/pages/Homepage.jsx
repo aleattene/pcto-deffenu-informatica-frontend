@@ -1,4 +1,4 @@
-import federer from "./../assets/img/homepage.svg";
+import homepage from "./../assets/img/homepage.svg";
 import { Link } from "react-router-dom";
 
 function Homepage() {
@@ -32,7 +32,7 @@ function Homepage() {
         </Link>
       </div>
       <img
-        src={federer}
+        src={homepage}
         className="w-full h-screen sepia-80 xl:object-cover portrait:block max-xl:landscape:opacity-10 opacity-100
         "
         alt="Federer"

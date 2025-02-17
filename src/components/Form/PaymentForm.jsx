@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import paymentsService from "../../services/paymentsService";
-import profilesService from "../../services/profilesService";
+import paymentsService from "../../services/payments/paymentsService";
+import profilesService from "../../services/profiles/profilesService";
 import ButtonInsert from "../Button/ButtonInsert";
 import ButtonUndo from "../Button/ButtonUndo";
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import documentationService from "../../services/documentationService";
-import profilesService from "../../services/profilesService";
+import sportCertificatesService from "../../services/documentation/sportCertificatesService";
+import profilesService from "../../services/profiles/profilesService";
 import ButtonInsert from "../Button/ButtonInsert";
 import ButtonUndo from "../Button/ButtonUndo";
 
@@ -62,13 +62,13 @@ function SportCertificateForm({
     event.preventDefault();
     try {
       if (isEditMode) {
-        await documentationService.updateSportCertificate(
+        await sportCertificatesService.updateSportCertificate(
           sportCertificate.id,
           sportCertificate,
         );
         alert("Certificato Medico aggiornato con successo!");
       } else {
-        await documentationService.createSportCertificate(sportCertificate);
+        await sportCertificatesService.createSportCertificate(sportCertificate);
         alert("Certificato Medico creato con successo!");
       }
       navigate("/sport-certificates");

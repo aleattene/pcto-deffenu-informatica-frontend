@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import profilesService from "../../services/profilesService";
+import profilesService from "../../services/profiles/profilesService";
 import ButtonInsert from "../Button/ButtonInsert";
 import ButtonUndo from "../Button/ButtonUndo";
 

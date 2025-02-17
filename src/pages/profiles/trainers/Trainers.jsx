@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import profilesService from "../services/profilesService";
-import ButtonInsert from "../components/Button/ButtonInsert";
-import Dashboard from "../components/Dashboard/Dashboard";
-import PageLayout from "../components/Layout/PageLayout";
+import profilesService from "../../../services/profiles/profilesService";
+import ButtonInsert from "../../../components/Button/ButtonInsert";
+import Dashboard from "../../../components/Dashboard/Dashboard";
+import PageLayout from "../../../components/Layout/PageLayout";
 
 function Trainers() {
   const navigate = useNavigate();

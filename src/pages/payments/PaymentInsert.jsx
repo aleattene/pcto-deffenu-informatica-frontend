@@ -1,6 +1,6 @@
-import Dashboard from "../components/Dashboard/Dashboard";
-import PaymentForm from "../components/Form/PaymentForm";
-import PageLayout from "../components/Layout/PageLayout";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import PaymentForm from "../../components/Form/PaymentForm";
+import PageLayout from "../../components/Layout/PageLayout";
 
 function PaymentInsert() {
   return (
