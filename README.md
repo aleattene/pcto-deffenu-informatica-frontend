@@ -1,48 +1,50 @@
 ## SM - Sport Management
 
 **Anno Scolastico**: 2024/2025
+
 **Studente**: Attene Davide
+
 **Istituto Scolastico**: I.T.T. "Attilio Deffenu" Olbia
 <hr>
- <br>
+<br>
 
-## Descrizione
+## Descrizione Progetto
 
 Il progetto **SM - Sport Management** mira alla realizzazione di una **Web App Responsive** per un'associazione sportiva.
 
-Le attività da svolgere, i task assegnati fanno riferimento al seguente **progetto**: [PCTO - Deffenu Informatica 2024/2025 ](https://github.com/users/aleattene/projects/3/)
+Le attività da svolgere, i task assegnati fanno riferimento al **progetto** [PCTO - Deffenu Informatica 2024/2025 ](https://github.com/users/aleattene/projects/3/)
 
-Le principali funzionalità implementate includono:
-- Gestione **anagrafiche** (atleti, allenatori, medici sportivi)
-- Gestione **documentale** (certificazioni medico sportive)
+Le principali funzionalità implementate sono:
+- Gestione **anagrafiche** (atleti, allenatori e medici sportivi)
+- Gestione **documentazione** (certificazioni medico sportive)
 - Gestione **pagamenti** (compensi allenatori)
+<hr>
 <br>
 
   
 
-## Struttura 
+## Struttura Progetto
 
 Di seguito una breve descrizione della struttura del progetto:
 
 | **Cartella/File** | **Descrizione** |
 |--|--|
-| **`backup`** | Contiene cartelle e file iniziali *(in eliminazione a breve)*. |
-|**`public`**| File statici pubblici (ad esempio il logo Vite.|
-|**`src`**| Directory contenente il codice sorgente principale.|
-|**`assets`**| Contenente immagini e loghi.|
-|**`components`**| Directory contenente i componenti React (riutilizzabili), ovvero Bottoni, Dashboard, Tabelle, Form, Sidebar, Header, Logo e Layout Principale.|
-|**`pages`**|Directory contenente tutte le pagine dell'applicazione, ovvero Homepage, Atleti, Allenatori, Medici Sportivi, Certificati Medici e Compensi.|
-|**`services`**| Contenente le chiamate CRUD alle API (`athletes`, `trainers`, `sport-doctors`, `payments` e `sport-certificates`) esposte dal Backend dell'applicazione.| 
+| **`backup/`** | Contiene cartelle e file iniziali *(in eliminazione a breve)*. |
+|**`public/`**| File statici pubblici (ad esempio il logo Vite).|
+|**`src/`**| Directory contenente il codice sorgente principale.|
+|**`assets/`**| Contenente immagini e loghi.|
+|**`components/`**| Directory contenente i componenti React (riutilizzabili), ovvero Bottoni, Dashboard, Tabelle, Form, Sidebar, Header, Logo e Layout Principale.|
+|**`pages/`**| Directory contenente tutte le pagine dell'applicazione, ovvero Homepage, Atleti, Allenatori, Medici Sportivi, Certificati Medici e Compensi.|
+|**`services/`**| Directory contenente le chiamate CRUD alle API (`athletes`, `trainers`, `sport-doctors`, `payments` e `sport-certificates`) esposte dal Backend dell'applicazione.| 
 |**`App.jsx`**| Componente Radice dell'applicativo React |
-|**`main.jsx`** | File di inizializzazione dell'applicativo React |
-|**`index.html`**| Entrypoint dell'applicazione |
-|**`eslint.config.js`** | File contenente le policy di configurazione di ESLint |
-|**`.gitignore`** | File contenente nomi ed estensione di file e directory che si vuole non vengano |
-|**`package.json`** | File contenente tutte le dipendenze di progetto | 
-|**`README.md`** | File contenente la descrizione e tutte le linee guida del progetto |
-|**`vite.config.js`**| File contenente le configurazioni di Vite |
-  
-
+|**`main.jsx`** | File di inizializzazione dell'applicativo React. |
+|**`index.html`**| Entrypoint dell'applicazione. |
+|**`eslint.config.js`** | File contenente le policy di configurazione di ESLint. |
+|**`.gitignore`** | File contenente nomi ed estensioni dei file e delle directory che non si vuole vengano tracciate da Git. |
+|**`package.json`** | File contenente tutte le dipendenze (librerie esterne) del progetto. | 
+|**`README.md`** | File contenente la descrizione e tutte le linee guida del progetto. |
+|**`vite.config.js`**| File contenente le configurazioni di Vite. |
+<hr>  
 <br>
 
 ## Avvio del Progetto
@@ -70,13 +72,13 @@ VITE_DEBUG_MODE=false
 npm install
 ```
 
-**Avviare l'ambiente di Sviluppo **
+**Avviare l'ambiente di Sviluppo**
 ```bash
 npm run dev
 ```
 
 Nota: *Affinchè le API forniscano i dati all'applicazione che ne fa richiesta è necessario verificare che anche il Server Web del Backend sia correttamente avviato.* 
-
+<hr>
 
 <br>
 
@@ -93,7 +95,7 @@ git clone https://github.com/username/pcto-deffenu-informatica-frontend.git
 oppure
 
 ```bash
-SSH
+# SSH
 git clone git@github.com:username/pcto-deffenu-informatica-frontend.git
 ```
 
@@ -152,11 +154,11 @@ Questa sezione descrive le modalità di utilizzo dell’applicazione web SM - Sp
 
 La prima pagina che si trova ad affrontare l'utente è l’homepage, ovvero una pagina dal design accattivante che invita tramite il bottone `GET STARTED` ad entrare all’interno dell’area di lavoro dell'applicazione vera e propria.
 
-[HomePage Desktop]
+[WIP -> Add IMG HomePage Desktop]
 
 L'applicazione ha un design responsive, quindi adatta a essere utilizzata in ambito Desktop e Mobile, nel secondo caso sia in ambito Tablete che Smartphone.
 
-{Homepage Responsive)
+[WIP -> Add IMG HomePage Responsive]
 
 *E' sempre possibile tornare all'homepage dall'interno dell'applicazione cliccando sul logo dell'applicazione stessa.*
 
@@ -165,14 +167,16 @@ L'applicazione ha un design responsive, quindi adatta a essere utilizzata in amb
 
 Una volta entrati nell'applicazione si viene subito indirizzati alla Pagina di Visualizzazione Atleti.
 
-[IMG Visualizzazione Atleti]
+[WIP -> Add IMG Visualizzazione Atleti]
 
 Come si può osservare la pagina Atleti mostra l’elenco degli atleti già inseriti in precedenza (se presenti, altrimenti si viene invitati solo ad inserirne di nuovi), con la possibilità di modificarli o eliminarli in qualunque momento, tramite gli opportuni bottoni di Modifica ed Eliminazione.
 Naturalmente tramite il bottone Aggiungi Atleta, si può anche inserire un nuovo atleta, compilando con i dati dell’atleta da aggiungere il Form che verrà visualizzato nella pagina successiva, come di seguito mostrato.
 
-[IMG form insert]
+[WIP -> Add IMG Form Insert]
 
 Si tratta dello stesso form mostrato in maniera analoga per la modifica dei dati di un atleta, con la differenza che in un caso (inserimento) i campi del form risultano vuoti, quindi tutti da compilare, mentre nel secondo (modifica) sono pre-compilati con  la possibilità ognuno di modifica o nuova compilazione. 
+
+[WIP -> Add IMG Form Modify]
 
 
 ### Allenatori
@@ -181,9 +185,11 @@ Dalla Sidebar laterale, cliccando sulla relativa voce è possibile accedere alla
 
 Anche in questo caso la pagina mostra l’elenco degli allenatori precedentemente inseriti (se presenti, altrimenti si viene invitati solo ad inserirne di nuovi), con la possibilità di modificarli o eliminarli in qualunque momento, tramite gli opportuni bottoni di Modifica ed Eliminazione. Tramite il bottone Aggiungi Allenatore, si può sempre inserire un nuovo allenatore, compilando il Form che verrà visualizzato nella pagina successiva, come di seguito mostrato.
 
-[IMG form insert]
+[WIP -> Add IMG Form Insert]
 
 Come accaduto per gli atleti anche in questo caso si tratta dello stesso form mostrato nel caso della modifica di un allenatore, con la sola differenza che in un caso (inserimento) tutti i campi del form risultano vuoti e quindi da compilare, mentre nel secondo (modifica) sono pre-compilati, ognuno con la possibilità di modifica o nuova compilazione. 
+
+[WIP -> Add IMG Form Modify]
 
 
 #### Medici Sportivi
