@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import paymentsService from "../../services/paymentsService";
-import profilesService from "../../services/profilesService";
+import paymentsService from "../../services/payments/paymentsService";
+import profilesService from "../../services/profiles/profilesService";
 import ButtonInsert from "../Button/ButtonInsert";
 import ButtonUndo from "../Button/ButtonUndo";
 
@@ -73,7 +73,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
   };
 
   return (
-    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4">
+    <div className="container px-6 py-8 mx-auto max-w-240 text-gray-700 mt-4 tracking-wider">
       <div className="flex flex-col mb-4">
         <div className="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <form id="payments-form" onSubmit={handleSubmit}>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import profilesService from "../services/profilesService";
-import Dashboard from "../components/Dashboard/Dashboard";
-import TrainerForm from "../components/Form/TrainerForm";
-import PageLayout from "../components/Layout/PageLayout";
+import profilesService from "../../../services/profiles/profilesService";
+import Dashboard from "../../../components/Dashboard/Dashboard";
+import TrainerForm from "../../../components/Form/TrainerForm";
+import PageLayout from "../../../components/Layout/PageLayout";
 
 function TrainerModify() {
   const { id } = useParams();

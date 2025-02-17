@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ButtonInsert from "../Button/ButtonInsert";
 
 const headers_map = {
@@ -100,7 +99,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
           <div className={
             entity === 'Atleta' || entity === 'Allenatore' || entity === 'Compenso'
               ? "w-60 mb-20"
-              : "w-75 mb-20"
+              : "w-80 mb-20"
           }>
             <ButtonInsert
               buttonText={buttons[0].props?.buttonText}
@@ -113,7 +112,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
       {!isLoading &&
         /* Table for SM-MD-LG Devices */
         <div className="xl:hidden">
-          {data.lenght > 0 &&
+          {data.length > 0 &&
             data.map((item, index) => (
               <div
                 key={index}
@@ -163,123 +162,4 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
   );
 }
 
-/*
-  <div className="container px-6 py-8 text-[#1F2937] max-w-full">
-    <div className="flex flex-col mt-4">
-      <div className="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div className="inline-block min-w-full align-middle border-gray-50 shadow sm:rounded-lg bg-[#FFFFFF] opacity-90">
-          {data.length > 0 && (
-            <table className="min-w-full">
-              <thead>
-                <tr className="bg-gray-700 text-[#E5E7EB]">
-                  {Object.keys(data[0]).map((key, idx) => {
-                    return (
-                      <th
-                        className="px-6 py-3 text-xs leading-4 tracking-wider text-left font-bold uppercase border-b border-gray-200"
-                        key={idx}
-                      >
-                        {headers_map[key]}
-                      </th>
-                    );
-                  })}
-                  <th className="px-6 py-3 border-b border-gray-200"></th>
-                  <th className="px-6 py-3 border-b border-gray-200"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.length > 0 &&
-                  data.map((item, index) => (
-                    <tr
-                      id="table-tr"
-                      key={index}
-                      className="hover:bg-cyan-600 hover:text-white"
-                    >
-                      {Object.entries(item).flatMap(([key, value], idx) => (
-                        <td
-                          className="px-6 py-4 whitespace-no-wrap border-b border-gray-200"
-                          key={idx}
-                          id="table-td"
-                        >
-                          <div className="text-md leading-8 font-semibold">
-                            {formatValue(key, value)}
-                          </div>
-                        </td>
-                      ))}
-                      <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 text-gray-700">
-                        <ButtonModify
-                          buttonText="Modifica"
-                          onClick={() => {
-                            const modifyAction = actions.find((action) =>
-                              action.label.includes("Modifica"),
-                            );
-                            if (modifyAction) {
-                              modifyAction.onClick(item.id);
-                            }
-                          }}
-                        />
-                      </td>
-                      <td className="py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200 text-gray-700">
-                        <ButtonDelete
-                          buttonText="Elimina"
-                          onClick={() => {
-                            const deleteAction = actions.find((action) =>
-                              action.label.includes("Elimina"),
-                            );
-                            if (deleteAction) {
-                              deleteAction.onClick(item.id);
-                            }
-                          }}
-                        />
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </div>
-    </div>
-    {isLoading &&
-      <p className="text-xl font-medium text-white mb-8">
-        Caricaremento dati in corso ...
-      </p>}
-    {!data.length && !isLoading && (
-      <p className="text-xl font-medium text-white mb-8">
-        Nessun {entity} individuato.
-      </p>
-    )}
-    <div className={
-      entity === 'Atleta' || entity === 'Allenatore' || entity === 'Compenso'
-        ? "w-60"
-        : "w-75"
-    }>
-    
-      {!isLoading &&
-        buttons.map((button, idx) => (
-          <ButtonInsert
-            key={idx}
-            buttonText={button.props.buttonText}
-            onClick={button.props.onClick}
-          />
-        ))}
-    </div>
-  </div>
-);
-}
-*/
-
 export default Table;
-
-/*
-<td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-    <div className="flex items-center">
-        <div className="flex-shrink-0 w-10 h-10">
-        </div>
-    </div>
-</td>
-
-<div className="ml-4">
-    <div className="text-sm font-medium leading-5 text-gray-900">John Doe</div>
-    <div className="text-sm leading-5 text-gray-500">john@example.com</div>
-</div>
-*/

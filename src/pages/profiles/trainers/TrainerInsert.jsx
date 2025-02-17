@@ -1,6 +1,6 @@
-import Dashboard from "../components/Dashboard/Dashboard";
-import TrainerForm from "../components/Form/TrainerForm";
-import PageLayout from "../components/Layout/PageLayout";
+import Dashboard from "../../../components/Dashboard/Dashboard";
+import TrainerForm from "../../../components/Form/TrainerForm";
+import PageLayout from "../../../components/Layout/PageLayout";
 
 function TrainerInsert() {
   return (

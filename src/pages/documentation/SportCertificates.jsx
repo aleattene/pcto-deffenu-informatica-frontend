@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import documentationService from "../services/documentationService";
-import ButtonInsert from "../components/Button/ButtonInsert";
-import Dashboard from "../components/Dashboard/Dashboard";
-import PageLayout from "../components/Layout/PageLayout";
+import sportCertificatesService from "../../services/documentation/sportCertificatesService";
+import ButtonInsert from "../../components/Button/ButtonInsert";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import PageLayout from "../../components/Layout/PageLayout";
 
 function SportCertifcates() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function SportCertifcates() {
   useEffect(() => {
     const fetchSportCertifcates = async () => {
       try {
-        const data = await documentationService.getSportCertificates();
+        const data = await sportCertificatesService.getSportCertificates();
         setSportCertificates(data);
       } catch (error) {
         console.error("Errore nel recupero dei Certificati Medici:", error);
@@ -43,10 +43,10 @@ function SportCertifcates() {
 
     if (isConfirmed) {
       try {
-        await documentationService.deleteSportCertificate(selectedId);
+        await sportCertificatesService.deleteSportCertificate(selectedId);
         alert("Certificato Medico eliminato con successo!");
         const updatedSportCertifcates =
-          await documentationService.getSportCertificates();
+          await sportCertificatesService.getSportCertificates();
         setSportCertificates(updatedSportCertifcates);
       } catch (error) {
         console.error("Errore durante l'eliminazione:", error);

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import paymentsService from "../services/paymentsService";
-import ButtonInsert from "../components/Button/ButtonInsert";
-import Dashboard from "../components/Dashboard/Dashboard";
-import PageLayout from "../components/Layout/PageLayout";
+import paymentsService from "../../services/payments/paymentsService";
+import ButtonInsert from "../../components/Button/ButtonInsert";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import PageLayout from "../../components/Layout/PageLayout";
 
 function Payments() {
   const navigate = useNavigate();

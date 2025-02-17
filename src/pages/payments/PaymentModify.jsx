@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import paymentsService from "../services/paymentsService";
-import Dashboard from "../components/Dashboard/Dashboard";
-import PaymentForm from "../components/Form/PaymentForm";
-import PageLayout from "../components/Layout/PageLayout";
+import paymentsService from "../../services/payments/paymentsService";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import PaymentForm from "../../components/Form/PaymentForm";
+import PageLayout from "../../components/Layout/PageLayout";
 
 function PaymentModify() {
   const { id } = useParams();
