@@ -160,13 +160,14 @@ La prima pagina che si trova ad affrontare l'utente è l’homepage, ovvero una 
 
 <table width="100%">
   <tr>
-    <td align="justify" width="50%">
+    <td align="justify" width="30%">
       <p>
         L'applicazione ha un design responsive, quindi adatta a essere utilizzata in ambito Desktop e Mobile, nel secondo caso sia in ambito Tablet che Smartphone.
       </p>
     </td>
-    <td align="center" width="50%">
+    <td align="center" width="70%">
       <img src="https://github.com/user-attachments/assets/64d5f54b-7e7c-43e5-be6e-e3d0cac7c81f" alt="image" width="150" style="max-width:100%;" />
+      <img src="https://github.com/user-attachments/assets/1e97527f-706f-4904-b9c6-0921364707d2" alt="image" width="300" style="max-width:100%;" />
     </td>
   </tr>
 </table>
