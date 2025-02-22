@@ -154,11 +154,11 @@ Questa sezione descrive le modalità di utilizzo dell’applicazione web SM - Sp
 
 La prima pagina che si trova ad affrontare l'utente è l’homepage, ovvero una pagina dal design accattivante che invita tramite il bottone `GET STARTED` ad entrare all’interno dell’area di lavoro dell'applicazione vera e propria.
 
-[WIP -> Add IMG HomePage Desktop]
+![image](https://github.com/user-attachments/assets/355bdeab-a69f-49e9-a3b7-48b392d1c396)
 
 L'applicazione ha un design responsive, quindi adatta a essere utilizzata in ambito Desktop e Mobile, nel secondo caso sia in ambito Tablete che Smartphone.
 
-[WIP -> Add IMG HomePage Responsive]
+![image](https://github.com/user-attachments/assets/64d5f54b-7e7c-43e5-be6e-e3d0cac7c81f)
 
 *E' sempre possibile tornare all'homepage dall'interno dell'applicazione cliccando sul logo dell'applicazione stessa.*
 
@@ -167,16 +167,16 @@ L'applicazione ha un design responsive, quindi adatta a essere utilizzata in amb
 
 Una volta entrati nell'applicazione si viene subito indirizzati alla Pagina di Visualizzazione Atleti.
 
-[WIP -> Add IMG Visualizzazione Atleti]
+![image](https://github.com/user-attachments/assets/d077b3b7-ff90-43d4-8e35-c2cdc22b215d)
 
 Come si può osservare la pagina Atleti mostra l’elenco degli atleti già inseriti in precedenza (se presenti, altrimenti si viene invitati solo ad inserirne di nuovi), con la possibilità di modificarli o eliminarli in qualunque momento, tramite gli opportuni bottoni di Modifica ed Eliminazione.
 Naturalmente tramite il bottone Aggiungi Atleta, si può anche inserire un nuovo atleta, compilando con i dati dell’atleta da aggiungere il Form che verrà visualizzato nella pagina successiva, come di seguito mostrato.
 
-[WIP -> Add IMG Form Insert]
+![image](https://github.com/user-attachments/assets/ee4f3453-7880-4c7e-8612-3e9e7fbf84e6)
 
 Si tratta dello stesso form mostrato in maniera analoga per la modifica dei dati di un atleta, con la differenza che in un caso (inserimento) i campi del form risultano vuoti, quindi tutti da compilare, mentre nel secondo (modifica) sono pre-compilati con  la possibilità ognuno di modifica o nuova compilazione. 
 
-[WIP -> Add IMG Form Modify]
+![image](https://github.com/user-attachments/assets/0c2e607a-040b-4b0c-a7d1-c9db864ffbd7)
 
 
 ### Allenatori
@@ -185,11 +185,11 @@ Dalla Sidebar laterale, cliccando sulla relativa voce è possibile accedere alla
 
 Anche in questo caso la pagina mostra l’elenco degli allenatori precedentemente inseriti (se presenti, altrimenti si viene invitati solo ad inserirne di nuovi), con la possibilità di modificarli o eliminarli in qualunque momento, tramite gli opportuni bottoni di Modifica ed Eliminazione. Tramite il bottone Aggiungi Allenatore, si può sempre inserire un nuovo allenatore, compilando il Form che verrà visualizzato nella pagina successiva, come di seguito mostrato.
 
-[WIP -> Add IMG Form Insert]
+![image](https://github.com/user-attachments/assets/7e9edf7d-c71b-4c18-8f14-c25b77825c7e)
 
 Come accaduto per gli atleti anche in questo caso si tratta dello stesso form mostrato nel caso della modifica di un allenatore, con la sola differenza che in un caso (inserimento) tutti i campi del form risultano vuoti e quindi da compilare, mentre nel secondo (modifica) sono pre-compilati, ognuno con la possibilità di modifica o nuova compilazione. 
 
-[WIP -> Add IMG Form Modify]
+![image](https://github.com/user-attachments/assets/1c61e9dd-4fd8-4789-bbf5-ee40337749db)
 
 
 #### Medici Sportivi
