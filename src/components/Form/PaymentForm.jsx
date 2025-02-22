@@ -117,6 +117,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                     id="amount"
                     name="amount"
                     value={payment.amount}
+                    onChange={handleChange}
                     className="w-full px-4 py-2 mb-4 border border-gray-500 rounded-md
                                                   bg-gray-200 focus:bg-amber-200"
                     required
@@ -141,7 +142,7 @@ function PaymentForm({ isEditMode = false, dataPayment = {} }) {
                       <option key={trainer.id} value={trainer.id}>
                         {trainer.first_name} {trainer.last_name}
                       </option>
-                    ))}s
+                    ))}
                   </select>
                 </div>
               </div>
