@@ -156,9 +156,20 @@ La prima pagina che si trova ad affrontare l'utente è l’homepage, ovvero una 
 
 ![image](https://github.com/user-attachments/assets/355bdeab-a69f-49e9-a3b7-48b392d1c396)
 
-L'applicazione ha un design responsive, quindi adatta a essere utilizzata in ambito Desktop e Mobile, nel secondo caso sia in ambito Tablete che Smartphone.
+<br>
 
-![image](https://github.com/user-attachments/assets/64d5f54b-7e7c-43e5-be6e-e3d0cac7c81f)
+<table width="100%">
+  <tr>
+    <td align="justify" width="50%">
+      <p>
+        L'applicazione ha un design responsive, quindi adatta a essere utilizzata in ambito Desktop e Mobile, nel secondo caso sia in ambito Tablet che Smartphone.
+      </p>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/64d5f54b-7e7c-43e5-be6e-e3d0cac7c81f" alt="image" width="150" style="max-width:100%;" />
+    </td>
+  </tr>
+</table>
 
 *E' sempre possibile tornare all'homepage dall'interno dell'applicazione cliccando sul logo dell'applicazione stessa.*
 
