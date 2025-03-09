@@ -37,7 +37,7 @@ function Table({ title, data = [], isLoading, buttons, entity, actions }) {
 
       {isLoading &&
         <p className="text-xl font-medium text-white mb-8">
-          Caricaremento dati in corso ...
+          Caricamento dati in corso ...
         </p>}
       {
         !data.length && !isLoading && (
